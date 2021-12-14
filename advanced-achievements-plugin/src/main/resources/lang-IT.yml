@@ -1,0 +1,123 @@
+#=============================================================#
+# +---------------------------------------------------------+ #
+# |   Advanced Achievements Italian translation by stewex   | #
+# |             ~ Valid as of version 2.5.2 ~               | #
+# |   Newer plugin versions will automatically append new   | #
+# |     untranslated parameters to the end of the file.     | #
+# +---------------------------------------------------------+ #
+#=============================================================#
+
+no-permissions: Non hai permessi sufficienti.
+
+# Related to /aach reload.
+configuration-successfully-reloaded: File di configurazione ricaricata con successo.
+configuration-reload-failed: Errori nel ricaricare il file di configurazione. Controlla il log per ulteriori informazioni.
+
+# Related to /aach top.
+top-achievement: 'Persone con più obiettivi:'
+player-rank: 'Classifica attuale:'
+
+# Related to /aach stats.
+number-achievements: 'Obiettivo sbloccato:'
+
+# Related to /aach book.
+book-received: Hai ricevuto il tuo libro degli obiettivi!
+book-delay: Devi aspettare TIME secondi prima di richiedere un altro libro!
+book-name: Obiettivi
+
+# Related to /aach give.
+player-offline: Il giocatore PLAYER è offline!
+achievement-already-received: Il giocatore PLAYER ha già sbloccato questo obiettivo!
+achievement-not-found: L'obiettivo specificato non è stato trovato.
+achievement-given: Obiettivo donato!
+
+# Related to achievement reception.
+achievement-received: 'PLAYER ha sbloccato l''obiettivo: ACH'
+achievement-new: 'Nuovo obiettivo: ACH'
+
+# Related to /aach check.
+check-achievement-true: "PLAYER ha ottenuto l'obiettivo ACH!"
+check-achievements-false: "PLAYER non ha ottenuto l'obiettivo ACH!"
+
+# Related to /aach delete.
+delete-achievements: "L'obiettivo ACH è stato tolto a PLAYER."
+
+# Related to achievement rewards.
+item-reward-received: "Hai ricevuto un oggetto per ricompensa: AMOUNT ITEM"
+money-reward-received: 'Hai ricevuto: AMOUNT !'
+
+# Related to /aach help.
+aach-command-book: Ricevi il libro dei tuoi obiettivi.
+aach-command-stats: Quantità di obiettivi che hai sbloccato.
+aach-command-list: Mostra gli obiettivi sbloccati e quelli mancanti.
+aach-command-top: Mostra la classifica personale e quella globale.
+aach-command-give: Dona l'obiettivo ACH al giocatore NAME.
+aach-command-reload: Ricarica il file di configurazione del plugin.
+aach-command-info: Mostra varie informazioni riguardo al plugin.
+aach-command-check: "Controlla se il giocatore NAME ha &7sbloccato ACH."
+aach-command-delete: "Toglie l'obiettivo ACH al &7giocatore NAME."
+
+# Related to /aach info.
+version-command-name: 'Nome:'
+version-command-version: 'Versione:'
+version-command-website: 'Sito Web:'
+version-command-author: 'Autore:'
+version-command-description: 'Descrizione:'
+version-command-description-details: Advanced Achievements mette a disposizione obiettivi unici e impegnativi. Prova ad ottenerne più che puoi, guadagna ricompense, scala le classifiche e ricevi libri RP!
+version-command-vault: 'Vault integrato:'
+version-command-database: 'Tipo di database:'
+
+# Related to /aach list.
+list-gui-title: "&5&lLista Obiettivi"
+list-delay: "Devi aspettare TIME secondi tra un comando lista e l'altro!"
+list-reward: "Ricompensa: "
+list-reward-money: "soldi"
+list-reward-item: "oggetto"
+list-amount: "Lvl: "
+list-achievement-received: "&a\u2714&f "
+list-achievement-not-received: "&4\u2718&8 "
+
+# Related to category names in /aach list.
+# Set a parameter to "" to hide it from /aach list (but not disable the category).
+list-connections: "Connessioni"
+list-places: "Blocchi Piazzati"
+list-breaks: "Blocchi Distrutti"
+list-kills: "Entità Uccise"
+list-crafts: "Oggetti Craftati"
+list-deaths: "Numero di Morti"
+list-arrows: "Frecce Scoccate"
+list-snowballs: "Palle di Neve Lanciate"
+list-eggs: "Uova Lanciate"
+list-fish: "Pesci Catturati"
+list-itembreaks: "Oggetti Rotti"
+list-eatenitems: "Oggetti Mangiati"
+list-shear: "Pecore Tosate"
+list-milk: "Mucche Munte"
+list-trades: "Numero di Scambi"
+list-anvils: "Incudini Usate"
+list-enchantments: "Oggetti Incantati"
+list-beds: "Letti Usati"
+list-maxlevel: "Livello Massimo Raggiunto"
+list-consumedpotions: "Pozioni Consumate"
+list-playedtime: "Tempo di Gioco"
+list-distance-foot: "Distanza Percorsa a Piedi"
+list-distance-pig: "Distanza Percorsa su un Maiale"
+list-distance-horse: "Distanza Percorsa su un Cavallo"
+list-distance-minecart: "Distanza Percorsa su un Minecart"
+list-distance-boat: "Distanza Percorsa in una Barca"
+list-distance-gliding: "Distanza Percorsa con Elytra"
+list-itemdrops: "Oggetti Lasciati"
+list-hoeplowings: "Superficie Arata"
+list-fertilising: "Piante Fertilizzate"
+list-taming: "Animali Domati"
+list-brewing: "Pozioni Preparate"
+list-fireworks: "Fuochi d'Artificio Accesi"
+list-musicdiscs: "Dischi Musicali Ascoltati"
+list-enderpearls: "Teletrasporti con le Perle Ender"
+list-commands: "Altri Obiettivi"
+
+#============================================================#
+# +--------------------------------------------------------+ #
+# |         Parameters to appear in future versions        | #
+# +--------------------------------------------------------+ #
+#============================================================#

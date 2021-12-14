@@ -1,0 +1,223 @@
+#======================================================================================================================#
+#       _       _                               _      _        _     _                                     _          #
+#      / \   __| |_   ____ _ _ __   ___ ___  __| |    / \   ___| |__ (_) _____   _____ _ __ ___   ___ _ __ | |_ ___    #
+#     / _ \ / _` \ \ / / _` | '_ \ / __/ _ \/ _` |   / _ \ / __| '_ \| |/ _ \ \ / / _ \ '_ ` _ \ / _ \ '_ \| __/ __|   #
+#    / ___ \ (_| |\ V / (_| | | | | (_|  __/ (_| |  / ___ \ (__| | | | |  __/\ V /  __/ | | | | |  __/ | | | |_\__ \   #
+#   /_/   \_\__,_| \_/ \__,_|_| |_|\___\___|\__,_| /_/   \_\___|_| |_|_|\___| \_/ \___|_| |_| |_|\___|_| |_|\__|___/   #
+#                                                                                                                      #
+#                    French translation by DarkPyves, Taehyuun and Nogapra (play.jaime-la-survie.fr)                   #
+#                                             À jour avec la version 7.2.5                                             #
+#======================================================================================================================#
+
+# Various user messages.
+no-permissions: "Vous n'avez pas la permission de faire cela."
+statistic-cooldown: "Achievements : Veuillez attendre TIME secondes avant que cette action ne compte à nouveau."
+category-does-not-exist: "La catégorie ou la sous-catégories CAT n'existe pas. Vouliez-vous dire CLOSEST_MATCH ?"
+all-achievements-received: "Félicitations, vous avez obtenu tous les succès !"
+invalid-command: "Commande invalide. Faites /aach pour afficher l'aide sur la commande."
+
+# Used in /aach reload.
+configuration-successfully-reloaded: "Configuration rechargée avec succès."
+configuration-reload-failed: "Erreur(s) lors du rechargement des configurations. Merci de consulter les logs détaillés pour plus d'informations."
+
+# Used in /aach top week and month.
+top-achievement: "Joueurs ayant obtenu le plus de succès :"
+player-rank: "Classement actuel :"
+week-achievement: "Joueurs ayant obtenu le plus de succès cette semaine :"
+month-achievement: "Joueurs ayant obtenu le plus de succès ce mois :"
+not-ranked: "Vous n'êtes pas classé sur cette période."
+pagination-header: "&7> &5Page PAGE/MAX"
+pagination-footer: "&7>"
+
+# Used in /aach stats.
+number-achievements: "Nombre de succès obtenus :"
+
+# Used in /aach book.
+book-received: "Vous avez reçu votre livre de succès!"
+book-delay: "Vous devez attendre TIME secondes entre chaque obtention de livre !"
+book-name: "Livre des succès"
+book-date: "Livre créé le DATE."
+book-not-received: "Vous n'avez pas encore reçu de succès."
+
+# Used in /aach give.
+player-offline: "Le joueur PLAYER n'est pas en ligne !"
+not-a-player: "Vous ne pouvez pas donner un succès à une entité, ce n'est pas un joueur !"
+achievement-already-received: "Le joueur PLAYER possède déjà ce succès !"
+achievement-not-found: "Le succès spécifié n'a pas été trouvé dans la catégorie Commandes. Vouliez-vous dire CLOSEST_MATCH ?"
+achievement-given: "Succès donné !"
+achievement-no-permission: "Le joueur PLAYER n'a pas la permission de recevoir ce succès !"
+
+# Used in /aach add.
+error-value: "La valeur VALUE doit être un nombre entier !"
+statistic-increased: "La statistique ACH de PLAYER a été augmentée de AMOUNT !"
+
+# Used in achievement reception.
+achievement-received: "PLAYER a reçu le succès : ACH"
+achievement-new: "Nouveau succès : ACH"
+
+# Used in /aach check.
+check-achievement-true: "PLAYER a reçu le succès ACH !"
+check-achievements-false: "PLAYER n'a pas reçu ACH !"
+
+# Used in /aach delete.
+delete-achievements: "Le succès ACH a été supprimé du joueur PLAYER."
+delete-all-achievements: "All achievements were deleted from PLAYER."
+
+# Used in achievement rewards.
+item-reward-received: "Vous avez reçu une récompense : AMOUNT ITEM"
+money-reward-received: "Vous avez gagné : AMOUNT !"
+custom-command-reward: "Vous avez reçu votre récompense : MESSAGE"
+experience-reward-received: "Vous recevez : AMOUNT points d'EXP !"
+increase-max-health-reward-received: "Votre vie max. a été augmentée de AMOUNT !"
+increase-max-oxygen-reward-received: "Votre oxygène max. a été augmenté de AMOUNT !"
+
+# Used in /aach help.
+aach-command-book: "Obtenir votre livre de succès."
+aach-command-book-hover: "Des livres RP, que vous pouvez échanger et collectionner !"
+aach-command-stats: "Visualiser son nombre total de succès."
+aach-command-stats-hover: "Attrappez-les tous !"
+aach-command-list: "Afficher les succès reçus et manquants."
+aach-command-list-hover: "Interface graphique pour visualiser vos succès !"
+aach-command-top: "Afficher le classement des succès."
+aach-command-top-hover: "Qui sont les meilleurs joueurs du serveur ?"
+aach-command-give: "Donner le succès ACH à NAME."
+aach-command-give-hover: "Le joueur doit être en ligne. Supporte les succès de la catégorie Commands."
+aach-command-add: "Augmente la valeur d'une statistique."
+aach-command-add-hover: "Le joueur doit être en ligne. Fréquemment utilisé pour la catégorie Personnalisée."
+aach-command-reload: "Recharger la configuration du plugin."
+aach-command-reload-hover: "Recharge la plupart des paramètres de gui.yml, lang.yml et config.yml."
+aach-command-info: "Afficher des informations à propos du plugin."
+aach-command-info-hover: "Des infos supplémentaires sur le plugin !"
+aach-command-check: "Vérifier si NAME a reçu le succès ACH."
+aach-command-check-hover: "Il faut utiliser le nom spécifié dans le fichier de config."
+aach-command-delete: "Supprimer le succès ACH du joueur NAME."
+aach-command-delete-hover: "Lisez la documentation avant d'utiliser cette commande !"
+aach-command-week: "Classement hebdomadaire."
+aach-command-week-hover: "Les meilleurs joueurs de la semaine !"
+aach-command-month: "Classement mensuel."
+aach-command-month-hover: "Les meilleurs joueurs du mois !"
+aach-command-toggle: "Voir succès d'autres joueurs."
+aach-command-toggle-hover: "Choix sauvegardé jusqu'au prochain redémarrage !"
+aach-command-reset: "Réinitialiser la stat pour CAT."
+aach-command-reset-hover: "Pour les catégories avec sous-catégories, elles sont toutes réinitialisées."
+aach-command-generate: "Générer les avancements."
+aach-command-generate-hover: "La commande rique de prendre du temps, à utiliser avec précaution !"
+aach-command-inspect: "Montre les joueurs ayant obtenu le succès ACH."
+aach-command-inspect-hover: "Liste les joueurs ayant obtenu le succès le plus récemment, max 1000."
+aach-tip: "&lASTUCE &7&n&oCliquez&8 ou &7&n&opassez votre curseur&8 sur les commandes !"
+
+# Used in /aach info.
+version-command-version: "Version :"
+version-command-website: "Site :"
+version-command-author: "Auteur :"
+version-command-description: "Description :"
+version-command-description-details: "Advanced Achievements ajoute des succès uniques au serveur. Essayez d'en obtenir le plus possible, récoltez des récompenses, montez dans le classement et collectionnez vos livres !"
+version-command-vault: "Intégration avec Vault :"
+version-command-petmaster: "Intégration avec Pet Master :"
+version-command-essentials: "Intégration d'Essentials :"
+version-command-placeholderapi: "Intégration de PlaceholderAPI :"
+version-command-database: "Type de la BDD :"
+
+# Used in /aach list.
+list-gui-title: "&5&lListe de Succès"
+list-delay: "Vous devez attendre TIME secondes entre chaque /aach list !"
+list-description: "Description :"
+list-goal: "Objectif :"
+list-reception: "Date de réception :"
+list-progress: "Progression :"
+list-reward: "Récompense :"
+list-rewards: "Récompenses :"
+list-reward-money: "POs"
+list-reward-item: "objet"
+list-reward-experience: "recevez AMOUNT points d'EXP"
+list-reward-increase-max-health: "vie max. augmentée de AMOUNT"
+list-reward-increase-max-oxygen: "Oxygène max. augmenté de AMOUNT"
+list-achievement-received: "&5\u2714&f "
+list-achievement-not-received: "&4\u2718&8 "
+list-category-not-unlocked: "Vous n'avez pas encore déverrouillé cette catégorie."
+list-achievement-not-unlocked: "Vous n'avez pas encore débloquer ce succès."
+list-back-message: "&7Retour"
+list-back-lore: ""
+list-previous-message: "&7Précédent"
+list-previous-lore: ""
+list-next-message: "&7Suivant"
+list-next-lore: ""
+list-achievements-in-category-singular: "AMOUNT succès"
+list-achievements-in-category-plural: "AMOUNT succès"
+list-unavailable-whilst-sleeping: "&c&lVous ne pouvez pas ouvrir la liste des succès quand vous dormez."
+
+# Used in category names in /aach list.
+# Set a parameter to "" to hide it from /aach list (but not disable the category).
+list-connections: "Connexions"
+list-places: "Blocs Placés"
+list-breaks: "Blocs Cassés"
+list-kills: "Entités Tuées"
+list-crafts: "Objets Fabriqués"
+list-playercommands: "Commandes entrées"
+list-deaths: "Nombre de Morts"
+list-arrows: "Fléches Tirées"
+list-snowballs: "Boules de Neige Envoyées"
+list-eggs: "Oeufs Envoyés"
+list-fish: "Poissons Attrapés"
+list-treasure: "Trésors Attrapés"
+list-itembreaks: "Objets Cassés"
+list-eatenitems: "Nourriture Avalée"
+list-shear: "Moutons Tondus"
+list-milk: "Vaches Traites"
+list-lavabuckets: "Seaux remplis de Lave"
+list-waterbuckets: "Seaux remplis d'Eau"
+list-trades: "Echanges avec Villageois"
+list-anvils: "Enclumes Utilisées"
+list-enchantments: "Objets Enchantés"
+list-beds: "Lits Utilisés"
+list-maxlevel: "Niveau Maximum Atteint"
+list-consumedpotions: "Potions Consommées"
+list-playedtime: "Temps Joué"
+list-distance-foot: "Distance Parcourue à Pied"
+list-distance-pig: "Distance Parcourue sur un Cochon"
+list-distance-horse: "Distance Parcourue à Cheval"
+list-distance-minecart: "Distance Parcourue en Minecart"
+list-distance-boat: "Distance Parcourue en Bateau"
+list-distance-gliding: "Distance Parcourue avec Elytre"
+list-distance-llama: "Distance Parcourue avec Lama"
+list-distance-sneaking: "Distance Parcourue Accroupi"
+list-itemdrops: "Objets Jetés"
+list-itempickups: "Objets ramassés"
+list-hoeplowings: "Parcelles Labourées"
+list-fertilising: "Plantes Fertilisées"
+list-taming: "Animaux Domptés"
+list-breeding: "Animaux nourris"
+list-brewing: "Potions Préparées"
+list-fireworks: "Feux d'Artifice Lancés"
+list-musicdiscs: "Disques Joués"
+list-enderpearls: "Téléportations avec Perles de l'Ender"
+list-petmastergive: "Animaux donnés à un autre Joueur"
+list-petmasterreceive: "Animaux reçus d'un autre Joueur"
+list-smelting: "Objets Fondus"
+list-commands: "Autres succès"
+list-custom: "Catégorie Personnalisée"
+list-targetsshot: "Cibles Touchées"
+list-raids-won: "Raids gagnés"
+list-riptides: "Impulsions Utilisées"
+list-jobsreborn: "Jobs Level-Up"
+list-advancements-completed: "Succès Obtenu"
+
+# Used in /aach toggle.
+toggle-displayed: "Vous serez notifié quand d'autres joueurs recevront des succès."
+toggle-hidden: "Vous ne serez plus notifié quand d'autres joueurs recevront des succès."
+
+# Used in /aach reset.
+reset-successful: " statistique réinitialisée pour joueur PLAYER."
+reset-all-successful: "Toute les statistiques ont été réinitialisées pour PLAYER."
+
+# Used in /aach generate.
+advancements-generated: "Avancements générés avec succès."
+
+# Used in /aach inspect
+achievement-not-recognized: "Le succès 'NAME' n'existe pas. Voulez-vous dire CLOSEST_MATCH ?"
+
+#======================================================================================================================#
+#                                                  FUTURE PAREMETERS                                                   #
+#                                                                                                                      #
+#                          New parameters added in future plugin releases will appear below.                           #
+#======================================================================================================================#

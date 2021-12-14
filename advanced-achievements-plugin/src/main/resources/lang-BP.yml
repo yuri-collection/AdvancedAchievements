@@ -1,0 +1,223 @@
+#======================================================================================================================#
+#       _       _                               _      _        _     _                                     _          #
+#      / \   __| |_   ____ _ _ __   ___ ___  __| |    / \   ___| |__ (_) _____   _____ _ __ ___   ___ _ __ | |_ ___    #
+#     / _ \ / _` \ \ / / _` | '_ \ / __/ _ \/ _` |   / _ \ / __| '_ \| |/ _ \ \ / / _ \ '_ ` _ \ / _ \ '_ \| __/ __|   #
+#    / ___ \ (_| |\ V / (_| | | | | (_|  __/ (_| |  / ___ \ (__| | | | |  __/\ V /  __/ | | | | |  __/ | | | |_\__ \   #
+#   /_/   \_\__,_| \_/ \__,_|_| |_|\___\___|\__,_| /_/   \_\___|_| |_|_|\___| \_/ \___|_| |_| |_|\___|_| |_|\__|___/   #
+#                                                                                                                      #
+#                                       Portuguese translation by bolodecenora,Yamamot00                               #
+#                                            Versao valida para uso em 7.2.5                                           #
+#======================================================================================================================#
+
+# Various user messages.
+no-permissions: "Você não tem permissão para isso"
+statistic-cooldown: "Tempo de espera das conquistas: aguarde TIME segundos antes que essa ação conte novamente."
+category-does-not-exist: "A categoria e/ou subcategoria CAT não existe."
+all-achievements-received: "Parabéns, você recebeu todas as conquistas!"
+invalid-command: "Comando inválido. Digite /aach para exibir o comando de ajuda."
+
+# Related to /aach reload.
+configuration-successfully-reloaded: "Configuração recarregada com sucesso"
+configuration-reload-failed: "Erros ao recarregar a config, por favor olhe os logs."
+
+# Related to /aach top week and month.
+top-achievement: "Melhores players em conquistas:"
+player-rank: "Rank atual:"
+week-achievement: "conquitas feitas semanais:"
+month-achievement: "conquistas feitas mensais:"
+not-ranked: "Você não está preparado para entrar nesta lista."
+pagination-header: "&7> &5Página PAGE/MAX"
+pagination-footer: "&7>"
+
+# Related to /aach stats.
+number-achievements: "Conquistas recebidas:"
+
+# Related to /aach book.
+book-received: "Você recebeu o livro de conquistas"
+book-delay: "Você deve esperar TIME segundos de tempo para pegar o livro!"
+book-name: "Livro de Conquistas"
+book-date: "Livro criado DATE"
+book-not-received: "Você ainda não recebeu nenhuma conquista."
+
+# Related to /aach give.
+player-offline: "O jogador PLAYER não está online"
+not-a-player: "Você não pode dar conquistas para ENTITY, não é um jogador!"
+achievement-already-received: "O jogador PLAYER ja recebeu esta conquista"
+achievement-not-found: "Está conquista não foi encontrada"
+achievement-given: "Conquista foi dada"
+achievement-no-permission: "O jogador PLAYER não tem permissão para receber esta conquista!"
+
+# Related to /aach add.
+error-value: "O valor VALUE deve ser um número inteiro!"
+statistic-increased: "Estatístisca ACH aumentou em AMOUNT para PLAYER!"
+
+# Related to achievement reception.
+achievement-received: "PLAYER recebeu a conquista: ACH"
+achievement-new: "Nova conquista: ACH"
+
+# Related to /aach check.
+check-achievement-true: "PLAYER recebeu a conquista"
+check-achievements-false: "O Jogador PLAYER não recebeu a conquista ACH!"
+
+# Related to /aach delete.
+delete-achievements: "A Conquista ACH foi deletada de PLAYER"
+delete-all-achievements: "Todas as conquistas foram excluídas de PLAYER."
+
+# Related to achievement rewards.
+item-reward-received: "Você recebeu um item como prêmio: AMOUNT ITEM"
+money-reward-received: "Você recebeu uma Quantia de: AMOUNT dinheiros!"
+custom-command-reward: "Você recebeu sua recompensa: MESSAGE"
+experience-reward-received: "Você recebeu: AMOUNT de experiência!"
+increase-max-health-reward-received: "Sua saúde máxima aumentou em AMOUNT!"
+increase-max-oxygen-reward-received: "Seu oxigênio max aumentou em AMOUNT!"
+
+# Related to /aach help.
+aach-command-book: "Receba o seu livro de conquistas"
+aach-command-book-hover: "Itens RP que você pode coletar e trocar com os outros! Listagem baseada em tempo."
+aach-command-stats: "Mostra a sua barra de progresso"
+aach-command-stats-hover: "Mostra a barra de progresso de todos"
+aach-command-list: "Mostrar suas conquistas, e informações"
+aach-command-list-hover: "Mostrar uma visão geral de todas as conquistas e seu progresso!"
+aach-command-top: "Exibir seu RANK e RANK Global"
+aach-command-top-hover: "Quem são os líderes do servidor e como você se compara a eles?"
+aach-command-give: "Dar conquista ACH para NOME."
+aach-command-give-hover: "O jogador deve estar online!"
+aach-command-add: "Aumentar uma estatística."
+aach-command-add-hover: "O jogador deve estar online; usado principalmente para categorias personalizadas."
+aach-command-reload: "Configurações recarregadas"
+aach-command-reload-hover: "Configurações recarregadas"
+aach-command-info: "Informações gerais sobre o plugin"
+aach-command-info-hover: "Informações sobre o criador do plugin!"
+aach-command-check: "Verifique se NAME tem ACH"
+aach-command-check-hover: "Use o comando igual a config."
+aach-command-delete: "Delete ACH de NAME"
+aach-command-delete-hover: "O Jogador deve estar online"
+aach-command-week: "Exibir rankings semanais."
+aach-command-week-hover: "Melhores caçadores de conquistas desde o começo da semana!"
+aach-command-month: "Exibir rankings mensais."
+aach-command-month-hover: "Melhores caçadores conquistas desde o início do mês!"
+aach-command-toggle: "Alterna conquistas de outros jogadores."
+aach-command-toggle-hover: "Sua escolha é salva até a próxima reinicialização do servidor!"
+aach-command-reset: "Redefinir estatística para a categoria CAT."
+aach-command-reset-hover: "O jogador deve estar online; exemplo: reset Places.stone Bolodecenora"
+aach-command-generate: "Gerar Conquista."
+aach-command-generate-hover: "Comando potencialmente lento; use com cuidado!"
+aach-command-inspect: "Inspecionar destinatários de ACH."
+aach-command-inspect-hover: "Lista os destinatários mais recentes de uma conquista, máx 1000."
+aach-tip: "&lDICA &8É possível &7&n&opassar&8 ou &7&n&oclicar&8 nos comandos !"
+
+# Related to /aach info.
+version-command-version: "Versão:"
+version-command-website: "Site:"
+version-command-author: "Autor:"
+version-command-description: "Descrição:"
+version-command-description-details: "Conquistas Avançadas permitem realizações únicas e desafiadoras. Tente coletar o máximo que puder, ganhar recompensas, subir no ranking e receber livros de RP!"
+version-command-vault: "Integração com vault:"
+version-command-petmaster: "Integração com Pet Master:"
+version-command-essentials: "Integração com Essentials:"
+version-command-placeholderapi: "Integração com PlaceholderAPI:"
+version-command-database: "Tipo de database:"
+
+# Related to /aach list.
+list-gui-title: "&5&lLista de conquistas"
+list-delay: "Você deve esperar TIME segundos de tempo para usar o comando lista!"
+list-description: "Descrição:"
+list-goal: "Objetivo:"
+list-reception: "Data de recepção:"
+list-progress: "Progresso:"
+list-reward: "Prêmio: "
+list-rewards: "Prêmios:"
+list-reward-money: "Recebeu AMOUNT Dinheiros"
+list-reward-item: "Recebeu AMOUNT ITEM"
+list-reward-experience: "receber AMOUNT experiência"
+list-reward-increase-max-health: "aumentar o máximo de pontos de vida em AMOUNT"
+list-reward-increase-max-oxygen: "aumentar o oxigênio máximo em AMOUNT"
+list-achievement-received: "&5\u2714&f "
+list-achievement-not-received: "&4\u2718&8 "
+list-category-not-unlocked: "Você ainda não desbloqueou esta categoria."
+list-achievement-not-unlocked: "Você ainda não desbloqueou esta conquista."
+list-back-message: "&7Voltar"
+list-back-lore: ""
+list-previous-message: "&7Anterior"
+list-previous-lore: ""
+list-next-message: "&7Próximo"
+list-next-lore: ""
+list-achievements-in-category-singular: "AMOUNT conquista"
+list-achievements-in-category-plural: "AMOUNT conquistas"
+list-unavailable-whilst-sleeping: "&c&lVocê não pode abrir a Lista de Conquistas enquanto dorme."
+
+# Related to category names in /aach list.
+# Set a parameter to "" to hide it from /aach list (but not disable the category).
+list-connections: "Conexões"
+list-places: "Blocos colocados"
+list-breaks: "Blocos quebrados"
+list-kills: "Entidades mortas"
+list-crafts: "Items craftados"
+list-playercommands: "Comandos inseridos"
+list-deaths: "Número de mortes"
+list-arrows: "Flechas atirads"
+list-snowballs: "Bolas de neves atiradas"
+list-eggs: "Ovos atirados"
+list-fish: "peixes capturados"
+list-treasure: "Tesouros Pescados"
+list-itembreaks: "Items quebrados"
+list-eatenitems: "Items Comidos"
+list-shear: "Ovelhas tosquiadas"
+list-milk: "Vacas ordenhadas"
+list-lavabuckets: "Baldes cheios de lava"
+list-waterbuckets: "Baldes cheios de água"
+list-trades: "Número de Negócios"
+list-anvils: "bigornas Usadas"
+list-enchantments: "Items encantados"
+list-beds: "camas colocadas"
+list-maxlevel: "Level máximo alcançado"
+list-consumedpotions: "Poções utilizadas"
+list-playedtime: "Tempo jogado"
+list-distance-foot: "Distância andada a pé"
+list-distance-pig: "Distância andada a porco"
+list-distance-horse: "Distância andada em um cavalo"
+list-distance-minecart: "Distância andada em um minecart"
+list-distance-boat: "Distância percorrida em um barco"
+list-distance-gliding: "Distância percorrida com Elytra"
+list-distance-llama: "Distância Percorrida em um Lhama"
+list-distance-sneaking: "Distância percorrida enquanto se esgueira(Sneaking)"
+list-itemdrops: "Items Dropados"
+list-itempickups: "Itens Apanhados"
+list-hoeplowings: "Terras aradas"
+list-fertilising: "Plantas fertilizadas"
+list-taming: "Animais domados"
+list-breeding: "Animais Criados"
+list-brewing: "Poções fabricadas"
+list-fireworks: "Fogos lançados"
+list-musicdiscs: "Discos de música tocado"
+list-enderpearls: "Teleportações com Enderpearl"
+list-petmastergive: "Animais de estimação dados a outro jogador"
+list-petmasterreceive: "Animais de estimação recebidos de outro jogador"
+list-smelting: "Itens fundidos"
+list-commands: "Outras conquistas"
+list-custom: "Categorias Personalizadas"
+list-targetsshot: "Tiro de alvos"
+list-raids-won: "Raids ganhas"
+list-riptides: "rebentação usadas"
+list-jobsreborn: "Jobs Level-Up"
+list-advancements-completed: "Conquistas completas"
+
+# Related to /aach toggle.
+toggle-displayed: "Você será notificado quando outros jogadores conseguirem conquistas."
+toggle-hidden: "Você não será mais notificado quando outros jogadores obtiverem conquistas."
+
+# Related to /aach reset.
+reset-successful: " as estatísticas foram apagadas para PLAYER."
+reset-all-successful: "Todas as estatísticas foram apagadas para PLAYER."
+
+# Related to /aach generate.
+advancements-generated: "Avanços foram gerados com sucesso."
+
+# Used in /aach inspect
+achievement-not-recognized: "Conquista chamada 'NAME' não foi reconhecido. Você quis dizer CLOSEST_MATCH?"
+
+#============================================================#
+# +--------------------------------------------------------+ #
+# | Parameters in future plugin versions will  appear here | #
+# +--------------------------------------------------------+ #
+#============================================================#
