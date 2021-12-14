@@ -2,16 +2,15 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+
 	<groupId>com.hm.achievement</groupId>
 	<artifactId>advanced-achievements</artifactId>
 	<version>8.0.2</version>
-	<url>https://github.com/PyvesB/advanced-achievements</url>
+	<url>https://github.com/Yurinann/AdvancedAchievements</url>
+
 	<name>AdvancedAchievements</name>
 	<description>A Minecraft plugin that brings unique and challenging achievements on your server! Books, GUI, rankings, rewards, effects and more!</description>
-	<issueManagement>
-		<system>GitHub Issues</system>
-		<url>https://github.com/PyvesB/advanced-achievements/issues</url>
-	</issueManagement>
+
 	<packaging>pom</packaging>
 
 	<properties>
@@ -25,7 +24,9 @@
 	</modules>
 
 	<build>
+
 		<finalName>original-${project.artifactId}</finalName>
+
 		<plugins>
 			<plugin>
 				<groupId>net.revelc.code.formatter</groupId>
@@ -40,68 +41,87 @@
 				</configuration>
 			</plugin>
 		</plugins>
+
 		<pluginManagement>
+
 			<plugins>
+
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-compiler-plugin</artifactId>
 					<version>3.8.1</version>
 				</plugin>
+
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-shade-plugin</artifactId>
 					<version>3.2.4</version>
 				</plugin>
+
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-surefire-plugin</artifactId>
 					<version>2.22.2</version>
 				</plugin>
+
 			</plugins>
+
 		</pluginManagement>
+
 	</build>
 
 	<repositories>
+
 		<repository>
-			<id>essentials-repo</id>
+			<id>Essentials-repo</id>
 			<url>https://repo.essentialsx.net/releases/</url>
 		</repository>
+
 		<repository>
-			<id>placeholderapi-repo</id>
+			<id>PlaceholderAPI-repo</id>
 			<url>https://repo.extendedclip.com/content/repositories/placeholderapi/</url>
 		</repository>
+
 		<repository>
-			<id>spigot-repo</id>
+			<id>Spigot-repo</id>
 			<url>https://hub.spigotmc.org/nexus/content/groups/public/</url>
 		</repository>
+
 		<repository>
 			<id>jitpack-repo</id>
 			<url>https://jitpack.io</url>
 		</repository>
+
 	</repositories>
 
 	<dependencyManagement>
+
 		<dependencies>
+
 			<dependency>
 				<groupId>com.hm.achievement</groupId>
 				<artifactId>advanced-achievements-api</artifactId>
 				<version>8.0.2</version>
 			</dependency>
+
 			<dependency>
 				<groupId>com.google.dagger</groupId>
 				<artifactId>dagger</artifactId>
 				<version>2.40</version>
 			</dependency>
+
 			<dependency>
 				<groupId>org.apache.commons</groupId>
 				<artifactId>commons-lang3</artifactId>
 				<version>3.12.0</version>
 			</dependency>
+
 			<dependency>
 				<groupId>org.apache.commons</groupId>
 				<artifactId>commons-text</artifactId>
 				<version>1.9</version>
 			</dependency>
+
 			<dependency>
 				<groupId>org.spigotmc</groupId>
 				<artifactId>spigot-api</artifactId>
@@ -109,41 +129,48 @@
 				<type>jar</type>
 				<scope>provided</scope>
 			</dependency>
+
 			<dependency>
 				<groupId>com.github.MilkBowl</groupId>
 				<artifactId>VaultAPI</artifactId>
 				<version>1.7.1</version>
 				<scope>provided</scope>
 			</dependency>
+
 			<dependency>
 				<groupId>com.github.pyvesb</groupId>
 				<artifactId>petmaster</artifactId>
 				<version>1.12.5</version>
 				<scope>provided</scope>
 			</dependency>
+
 			<dependency>
 				<groupId>com.github.Zrips</groupId>
 				<artifactId>Jobs</artifactId>
 				<version>4.17.2</version>
 				<scope>provided</scope>
 			</dependency>
+
 			<dependency>
 				<groupId>net.essentialsx</groupId>
 				<artifactId>EssentialsX</artifactId>
 				<version>2.19.0</version>
 				<scope>provided</scope>
 			</dependency>
+
 			<dependency>
 				<groupId>me.clip</groupId>
 				<artifactId>placeholderapi</artifactId>
 				<version>2.10.10</version>
 				<scope>provided</scope>
 			</dependency>
+
 			<dependency>
 				<groupId>org.postgresql</groupId>
 				<artifactId>postgresql</artifactId>
 				<version>42.3.1</version>
 			</dependency>
+
 			<dependency>
 				<groupId>com.h2database</groupId>
 				<artifactId>h2</artifactId>
@@ -157,12 +184,16 @@
 				<version>5.8.1</version>
 				<scope>test</scope>
 			</dependency>
+
 			<dependency>
 				<groupId>org.mockito</groupId>
 				<artifactId>mockito-junit-jupiter</artifactId>
 				<version>4.0.0</version>
 				<scope>test</scope>
 			</dependency>
+
 		</dependencies>
+
 	</dependencyManagement>
+
 </project>
