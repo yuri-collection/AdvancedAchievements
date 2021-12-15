@@ -5,18 +5,18 @@
 #    / ___ \ (_| |\ V / (_| | | | | (_|  __/ (_| |  / ___ \ (__| | | | |  __/\ V /  __/ | | | | |  __/ | | | |_\__ \   #
 #   /_/   \_\__,_| \_/ \__,_|_| |_|\___\___|\__,_| /_/   \_\___|_| |_|_|\___| \_/ \___|_| |_| |_|\___|_| |_|\__|___/   #
 #                                                                                                                      #
-#                                               中文翻译 by Fur_Xia                                                     #
+#                                     中文翻译版 Chinese Translation (Yuri Version)                                      #
 #======================================================================================================================#
 
 # 用户使用相关
-no-permissions: "您没有这样做的权限"
+no-permissions: "您没有这样做的权限!"
 statistic-cooldown: "成就冷却中: 请等待 TIME 秒之后，您的行为才会再次被统计"
 category-does-not-exist: "类别： CAT 或其子类不存在。您的意思是 CLOSEST_MATCH 吗？"
 all-achievements-received: "恭喜，您已经获得了所有的成就。"
-invalid-command: "无效指令。请输入/aach查询指令帮助列表。"
+invalid-command: "错误的指令, 请输入 /aach 查询指令帮助列表。"
 
 # 与 /aach reload 相关
-configuration-successfully-reloaded: "恭喜，插件配置文件已经成功重载。 汉化by Fur_Xia"
+configuration-successfully-reloaded: "插件配置文件已经成功重载!"
 configuration-reload-failed: "加载配置文件时发现错误。请检查logs以获得详细信息。"
 
 # 与 /aach top week and month 相关

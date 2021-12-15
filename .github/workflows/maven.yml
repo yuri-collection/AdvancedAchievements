@@ -23,13 +23,13 @@ jobs:
         java-version: 11
         distribution: adopt
 
-    - name: Set up Maven
+    - name: Setup Maven
       uses: stCarolas/setup-maven@v4.2
       with:
         maven-version: 3.8.1
 
     - name: Build project
-      run: mvn test -B
+      run: mvn -B package --file pom.xml
 
     - name: Validate formatting
       run: mvn validate formatter:validate
@@ -38,4 +38,4 @@ jobs:
       uses: actions/upload-artifact@v2.3.0
       with:
         name: AdvancedAchievements Artifact
-        path: advanced-achievements-plugin/target/*.jar
+        path: advanced-achievements-plugin

@@ -6,12 +6,11 @@
 	<groupId>com.hm.achievement</groupId>
 	<artifactId>advanced-achievements</artifactId>
 	<version>8.0.2</version>
-	<url>https://github.com/Yurinann/AdvancedAchievements</url>
+	<packaging>pom</packaging>
 
 	<name>AdvancedAchievements</name>
 	<description>A Minecraft plugin that brings unique and challenging achievements on your server! Books, GUI, rankings, rewards, effects and more!</description>
-
-	<packaging>pom</packaging>
+	<url>https://github.com/Yurinann/AdvancedAchievements</url>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -28,6 +27,7 @@
 		<finalName>original-${project.artifactId}</finalName>
 
 		<plugins>
+
 			<plugin>
 				<groupId>net.revelc.code.formatter</groupId>
 				<artifactId>formatter-maven-plugin</artifactId>
@@ -40,6 +40,7 @@
 					<lineEnding>KEEP</lineEnding>
 				</configuration>
 			</plugin>
+
 		</plugins>
 
 		<pluginManagement>

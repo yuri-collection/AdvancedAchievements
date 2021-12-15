@@ -1,22 +1,24 @@
 name: AdvancedAchievements
 main: com.hm.achievement.AdvancedAchievements
-version: 8.0.2
-author: DarkPyves
-softdepend: [Vault,PetMaster,Essentials,PlaceholderAPI,Jobs]
+version: ${project.version}
+authors: [ DarkPyves, Yurinann ]
 description: Advanced Achievements enables unique and challenging achievements. Try to collect as many as you can, earn rewards, climb the rankings and receive RP books!
-website: https://github.com/PyvesB/advanced-achievements
+softdepend: [ Vault, PetMaster, Essentials, PlaceholderAPI, Jobs ]
+website: https://github.com/Yurinann/AdvancedAchievements
 api-version: 1.13
+
 commands:
   aach:
     description: Main Advanced Achievements command, use it to list sub-commands.
     aliases: [advancedachievements,aachievements,aa]
     usage: /<command>
+
 permissions:
   achievement.book:
     description: Allows to receive achievements books.
     default: true
   achievement.list:
-    description: Allows to display  name of received and missing achievements.
+    description: Allows to display name of received and missing achievements.
     default: true
   achievement.top:
     description: Allows to display global achievement rankings.
