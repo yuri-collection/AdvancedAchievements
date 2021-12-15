@@ -10,7 +10,7 @@
 	<parent>
 		<groupId>com.hm.achievement</groupId>
 		<artifactId>advanced-achievements</artifactId>
-		<version>8.1.0</version>
+		<version>${revision}</version>
 	</parent>
 
 	<build>

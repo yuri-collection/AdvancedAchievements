@@ -103,7 +103,7 @@
 			<dependency>
 				<groupId>com.hm.achievement</groupId>
 				<artifactId>advanced-achievements-api</artifactId>
-				<version>8.0.2</version>
+				<version>8.1.0</version>
 			</dependency>
 
 			<dependency>
