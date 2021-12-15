@@ -4,13 +4,13 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<artifactId>advanced-achievements-plugin</artifactId>
-	<version>8.0.2</version>
+	<version>${revision}</version>
 	<packaging>jar</packaging>
 
 	<parent>
 		<groupId>com.hm.achievement</groupId>
 		<artifactId>advanced-achievements</artifactId>
-		<version>8.0.2</version>
+		<version>8.1.0</version>
 	</parent>
 
 	<build>

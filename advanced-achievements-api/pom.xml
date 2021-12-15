@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>com.hm.achievement</groupId>
 		<artifactId>advanced-achievements</artifactId>
-		<version>8.0.2</version>
+		<version>${revision}</version>
 	</parent>
 
 	<artifactId>advanced-achievements-api</artifactId>
