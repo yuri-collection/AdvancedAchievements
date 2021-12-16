@@ -25,7 +25,10 @@ jobs:
           maven-version: 3.8.1
 
       - name: Build project
-        run: mvn test -B
+        run: mvn -B package --file pom.xml
+
+      - name: Format
+        run: mvn validate formatter:format
 
       - name: Validate formatting
         run: mvn validate formatter:validate

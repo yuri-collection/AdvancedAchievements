@@ -57,7 +57,7 @@ PlayerCommands:
   Item: paper
 JobsReborn:
   Item: netherite_scrap
-McMMO:
+mcMMO:
   Item: gold_ingot
 Connections:
   Item: oak_door
