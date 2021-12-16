@@ -21,8 +21,8 @@ import com.hm.achievement.db.CacheManager;
  * Listener class to deal with Fish achievements.
  * 
  * @author Pyves
- *
  */
+
 @Singleton
 public class FishListener extends AbstractListener {
 
@@ -53,4 +53,5 @@ public class FishListener extends AbstractListener {
 
 		updateStatisticAndAwardAchievementsIfAvailable(event.getPlayer(), 1);
 	}
+
 }

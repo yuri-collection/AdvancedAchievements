@@ -19,6 +19,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
  *
  * @author Pyves
  */
+
 @ExtendWith(MockitoExtension.class)
 class StringHelperTest {
 

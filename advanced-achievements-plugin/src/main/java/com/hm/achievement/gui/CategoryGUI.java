@@ -1,11 +1,7 @@
 package com.hm.achievement.gui;
 
 import java.text.DecimalFormat;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.Map.Entry;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -41,8 +37,10 @@ import com.hm.achievement.utils.StringHelper;
 /**
  * Represents the main GUI, corresponding to more specific details about the different achievements.
  *
- * @author Pyves
+ * @author Pyves, Yurinann
+ * @since 2021/12/15 17:22
  */
+
 @Singleton
 public class CategoryGUI implements Reloadable {
 
@@ -106,8 +104,8 @@ public class CategoryGUI implements Reloadable {
 		configHideRewardDisplayInList = mainConfig.getBoolean("HideRewardDisplayInList");
 		configEnrichedProgressBars = mainConfig.getBoolean("EnrichedListProgressBars");
 		configNumberedItemsInList = mainConfig.getBoolean("NumberedItemsInList");
-		configColor = ChatColor.getByChar(mainConfig.getString("Color"));
-		configListColorNotReceived = ChatColor.getByChar(mainConfig.getString("ListColorNotReceived"));
+		configColor = ChatColor.getByChar(Objects.requireNonNull(Objects.requireNonNull(Objects.requireNonNull(Objects.requireNonNull(mainConfig.getString("Color"))))));
+		configListColorNotReceived = ChatColor.getByChar(Objects.requireNonNull(mainConfig.getString("ListColorNotReceived")));
 		configFormatNotReceived = mainConfig.getBoolean("ListItaliciseNotReceived") ? "&o" : "";
 		configBackButtonIsCategoryItem = mainConfig.getBoolean("BackButtonIsCategoryItem");
 
@@ -118,16 +116,22 @@ public class CategoryGUI implements Reloadable {
 		langListAchievementNotReceived = StringEscapeUtils
 				.unescapeJava(langConfig.getString("list-achievement-not-received")) + configListColorNotReceived;
 		String description = langConfig.getString("list-description");
+		assert description != null;
 		langListDescription = description.isEmpty() ? "" : translateColorCodes("&7&l" + description);
 		String reception = langConfig.getString("list-reception");
+		assert reception != null;
 		langListReception = reception.isEmpty() ? "" : translateColorCodes("&7&l" + reception);
 		String goal = langConfig.getString("list-goal");
+		assert goal != null;
 		langListGoal = goal.isEmpty() ? "" : translateColorCodes("&7&l" + goal);
 		String progress = langConfig.getString("list-progress");
+		assert progress != null;
 		langListProgress = progress.isEmpty() ? "" : translateColorCodes("&7&l" + progress);
 		String reward = langConfig.getString("list-reward");
+		assert reward != null;
 		langListReward = reward.isEmpty() ? "" : translateColorCodes("&7&l" + reward);
 		String rewards = langConfig.getString("list-rewards");
+		assert rewards != null;
 		langListRewards = rewards.isEmpty() ? "" : translateColorCodes("&7&l" + rewards);
 	}
 
@@ -140,7 +144,7 @@ public class CategoryGUI implements Reloadable {
 	 */
 	public void displayCategoryGUI(ItemStack item, Player player, int requestedPage) {
 		for (Entry<OrderedCategory, ItemStack> achievementItem : guiItems.getOrderedAchievementItems().entrySet()) {
-			if (achievementItem.getValue().getItemMeta().getDisplayName().equals(item.getItemMeta().getDisplayName())) {
+			if (Objects.requireNonNull(achievementItem.getValue().getItemMeta()).getDisplayName().equals(Objects.requireNonNull(item.getItemMeta()).getDisplayName())) {
 				Category category = achievementItem.getKey().getCategory();
 				Map<String, Long> subcategoriesToStatistics;
 				List<Achievement> achievements = achievementMap.getForCategory(category);
@@ -206,13 +210,10 @@ public class CategoryGUI implements Reloadable {
 			if (differentSubcategory) {
 				seriesStart = index;
 			}
-			boolean ineligibleSeriesItem = true;
-			if (statistic == NO_STAT || receptionDate != null || previousItemDate != null
-					|| index == pageStart && pageStart == 0 || differentSubcategory) {
-				// Commands achievement OR achievement has been completed OR previous achievement has been completed OR
-				// first achievement in the category OR different subcategory.
-				ineligibleSeriesItem = false;
-			}
+			boolean ineligibleSeriesItem = statistic != NO_STAT && receptionDate == null && previousItemDate == null
+					&& (index != pageStart || pageStart != 0) && !differentSubcategory;
+			// Commands achievement OR achievement has been completed OR previous achievement has been completed OR
+			// first achievement in the category OR different subcategory.
 
 			if (configHideProgressiveAchievements && ineligibleSeriesItem) {
 				inventory.setItem(index - pageStart, guiItems.getAchievementLock());
@@ -230,6 +231,7 @@ public class CategoryGUI implements Reloadable {
 		if (configBackButtonIsCategoryItem) {
 			ItemStack backButton = clickedItem.clone();
 			ItemMeta backMeta = backButton.getItemMeta();
+			assert backMeta != null;
 			backMeta.setDisplayName(langListBackMessage);
 			if (StringUtils.isNotBlank(langListBackLore)) {
 				backMeta.setLore(Collections.singletonList(langListBackLore));
@@ -281,6 +283,7 @@ public class CategoryGUI implements Reloadable {
 		String displayName = date == null ? langListAchievementNotReceived + notReceivedStyle(name, ineligibleSeriesItem)
 				: langListAchievementReceived + name;
 		ItemMeta itemMeta = achItem.getItemMeta();
+		assert itemMeta != null;
 		itemMeta.setDisplayName(translateColorCodes(displayName));
 		itemMeta.setLore(lore);
 		achItem.setItemMeta(itemMeta);
@@ -426,7 +429,8 @@ public class CategoryGUI implements Reloadable {
 			statisticDouble = Math.floor(statistic / 3600000.0 * 10) / 10;
 			statisticString = TIME_FORMAT.format(statisticDouble);
 		} else {
-			statisticDouble = statistic; // Cast to double.
+			// Cast to double.
+			statisticDouble = statistic;
 			statisticString = Long.toString(statistic);
 		}
 		String middleText = " " + configListColorNotReceived + configFormatNotReceived + statisticString + "/" + threshold

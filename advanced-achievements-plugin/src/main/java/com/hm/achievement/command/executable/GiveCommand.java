@@ -21,10 +21,12 @@ import com.hm.achievement.utils.PlayerAdvancedAchievementEvent;
 import com.hm.achievement.utils.StringHelper;
 
 /**
- * Class in charge of handling the /aach give command, which gives an achievement from the Commands category.
+ * Class in charge of handling the /ach give command, which gives an achievement from the Commands category.
  * 
- * @author Pyves
+ * @author Pyves, Yurinann
+ * @since 2021/12/15 16:56
  */
+
 @Singleton
 @CommandSpec(name = "give", permission = "give", minArgs = 3, maxArgs = 3)
 public class GiveCommand extends AbstractParsableCommand {
@@ -84,4 +86,5 @@ public class GiveCommand extends AbstractParsableCommand {
 					StringHelper.getClosestMatch(args[1], commandKeys)));
 		}
 	}
+
 }

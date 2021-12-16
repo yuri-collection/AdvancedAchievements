@@ -34,6 +34,7 @@ import com.hm.achievement.utils.StringHelper;
  * 
  * @author Pyves
  */
+
 @SuppressWarnings("deprecation")
 @Singleton
 public class AdvancementManager implements Reloadable {
@@ -131,7 +132,8 @@ public class AdvancementManager implements Reloadable {
 	 * Registers all non parent advancements.
 	 */
 	private void registerOtherAdvancements() {
-		generatedAdvancements = 1; // Already generated 1 for parent.
+		// Already generated 1 for parent.
+		generatedAdvancements = 1;
 		for (Entry<OrderedCategory, ItemStack> categoryItemPair : guiItems.getOrderedAchievementItems().entrySet()) {
 			Category category = categoryItemPair.getKey().getCategory();
 			if (disabledCategories.contains(category)) {

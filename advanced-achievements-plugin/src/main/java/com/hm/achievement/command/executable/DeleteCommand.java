@@ -16,10 +16,11 @@ import com.hm.achievement.db.AbstractDatabaseManager;
 import com.hm.achievement.db.CacheManager;
 
 /**
- * Class in charge of handling the /aach delete command, which deletes an achievement from a player.
+ * Class in charge of handling the /ach delete command, which deletes an achievement from a player.
  * 
  * @author Pyves
  */
+
 @Singleton
 @CommandSpec(name = "delete", permission = "delete", minArgs = 3, maxArgs = Integer.MAX_VALUE)
 public class DeleteCommand extends AbstractParsableCommand {
@@ -72,4 +73,5 @@ public class DeleteCommand extends AbstractParsableCommand {
 					new String[] { args[args.length - 1], achievementName }));
 		}
 	}
+
 }

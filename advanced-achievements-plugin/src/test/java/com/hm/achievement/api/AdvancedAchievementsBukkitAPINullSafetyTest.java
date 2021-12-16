@@ -18,6 +18,7 @@ import com.hm.achievement.category.NormalAchievements;
  *
  * @author Pyves
  */
+
 @ExtendWith(MockitoExtension.class)
 class AdvancedAchievementsBukkitAPINullSafetyTest {
 
@@ -126,4 +127,5 @@ class AdvancedAchievementsBukkitAPINullSafetyTest {
 				() -> underTest.incrementCategoryForPlayer(MultipleAchievements.KILLS, "skeleton", null, 1));
 		assertEquals("player cannot be null.", e.getMessage());
 	}
+
 }

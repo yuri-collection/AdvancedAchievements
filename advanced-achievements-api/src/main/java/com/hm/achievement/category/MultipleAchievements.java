@@ -8,8 +8,10 @@ import java.util.Map;
  *
  * @author Pyves
  */
+
 public enum MultipleAchievements implements Category {
 
+	// Multiple Achievements
 	PLACES("Places", "blockid"),
 	BREAKS("Breaks", "blockid"),
 	KILLS("Kills", "mobname"),
@@ -19,7 +21,8 @@ public enum MultipleAchievements implements Category {
 	PLAYERCOMMANDS("PlayerCommands", "command"),
 	CUSTOM("Custom", "customname"),
 	JOBSREBORN("JobsReborn", "jobname"),
-	EFFECTSHELD("EffectsHeld", "effect");
+	EFFECTSHELD("EffectsHeld", "effect"),
+	MCMMO("mcMMO", "skillname");
 
 	private static final Map<String, MultipleAchievements> CATEGORY_NAMES_TO_ENUM = new HashMap<>();
 	static {
@@ -42,6 +45,8 @@ public enum MultipleAchievements implements Category {
 		this.permName = permNamePrefix + '*';
 	}
 
+
+
 	/**
 	 * Finds the category matching the provided name.
 	 * 
@@ -52,6 +57,9 @@ public enum MultipleAchievements implements Category {
 		return CATEGORY_NAMES_TO_ENUM.get(categoryName);
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public String toString() {
 		return categoryName;
@@ -89,4 +97,5 @@ public enum MultipleAchievements implements Category {
 	public String toSubcategoryDBName() {
 		return subcategoryDBName;
 	}
+
 }

@@ -18,8 +18,8 @@ import com.hm.achievement.db.CacheManager;
  * Listener class to deal with ItemPickups achievements.
  * 
  * @author Pyves
- *
  */
+
 @Singleton
 public class PickupsListener extends AbstractListener {
 
@@ -35,4 +35,5 @@ public class PickupsListener extends AbstractListener {
 			updateStatisticAndAwardAchievementsIfAvailable((Player) event.getEntity(), 1);
 		}
 	}
+
 }

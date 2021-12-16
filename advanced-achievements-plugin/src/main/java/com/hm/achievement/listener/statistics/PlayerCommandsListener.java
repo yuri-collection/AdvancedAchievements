@@ -1,10 +1,6 @@
 package com.hm.achievement.listener.statistics;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -22,6 +18,11 @@ import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 import com.hm.achievement.category.MultipleAchievements;
 import com.hm.achievement.config.AchievementMap;
 import com.hm.achievement.db.CacheManager;
+
+/**
+ * @author Yurinan
+ * @since 2021/12/15 17:47
+ */
 
 @Singleton
 public class PlayerCommandsListener extends AbstractListener {
@@ -52,8 +53,8 @@ public class PlayerCommandsListener extends AbstractListener {
 	}
 
 	/**
-	 * Computes a list containing equivalent commands of an input command. For instance, if input is "/aach stats", the
-	 * returned list is: ["aach stats", "advancedachievements stats", "aachievements stats", "aa stats"]
+	 * Computes a list containing equivalent commands of an input command. For instance, if input is "/ach stats", the
+	 * returned list is: ["ach stats", "advancedachievements stats", "achievements stats", "aa stats"]
 	 * 
 	 * @param command
 	 * @return the list of commands have the same effect as the input one
@@ -72,8 +73,10 @@ public class PlayerCommandsListener extends AbstractListener {
 		}
 
 		PluginCommand pluginCommand = Bukkit.getPluginCommand(commandName);
-		if (pluginCommand == null || pluginCommand.getAliases() == null) {
-			return Arrays.asList(commandName.toLowerCase() + commandParameters);
+		if (pluginCommand == null) {
+			return Collections.singletonList(commandName.toLowerCase() + commandParameters);
+		} else {
+			pluginCommand.getAliases();
 		}
 
 		List<String> equivalentCommands = new ArrayList<>(pluginCommand.getAliases().size() + 1);
@@ -84,4 +87,5 @@ public class PlayerCommandsListener extends AbstractListener {
 		}
 		return equivalentCommands;
 	}
+
 }

@@ -14,8 +14,8 @@ import com.hm.achievement.AdvancedAchievements;
  * Class used to handle a H2 database.
  *
  * @author Pyves
- *
  */
+
 public class H2DatabaseManager extends AbstractFileDatabaseManager {
 
 	public H2DatabaseManager(@Named("main") YamlConfiguration mainConfig, Logger logger, DatabaseUpdater databaseUpdater,
@@ -30,4 +30,5 @@ public class H2DatabaseManager extends AbstractFileDatabaseManager {
 				org.h2.engine.Engine.class
 		};
 	}
+
 }

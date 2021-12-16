@@ -10,6 +10,7 @@ import com.hm.achievement.category.Category;
  *
  * @author Pyves
  */
+
 public class Achievement {
 
 	private final Category category;

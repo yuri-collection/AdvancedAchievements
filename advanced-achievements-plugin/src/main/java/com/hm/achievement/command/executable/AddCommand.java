@@ -27,6 +27,7 @@ import com.hm.achievement.utils.StringHelper;
  *
  * @author Phoetrix
  */
+
 @Singleton
 @CommandSpec(name = "add", permission = "add", minArgs = 4, maxArgs = 4)
 public class AddCommand extends AbstractParsableCommand {
@@ -100,4 +101,5 @@ public class AddCommand extends AbstractParsableCommand {
 					new String[] { args[2], StringHelper.getClosestMatch(args[2], categorySubcategories) }));
 		}
 	}
+
 }

@@ -1,9 +1,6 @@
 package com.hm.achievement.listener;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
@@ -60,6 +57,7 @@ import net.md_5.bungee.api.chat.TextComponent;
  *
  * @author Pyves
  */
+
 @Singleton
 public class PlayerAdvancedAchievementListener implements Listener, Reloadable {
 
@@ -136,7 +134,7 @@ public class PlayerAdvancedAchievementListener implements Listener, Reloadable {
 
 	@Override
 	public void extractConfigurationParameters() {
-		configFireworkStyle = mainConfig.getString("FireworkStyle").toUpperCase();
+		configFireworkStyle = Objects.requireNonNull(mainConfig.getString("FireworkStyle")).toUpperCase();
 		if (!"RANDOM".equals(configFireworkStyle) && !EnumUtils.isValidEnum(Type.class, configFireworkStyle)) {
 			configFireworkStyle = Type.BALL_LARGE.name();
 			logger.warning("Failed to load FireworkStyle, using ball_large instead. Please use one of the following: "
@@ -150,7 +148,8 @@ public class PlayerAdvancedAchievementListener implements Listener, Reloadable {
 		configHoverableReceiverChatText = mainConfig.getBoolean("HoverableReceiverChatText");
 		configBossBarProgress = mainConfig.getBoolean("BossBarProgress");
 		configReceiverChatMessages = mainConfig.getBoolean("ReceiverChatMessages");
-		ChatColor chatColor = ChatColor.getByChar(mainConfig.getString("Color"));
+		ChatColor chatColor = ChatColor.getByChar(Objects.requireNonNull(mainConfig.getString("Color")));
+		assert chatColor != null;
 		configColor = ColorHelper.convertChatColorToColor(chatColor);
 		mixColor = Color.WHITE.mixColors(ColorHelper.convertChatColorToColor(FIREWORK_COLOR_MIX.get(chatColor)));
 		barColor = ColorHelper.convertChatColorToBarColor(chatColor);
@@ -177,7 +176,7 @@ public class PlayerAdvancedAchievementListener implements Listener, Reloadable {
 
 			Advancement advancement = Bukkit.getAdvancement(new NamespacedKey(advancedAchievements,
 					AdvancementManager.getKey(achievement.getName())));
-			// Matching advancement might not exist if user has not called /aach generate.
+			// Matching advancement might not exist if user has not called /ach generate.
 			if (advancement != null) {
 				player.getAdvancementProgress(advancement).awardCriteria(AchievementAdvancement.CRITERIA_NAME);
 			}
@@ -210,8 +209,8 @@ public class PlayerAdvancedAchievementListener implements Listener, Reloadable {
 
 		// Notify other online players that the player has received an achievement.
 		for (Player p : advancedAchievements.getServer().getOnlinePlayers()) {
-			// Notify other players only if NotifyOtherPlayers is enabled and player has not used /aach toggle, or if
-			// NotifyOtherPlayers is disabled and player has used /aach toggle.
+			// Notify other players only if NotifyOtherPlayers is enabled and player has not used /ach toggle, or if
+			// NotifyOtherPlayers is disabled and player has used /ach toggle.
 			if (!p.getName().equals(player.getName())
 					&& (configNotifyOtherPlayers ^ toggleCommand.isPlayerToggled(p, achievement.getType()))) {
 				displayNotification(player, nameToShowUser, p);
@@ -350,4 +349,5 @@ public class PlayerAdvancedAchievementListener implements Listener, Reloadable {
 				.map(m -> StringHelper.replacePlayerPlaceholders(m, player))
 				.forEach(t -> player.sendMessage(pluginHeader + ChatColor.translateAlternateColorCodes('&', t)));
 	}
+
 }

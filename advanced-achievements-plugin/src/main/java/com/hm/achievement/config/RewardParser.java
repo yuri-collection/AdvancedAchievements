@@ -1,11 +1,6 @@
 package com.hm.achievement.config;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 import java.util.function.Consumer;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
@@ -39,8 +34,10 @@ import net.milkbowl.vault.economy.Economy;
 /**
  * Class in charge of handling the rewards for achievements.
  *
- * @author Pyves
+ * @author Pyves, Yurinann
+ * @since 2021/12/15 17:04
  */
+
 @Singleton
 public class RewardParser {
 
@@ -106,8 +103,8 @@ public class RewardParser {
 		String listText = StringUtils.replaceOnce(langConfig.getString("list-reward-money"), "AMOUNT",
 				amount + " " + currencyName);
 		String chatText = ChatColor.translateAlternateColorCodes('&',
-				StringUtils.replaceOnce(langConfig.getString("money-reward-received"), "AMOUNT",
-						amount + " " + currencyName));
+				Objects.requireNonNull(StringUtils.replaceOnce(langConfig.getString("money-reward-received"), "AMOUNT",
+						amount + " " + currencyName)));
 		Consumer<Player> rewarder = player -> economy.depositPlayer(player, amount);
 		return new Reward(Collections.singletonList(listText), Collections.singletonList(chatText), rewarder);
 	}
@@ -166,8 +163,8 @@ public class RewardParser {
 		String listText = StringUtils.replaceOnce(langConfig.getString("list-reward-experience"), "AMOUNT",
 				Integer.toString(amount));
 		String chatText = ChatColor.translateAlternateColorCodes('&',
-				StringUtils.replaceOnce(langConfig.getString("experience-reward-received"), "AMOUNT",
-						Integer.toString(amount)));
+				Objects.requireNonNull(StringUtils.replaceOnce(langConfig.getString("experience-reward-received"), "AMOUNT",
+						Integer.toString(amount))));
 		Consumer<Player> rewarder = player -> player.giveExp(amount);
 		return new Reward(Collections.singletonList(listText), Collections.singletonList(chatText), rewarder);
 	}
@@ -177,10 +174,11 @@ public class RewardParser {
 		String listText = StringUtils.replaceOnce(langConfig.getString("list-reward-increase-max-health"), "AMOUNT",
 				Integer.toString(amount));
 		String chatText = ChatColor.translateAlternateColorCodes('&',
-				StringUtils.replaceOnce(langConfig.getString("increase-max-health-reward-received"), "AMOUNT",
-						Integer.toString(amount)));
+				Objects.requireNonNull(StringUtils.replaceOnce(langConfig.getString("increase-max-health-reward-received"), "AMOUNT",
+						Integer.toString(amount))));
 		Consumer<Player> rewarder = player -> {
 			AttributeInstance playerAttribute = player.getAttribute(Attribute.GENERIC_MAX_HEALTH);
+			assert playerAttribute != null;
 			playerAttribute.setBaseValue(playerAttribute.getBaseValue() + amount);
 		};
 		return new Reward(Collections.singletonList(listText), Collections.singletonList(chatText), rewarder);
@@ -191,8 +189,8 @@ public class RewardParser {
 		String listText = StringUtils.replaceOnce(langConfig.getString("list-reward-increase-max-oxygen"), "AMOUNT",
 				Integer.toString(amount));
 		String chatText = ChatColor.translateAlternateColorCodes('&',
-				StringUtils.replaceOnce(langConfig.getString("increase-max-oxygen-reward-received"), "AMOUNT",
-						Integer.toString(amount)));
+				Objects.requireNonNull(StringUtils.replaceOnce(langConfig.getString("increase-max-oxygen-reward-received"), "AMOUNT",
+						Integer.toString(amount))));
 		Consumer<Player> rewarder = player -> player.setMaximumAir(player.getMaximumAir() + amount);
 		return new Reward(Collections.singletonList(listText), Collections.singletonList(chatText), rewarder);
 	}

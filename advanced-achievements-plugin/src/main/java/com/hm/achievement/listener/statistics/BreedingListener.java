@@ -19,7 +19,11 @@ import com.hm.achievement.db.CacheManager;
 
 /**
  * Listener class to deal with Breeding achievements.
+ *
+ * @author Yurinan
+ * @since 2021/12/15 17:41
  */
+
 @Singleton
 public class BreedingListener extends AbstractListener {
 
@@ -44,4 +48,5 @@ public class BreedingListener extends AbstractListener {
 		addMatchingSubcategories(subcategories, mobName);
 		updateStatisticAndAwardAchievementsIfAvailable((Player) event.getBreeder(), subcategories, 1);
 	}
+
 }

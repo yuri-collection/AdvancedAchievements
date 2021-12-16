@@ -20,6 +20,7 @@ import com.hm.achievement.utils.StatisticIncreaseHandler;
  * 
  * @author Pyves
  */
+
 public abstract class AbstractListener extends StatisticIncreaseHandler implements Listener {
 
 	final Category category;
@@ -68,6 +69,24 @@ public abstract class AbstractListener extends StatisticIncreaseHandler implemen
 		if (shouldIncreaseBeTakenIntoAccount(player, category)) {
 			subcategories.forEach(subcategory -> {
 				long amount = cacheManager.getAndIncrementStatisticAmount((MultipleAchievements) category, subcategory,
+						player.getUniqueId(), incrementValue);
+				checkThresholdsAndAchievements(player, category, subcategory, amount);
+			});
+		}
+	}
+
+	/**
+	 * Sets the statistic in the database for a MultipleAchievement and awards an achievement if an available one is
+	 * found.
+	 *
+	 * @param player
+	 * @param subcategories
+	 * @param incrementValue
+	 */
+	void increaseStatisticAndAwardAchievementsIfAvailable(Player player, Set<String> subcategories, int incrementValue) {
+		if (shouldIncreaseBeTakenIntoAccount(player, category)) {
+			subcategories.forEach(subcategory -> {
+				long amount = cacheManager.getAndIncreaseStatisticAmount((MultipleAchievements) category, subcategory,
 						player.getUniqueId(), incrementValue);
 				checkThresholdsAndAchievements(player, category, subcategory, amount);
 			});

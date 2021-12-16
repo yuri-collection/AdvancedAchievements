@@ -12,10 +12,11 @@ import com.hm.achievement.db.AbstractDatabaseManager;
 import com.hm.achievement.utils.SoundPlayer;
 
 /**
- * Class in charge of handling the /aach top command, which displays global rankings.
+ * Class in charge of handling the /ach top command, which displays global rankings.
  *
  * @author Pyves
  */
+
 @Singleton
 @CommandSpec(name = "top", permission = "top", minArgs = 1, maxArgs = 2)
 public class TopCommand extends AbstractRankingCommand {

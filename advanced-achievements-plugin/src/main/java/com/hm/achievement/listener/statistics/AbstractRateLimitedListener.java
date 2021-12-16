@@ -26,6 +26,7 @@ import net.md_5.bungee.api.chat.TextComponent;
  *
  * @author Pyves
  */
+
 public class AbstractRateLimitedListener extends AbstractListener implements Cleanable {
 
 	private final Map<Integer, Map<UUID, Long>> slotsToPlayersLastActionTimes = new HashMap<>();
@@ -65,14 +66,14 @@ public class AbstractRateLimitedListener extends AbstractListener implements Cle
 	}
 
 	void updateStatisticAndAwardAchievementsIfAvailable(Player player, int incrementValue, int slotNumber) {
-		if (!isInCooldownPeriod(player, slotNumber)) {
+		if (isInCooldownPeriod(player, slotNumber)) {
 			super.updateStatisticAndAwardAchievementsIfAvailable(player, incrementValue);
 		}
 	}
 
 	@Override
 	void updateStatisticAndAwardAchievementsIfAvailable(Player player, int incrementValue) {
-		if (!isInCooldownPeriod(player, 0)) {
+		if (isInCooldownPeriod(player, 0)) {
 			super.updateStatisticAndAwardAchievementsIfAvailable(player, incrementValue);
 		}
 	}
@@ -89,7 +90,7 @@ public class AbstractRateLimitedListener extends AbstractListener implements Cle
 		long currentPlayerStatistic = cacheManager.getAndIncrementStatisticAmount((NormalAchievements) category, uuid, 0);
 		// Ignore cooldown if player has received all achievements in the category.
 		if (currentPlayerStatistic >= hardestCategoryThreshold) {
-			return false;
+			return true;
 		}
 
 		Map<UUID, Long> playersLastActionTimes = slotsToPlayersLastActionTimes.computeIfAbsent(slotNumber, HashMap::new);
@@ -105,10 +106,10 @@ public class AbstractRateLimitedListener extends AbstractListener implements Cle
 					displayActionBarMessage(player, timeToWait);
 				}
 			}
-			return true;
+			return false;
 		}
 		playersLastActionTimes.put(uuid, currentTimeMillis);
-		return false;
+		return true;
 	}
 
 	/**
@@ -122,4 +123,5 @@ public class AbstractRateLimitedListener extends AbstractListener implements Cle
 		String message = "&o" + StringUtils.replaceOnce(langStatisticCooldown, "TIME", timeWithOneDecimal);
 		player.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(message));
 	}
+
 }

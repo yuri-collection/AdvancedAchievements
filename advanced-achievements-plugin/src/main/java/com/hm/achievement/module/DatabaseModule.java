@@ -20,6 +20,11 @@ import com.hm.achievement.db.SQLiteDatabaseManager;
 import dagger.Module;
 import dagger.Provides;
 
+/**
+ * @author Yurinan
+ * @since 2021/12/15 17:52
+ */
+
 @Module
 public class DatabaseModule {
 
@@ -28,6 +33,7 @@ public class DatabaseModule {
 	ExecutorService provideWriteExecutor() {
 		// Used to do perform the database write operations asynchronously. We expect to execute many short writes to
 		// the database. The pool can grow dynamically under high load and allows to reuse threads.
+		// Yuri 2021/12/15 Wait Change ThreadPoolDemo
 		return Executors.newCachedThreadPool();
 	}
 

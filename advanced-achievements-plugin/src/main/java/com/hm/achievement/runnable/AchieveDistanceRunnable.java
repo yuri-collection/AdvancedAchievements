@@ -1,9 +1,7 @@
 package com.hm.achievement.runnable;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
-import java.util.UUID;
+import java.util.*;
+import java.util.function.BiConsumer;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -26,13 +24,15 @@ import com.hm.achievement.utils.StatisticIncreaseHandler;
 /**
  * Class used to monitor distances travelled by players for the different available categories.
  * 
- * @author Pyves
- *
+ * @author Pyves, Yurinann
+ * @since 2021/12/16 14:21
  */
+
 @Singleton
 public class AchieveDistanceRunnable extends StatisticIncreaseHandler implements Cleanable, Runnable {
 
 	private final Map<UUID, Location> playerLocations = new HashMap<>();
+	private final Map<EntityType, BiConsumer<Integer, Player>> entityTypeBiConsumerMap = new HashMap<>();
 	private final Set<Category> disabledCategories;
 
 	private boolean configIgnoreVerticalDistance;
@@ -42,6 +42,11 @@ public class AchieveDistanceRunnable extends StatisticIncreaseHandler implements
 			CacheManager cacheManager, Set<Category> disabledCategories) {
 		super(mainConfig, achievementMap, cacheManager);
 		this.disabledCategories = disabledCategories;
+		entityTypeBiConsumerMap.put(EntityType.HORSE, (dist, p) -> updateDistance(dist, p, NormalAchievements.DISTANCEHORSE));
+		entityTypeBiConsumerMap.put(EntityType.PIG, (dist, p) -> updateDistance(dist, p, NormalAchievements.DISTANCEPIG));
+		entityTypeBiConsumerMap.put(EntityType.MINECART, (dist, p) -> updateDistance(dist, p, NormalAchievements.DISTANCEMINECART));
+		entityTypeBiConsumerMap.put(EntityType.BOAT, (dist, p) -> updateDistance(dist, p, NormalAchievements.DISTANCEBOAT));
+		entityTypeBiConsumerMap.put(EntityType.LLAMA, (dist, p) -> updateDistance(dist, p, NormalAchievements.DISTANCELLAMA));
 	}
 
 	@Override
@@ -76,27 +81,20 @@ public class AchieveDistanceRunnable extends StatisticIncreaseHandler implements
 
 		// If player location not found or if player has changed world, ignore previous location.
 		// Evaluating distance would give an exception.
-		if (previousLocation == null || !previousLocation.getWorld().getUID().equals(player.getWorld().getUID())) {
+		if (previousLocation == null || !Objects.requireNonNull(previousLocation.getWorld()).getUID().equals(player.getWorld().getUID())) {
 			return;
 		}
 
 		int difference = getDistanceDifference(previousLocation, currentLocation);
-		if (difference == 0L) { // Player has not moved.
+		// Player has not moved.
+		if (difference == 0L) {
 			return;
 		}
 
 		if (player.isInsideVehicle()) {
-			EntityType vehicleType = player.getVehicle().getType();
-			if (vehicleType == EntityType.HORSE) {
-				updateDistance(difference, player, NormalAchievements.DISTANCEHORSE);
-			} else if (vehicleType == EntityType.PIG) {
-				updateDistance(difference, player, NormalAchievements.DISTANCEPIG);
-			} else if (vehicleType == EntityType.MINECART) {
-				updateDistance(difference, player, NormalAchievements.DISTANCEMINECART);
-			} else if (vehicleType == EntityType.BOAT) {
-				updateDistance(difference, player, NormalAchievements.DISTANCEBOAT);
-			} else if (vehicleType == EntityType.LLAMA) {
-				updateDistance(difference, player, NormalAchievements.DISTANCELLAMA);
+			EntityType vehicleType = Objects.requireNonNull(player.getVehicle()).getType();
+			if (entityTypeBiConsumerMap.containsKey(vehicleType)) {
+				entityTypeBiConsumerMap.get(vehicleType).accept(difference, player);
 			}
 		} else if (player.isGliding()) {
 			updateDistance(difference, player, NormalAchievements.DISTANCEGLIDING);
@@ -141,4 +139,5 @@ public class AchieveDistanceRunnable extends StatisticIncreaseHandler implements
 		long distance = cacheManager.getAndIncrementStatisticAmount(category, player.getUniqueId(), difference);
 		checkThresholdsAndAchievements(player, category, distance);
 	}
+
 }

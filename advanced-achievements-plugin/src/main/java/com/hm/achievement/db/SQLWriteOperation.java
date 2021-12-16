@@ -10,6 +10,7 @@ import java.util.logging.Logger;
  *
  * @author Pyves
  */
+
 @FunctionalInterface
 public interface SQLWriteOperation {
 

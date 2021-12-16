@@ -17,8 +17,8 @@ import com.hm.achievement.db.CacheManager;
  * Listener class to deal with Deaths achievements.
  * 
  * @author Pyves
- *
  */
+
 @Singleton
 public class DeathsListener extends AbstractListener {
 
@@ -32,4 +32,5 @@ public class DeathsListener extends AbstractListener {
 	public void onPlayerDeath(PlayerDeathEvent event) {
 		updateStatisticAndAwardAchievementsIfAvailable(event.getEntity(), 1);
 	}
+
 }

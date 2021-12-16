@@ -15,11 +15,14 @@ import com.hm.achievement.category.NormalAchievements;
 import com.hm.achievement.config.AchievementMap;
 import com.hm.achievement.db.CacheManager;
 
+import java.util.Objects;
+
 /**
  * Listener class to deal with WaterBuckets achievements.
  *
  * @author Pyves
  */
+
 @Singleton
 public class WaterBucketsListener extends AbstractRateLimitedListener {
 
@@ -32,8 +35,9 @@ public class WaterBucketsListener extends AbstractRateLimitedListener {
 
 	@EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
 	public void onPlayerBucketFill(PlayerBucketFillEvent event) {
-		if (event.getItemStack().getType() == Material.WATER_BUCKET) {
+		if (Objects.requireNonNull(event.getItemStack()).getType() == Material.WATER_BUCKET) {
 			updateStatisticAndAwardAchievementsIfAvailable(event.getPlayer(), 1);
 		}
 	}
+
 }

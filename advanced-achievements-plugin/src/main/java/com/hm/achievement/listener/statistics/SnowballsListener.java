@@ -20,8 +20,8 @@ import com.hm.achievement.db.CacheManager;
  * Listener class to deal with Snowballsachievements.
  * 
  * @author Pyves
- *
  */
+
 @Singleton
 public class SnowballsListener extends AbstractListener {
 
@@ -40,4 +40,5 @@ public class SnowballsListener extends AbstractListener {
 
 		updateStatisticAndAwardAchievementsIfAvailable((Player) shooter, 1);
 	}
+
 }

@@ -45,6 +45,7 @@ import dagger.Lazy;
  *
  * @author Pyves
  */
+
 @Singleton
 public class PluginLoader {
 
@@ -54,32 +55,44 @@ public class PluginLoader {
 	private final Set<Reloadable> reloadables;
 	private final AchievementMap achievementMap;
 
-	// Listeners, to monitor various events.
+	/**
+	 * Listeners, to monitor various events.
+	 */
 	private final JoinListener joinListener;
 	private final ListGUIListener listGUIListener;
 	private final PlayerAdvancedAchievementListener playerAdvancedAchievementListener;
 	private final TeleportListener teleportListener;
 
-	// Integration with PlaceholderAPI. Use lazy injection as it may or may not be used depending on runtime conditions.
+	/**
+	 * Integration with PlaceholderAPI. Use lazy injection as it may or may not be used depending on runtime conditions.
+	 */
 	private final Lazy<AchievementPlaceholderHook> achievementPlaceholderHook;
 
-	// Database related.
+	/**
+	 * Database related.
+	 */
 	private final AbstractDatabaseManager databaseManager;
 	private final AsyncCachedRequestsSender asyncCachedRequestsSender;
 
-	// Various other fields and parameters.
+	/**
+	 * Various other fields and parameters.
+	 */
 	private final PluginCommandExecutor pluginCommandExecutor;
 	private final CommandTabCompleter commandTabCompleter;
 	private final Set<Category> disabledCategories;
 	private final YamlConfiguration mainConfig;
 	private final ConfigurationParser configurationParser;
 
-	// Plugin runnable classes.
+	/**
+	 * Plugin runnable classes.
+	 */
 	private final AchieveDistanceRunnable distanceRunnable;
 	private final AchievePlayTimeRunnable playTimeRunnable;
 	private final Cleaner cleaner;
 
-	// Bukkit scheduler tasks.
+	/**
+	 * Bukkit scheduler tasks.
+	 */
 	private BukkitTask asyncCachedRequestsSenderTask;
 	private BukkitTask playedTimeTask;
 	private BukkitTask distanceTask;
@@ -188,7 +201,8 @@ public class PluginLoader {
 	private void initialiseCommands() {
 		logger.info("Setting up command executor and custom tab completers...");
 
-		PluginCommand pluginCommand = Bukkit.getPluginCommand("aach");
+		PluginCommand pluginCommand = Bukkit.getPluginCommand("ach");
+		assert pluginCommand != null;
 		pluginCommand.setTabCompleter(commandTabCompleter);
 		pluginCommand.setExecutor(pluginCommandExecutor);
 	}
@@ -244,7 +258,7 @@ public class PluginLoader {
 	 * stone breaks, achievement.count.breaks.stone will be registered).
 	 * 
 	 * Bukkit only allows permissions to be set once, check that the permission node is null to ensure it was not
-	 * previously set, before an /aach reload for example.
+	 * previously set, before an /ach reload for example.
 	 */
 	private void registerPermissions() {
 		logger.info("Registering permissions...");

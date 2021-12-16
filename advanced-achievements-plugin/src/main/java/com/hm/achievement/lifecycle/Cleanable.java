@@ -7,6 +7,7 @@ package com.hm.achievement.lifecycle;
  *
  * @author Pyves
  */
+
 public interface Cleanable {
 
 	void cleanPlayerData();

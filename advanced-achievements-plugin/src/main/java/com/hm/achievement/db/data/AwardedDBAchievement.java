@@ -5,7 +5,11 @@ import java.util.UUID;
 
 /**
  * Represents an Achievement that has been awarded to a player.
+ *
+ * @author Yurinan
+ * @since 2021/12/15 17:04
  */
+
 public class AwardedDBAchievement {
 
 	private final UUID awardedTo;

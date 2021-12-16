@@ -10,6 +10,7 @@ import org.apache.commons.text.StringEscapeUtils;
  * 
  * @author Pyves
  */
+
 public class AdvancementJsonHelper {
 
 	public static String toJson(AchievementAdvancement aa) {
@@ -26,7 +27,7 @@ public class AdvancementJsonHelper {
 				"  ],\n" +
 				"  \"display\":{\n" +
 				"    \"icon\":{\n" +
-				"      \"item\":\"" + aa.getIconItem() + "\"" + getIntegerFieldOrEmpty("data", aa.getIconData()) + "\n" +
+				"      \"item\":\"" + aa.getIconItem() + "\"" + getIntegerFieldOrEmpty(aa.getIconData()) + "\n" +
 				"    },\n" +
 				"    \"title\":\"" + StringEscapeUtils.escapeJson(aa.getTitle()) + "\",\n" +
 				"    \"description\":\"" + StringEscapeUtils.escapeJson(aa.getDescription()) + "\",\n" +
@@ -54,8 +55,8 @@ public class AdvancementJsonHelper {
 				"}\n";
 	}
 
-	private static String getIntegerFieldOrEmpty(String key, String value) {
-		return value == null ? "" : ",\"" + key + "\":" + value;
+	private static String getIntegerFieldOrEmpty(String value) {
+		return value == null ? "" : ",\"" + "data" + "\":" + value;
 	}
 
 	private static String getStringFieldOrLineBreak(String key, String value, int spacing) {

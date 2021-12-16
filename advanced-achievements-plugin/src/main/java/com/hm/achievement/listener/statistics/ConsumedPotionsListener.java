@@ -18,8 +18,8 @@ import com.hm.achievement.utils.MaterialHelper;
  * Listener class to deal with ConsumedPotions achievements.
  * 
  * @author Pyves
- *
  */
+
 @Singleton
 public class ConsumedPotionsListener extends AbstractListener {
 
@@ -38,4 +38,5 @@ public class ConsumedPotionsListener extends AbstractListener {
 			updateStatisticAndAwardAchievementsIfAvailable(event.getPlayer(), 1);
 		}
 	}
+
 }

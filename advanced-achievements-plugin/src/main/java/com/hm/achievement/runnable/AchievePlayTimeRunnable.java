@@ -20,8 +20,8 @@ import com.hm.achievement.utils.StatisticIncreaseHandler;
  * Class used to monitor players' played times.
  * 
  * @author Pyves
- *
  */
+
 @Singleton
 public class AchievePlayTimeRunnable extends StatisticIncreaseHandler implements Runnable {
 
@@ -80,4 +80,5 @@ public class AchievePlayTimeRunnable extends StatisticIncreaseHandler implements
 		// Thresholds in the configuration are in hours.
 		checkThresholdsAndAchievements(player, NormalAchievements.PLAYEDTIME, totalMillis / MILLIS_PER_HOUR);
 	}
+
 }

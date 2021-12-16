@@ -16,11 +16,12 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 
 /**
- * Class in charge of handling the /aach toggle command, which allows a player to override the default behaviour of the
+ * Class in charge of handling the /ach toggle command, which allows a player to override the default behaviour of the
  * NotifyOtherPlayers parameter.
  * 
  * @author Pyves
  */
+
 @Singleton
 @CommandSpec(name = "toggle", permission = "toggle", minArgs = 1, maxArgs = 2)
 public class ToggleCommand extends AbstractCommand {
@@ -50,7 +51,7 @@ public class ToggleCommand extends AbstractCommand {
 	}
 
 	/**
-	 * Indicates whether player has used the /aach toggle command since the last server restart/plugin reload.
+	 * Indicates whether player has used the /ach toggle command since the last server restart/plugin reload.
 	 * 
 	 * @param player
 	 * @param type

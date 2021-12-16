@@ -14,6 +14,7 @@ import org.bukkit.entity.Player;
  *
  * @author Pyves
  */
+
 @Singleton
 public class SoundPlayer {
 

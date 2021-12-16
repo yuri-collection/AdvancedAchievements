@@ -23,9 +23,10 @@ import com.hm.achievement.db.CacheManager;
 /**
  * Listener class to deal with Breaks achievements.
  * 
- * @author Pyves
- *
+ * @author Pyves, Yurinann
+ * @since 2021/12/16 14:21
  */
+
 @Singleton
 public class BreaksListener extends AbstractListener {
 
@@ -72,4 +73,5 @@ public class BreaksListener extends AbstractListener {
 		addMatchingSubcategories(subcategories, blockName);
 		updateStatisticAndAwardAchievementsIfAvailable(player, subcategories, 1);
 	}
+
 }

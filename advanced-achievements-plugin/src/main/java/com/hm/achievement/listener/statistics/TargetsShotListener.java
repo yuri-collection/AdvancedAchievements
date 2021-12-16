@@ -17,6 +17,11 @@ import com.hm.achievement.category.MultipleAchievements;
 import com.hm.achievement.config.AchievementMap;
 import com.hm.achievement.db.CacheManager;
 
+/**
+ * @author Yurinan
+ * @since 2021/12/15 17:48
+ */
+
 @Singleton
 public class TargetsShotListener extends AbstractListener {
 
@@ -51,4 +56,5 @@ public class TargetsShotListener extends AbstractListener {
 		addMatchingSubcategories(subcategories, targetName);
 		updateStatisticAndAwardAchievementsIfAvailable(player, subcategories, 1);
 	}
+	
 }

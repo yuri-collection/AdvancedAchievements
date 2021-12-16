@@ -59,7 +59,7 @@ class CommandTabCompleterTest {
 
 	@BeforeEach
 	void setUp() {
-		when(command.getName()).thenReturn("aach");
+		when(command.getName()).thenReturn("ach");
 
 		Set<AbstractCommand> commands = new HashSet<>();
 		commands.add(bookCommand);
@@ -79,7 +79,7 @@ class CommandTabCompleterTest {
 	}
 
 	@Test
-	void shouldReturnNullIfNotAachCommand() {
+	void shouldReturnNullIfNotAchCommand() {
 		when(command.getName()).thenReturn("someothercommand");
 
 		List<String> completionResult = underTest.onTabComplete(commandSender, command, null, new String[0]);

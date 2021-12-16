@@ -17,8 +17,8 @@ import com.hm.achievement.db.CacheManager;
  * Listener class to deal with ItemDrops achievements.
  * 
  * @author Pyves
- *
  */
+
 @Singleton
 public class DropsListener extends AbstractListener {
 
@@ -32,4 +32,5 @@ public class DropsListener extends AbstractListener {
 	public void onPlayerDropItem(PlayerDropItemEvent event) {
 		updateStatisticAndAwardAchievementsIfAvailable(event.getPlayer(), 1);
 	}
+
 }

@@ -17,12 +17,14 @@ import com.hm.achievement.category.NormalAchievements;
 import com.hm.achievement.config.AchievementMap;
 import com.hm.achievement.db.CacheManager;
 
+import java.util.Objects;
+
 /**
  * Listener class to deal with MusicDiscs achievements.
  *
  * @author Pyves
- *
  */
+
 @Singleton
 public class MusicDiscsListener extends AbstractRateLimitedListener {
 
@@ -33,13 +35,19 @@ public class MusicDiscsListener extends AbstractRateLimitedListener {
 		super(NormalAchievements.MUSICDISCS, mainConfig, achievementMap, cacheManager, advancedAchievements, langConfig);
 	}
 
-	@EventHandler(priority = EventPriority.MONITOR) // Do NOT set ignoreCancelled to true, deprecated for this event.
+	/**
+	 * Do NOT set ignoreCancelled to true, deprecated for this event.
+	 *
+	 * @param event
+	 */
+	@EventHandler(priority = EventPriority.MONITOR)
 	public void onPlayerInteract(PlayerInteractEvent event) {
 		if (event.useItemInHand() == Result.DENY || event.getAction() != Action.RIGHT_CLICK_BLOCK
-				|| !event.getMaterial().isRecord() || event.getClickedBlock().getType() != Material.JUKEBOX) {
+				|| !event.getMaterial().isRecord() || Objects.requireNonNull(event.getClickedBlock()).getType() != Material.JUKEBOX) {
 			return;
 		}
 
 		updateStatisticAndAwardAchievementsIfAvailable(event.getPlayer(), 1);
 	}
+
 }

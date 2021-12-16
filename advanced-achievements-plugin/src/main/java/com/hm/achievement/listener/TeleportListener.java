@@ -18,8 +18,8 @@ import com.hm.achievement.runnable.AchieveDistanceRunnable;
  * correct.
  * 
  * @author Pyves
- *
  */
+
 public class TeleportListener implements Listener {
 
 	private final AchieveDistanceRunnable distanceRunnable;
@@ -54,7 +54,7 @@ public class TeleportListener implements Listener {
 		for (Entity passenger : event.getEntity().getPassengers()) {
 			if (passenger instanceof Player) {
 				// Update location of player if they teleport somewhere else.
-				distanceRunnable.updateLocation(((Player) passenger).getUniqueId(), event.getTo());
+				distanceRunnable.updateLocation(passenger.getUniqueId(), event.getTo());
 			}
 		}
 

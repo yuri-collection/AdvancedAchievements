@@ -12,13 +12,13 @@ import org.bukkit.configuration.file.YamlConfiguration;
  * Class used to handle a MySQL database.
  * 
  * @author Pyves
- *
  */
+
 public class MySQLDatabaseManager extends AbstractRemoteDatabaseManager {
 
 	public MySQLDatabaseManager(@Named("main") YamlConfiguration mainConfig, Logger logger,
 			DatabaseUpdater databaseUpdater, ExecutorService writeExecutor) {
-		super(mainConfig, logger, databaseUpdater, "com.mysql.jdbc.Driver", "mysql", writeExecutor);
+		super(mainConfig, logger, databaseUpdater, "com.mysql.cj.jdbc.Driver", "mysql", writeExecutor);
 	}
 
 	@Override
@@ -27,4 +27,5 @@ public class MySQLDatabaseManager extends AbstractRemoteDatabaseManager {
 
 		additionalConnectionOptions = "&useSSL=false" + additionalConnectionOptions;
 	}
+
 }

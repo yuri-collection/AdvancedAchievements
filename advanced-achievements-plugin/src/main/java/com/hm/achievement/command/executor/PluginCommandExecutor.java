@@ -19,7 +19,7 @@ import com.hm.achievement.command.executable.CommandSpec;
 import com.hm.achievement.lifecycle.Reloadable;
 
 /**
- * Class in charge of handling /aach commands and dispatching to the different command modules.
+ * Class in charge of handling /ach commands and dispatching to the different command modules.
  *
  * @author Pyves
  */
@@ -50,7 +50,7 @@ public class PluginCommandExecutor implements CommandExecutor, Reloadable {
 		String[] parsedArgs = parseArguments(args);
 		Optional<AbstractCommand> cmdToExecute = commands.stream().filter(cmd -> shouldExecute(cmd, parsedArgs)).findFirst();
 		if (cmdToExecute.isPresent()) {
-			cmdToExecute.get().execute(sender, parsedArgs);
+			cmdToExecute.get().onCommandExecute(sender, parsedArgs);
 		} else {
 			sender.sendMessage(langInvalidCommand);
 		}

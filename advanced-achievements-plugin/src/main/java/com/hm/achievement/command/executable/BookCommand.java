@@ -2,12 +2,7 @@ package com.hm.achievement.command.executable;
 
 import java.lang.reflect.Method;
 import java.text.DateFormat;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Locale;
-import java.util.UUID;
+import java.util.*;
 import java.util.logging.Logger;
 
 import javax.inject.Inject;
@@ -32,16 +27,19 @@ import com.hm.achievement.lifecycle.Cleanable;
 import com.hm.achievement.utils.SoundPlayer;
 
 /**
- * Class in charge of handling the /aach book command, which creates and gives a book containing the player's
+ * Class in charge of handling the /ach book command, which creates and gives a book containing the player's
  * achievements.
  *
  * @author Pyves
  */
+
 @Singleton
 @CommandSpec(name = "book", permission = "book", minArgs = 1, maxArgs = 1)
 public class BookCommand extends AbstractCommand implements Cleanable {
 
-	// Strings related to Reflection.
+	/**
+	 * Strings related to Reflection.
+	 */
 	private static final String PACKAGE_INVENTORY = "inventory";
 	private static final String PACKAGE_UTIL = "util";
 	private static final String CLASS_CRAFT_META_BOOK = "CraftMetaBook";
@@ -49,7 +47,9 @@ public class BookCommand extends AbstractCommand implements Cleanable {
 	private static final String FIELD_PAGES = "pages";
 	private static final String METHOD_FROM_STRING = "fromString";
 
-	// Corresponds to times at which players have received their books. Cooldown structure.
+	/**
+	 * Corresponds to times at which players have received their books. Cooldown structure.
+	 */
 	private final HashMap<UUID, Long> playersBookTime = new HashMap<>();
 	private final Logger logger;
 	private final int serverVersion;
@@ -89,7 +89,7 @@ public class BookCommand extends AbstractCommand implements Cleanable {
 		configBookSeparator = "\n&r" + mainConfig.getString("BookSeparator") + "\n&r";
 		configAdditionalEffects = mainConfig.getBoolean("AdditionalEffects");
 		configSound = mainConfig.getBoolean("Sound");
-		configSoundBook = mainConfig.getString("SoundBook").toUpperCase();
+		configSoundBook = Objects.requireNonNull(mainConfig.getString("SoundBook")).toUpperCase();
 
 		langBookDelay = pluginHeader + StringUtils.replaceOnce(langConfig.getString("book-delay"), "TIME",
 				Integer.toString(configTimeBook / 1000));
@@ -99,6 +99,7 @@ public class BookCommand extends AbstractCommand implements Cleanable {
 		langBookReceived = pluginHeader + langConfig.getString("book-received");
 
 		String localeString = mainConfig.getString("DateLocale");
+		assert localeString != null;
 		dateFormat = DateFormat.getDateInstance(DateFormat.MEDIUM, new Locale(localeString));
 	}
 
@@ -162,10 +163,11 @@ public class BookCommand extends AbstractCommand implements Cleanable {
 
 		// Set the pages and other elements of the book (author, title and date of reception).
 		setBookPages(bookPages, bookMeta);
+		assert bookMeta != null;
 		bookMeta.setAuthor(player.getName());
 		bookMeta.setTitle(langBookName);
 		bookMeta.setLore(
-				Arrays.asList(StringUtils.replaceOnce(langBookDate, "DATE", dateFormat.format(System.currentTimeMillis()))));
+				Collections.singletonList(StringUtils.replaceOnce(langBookDate, "DATE", dateFormat.format(System.currentTimeMillis()))));
 		book.setItemMeta(bookMeta);
 
 		// Check whether player has room in his inventory, else drop book on the ground.
@@ -232,4 +234,5 @@ public class BookCommand extends AbstractCommand implements Cleanable {
 			bookMeta.setPages(bookPages);
 		}
 	}
+
 }

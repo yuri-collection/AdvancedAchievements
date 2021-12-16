@@ -13,6 +13,7 @@
 # To get some valuable additional documentation, visit the Wiki: https://github.com/PyvesB/advanced-achievements/wiki
 # The default configuration files can be found at the following address:
 # https://github.com/PyvesB/advanced-achievements/blob/master/advanced-achievements-plugin/src/main/resources/config.yml
+# config-CN.yml is in plugin jar.
 
 #======================================================================================================================#
 #                                                   GENERAL SETTINGS                                                   #
@@ -20,13 +21,13 @@
 #                                Various settings to fine-tune the plugin's behaviour.                                 #
 #======================================================================================================================#
 
-# Time in seconds between each /aach book. Ignored for players with achievement.* permission.
+# Time in seconds between each /ach book. Ignored for players with achievement.* permission.
 TimeBook: 900
 
 # Sort pages of the book in chronological order (false for reverse chronological order).
 BookChronologicalOrder: true
 
-# Separator between name, description and date on an /aach book page.
+# Separator between name, description and date on an /ach book page.
 BookSeparator: ""
 
 # Activate firework effects when a player receives an achievement.
@@ -38,24 +39,24 @@ FireworkStyle: ball_large
 # Activate simpler effects and a calm sound when a player receives an achievement. Ignored if Firework setting is true.
 SimplifiedReception: false
 
-# Number of players displayed in /aach top, week and month commands.
+# Number of players displayed in /ach top, week and month commands.
 TopList: 5
 
-# Activate particle effects when performing /aach book, /aach stats when all achievements have been received and
-# /aach top, week or month when ranked in the top list.
+# Activate particle effects when performing /ach book, /ach stats when all achievements have been received and
+# /ach top, week or month when ranked in the top list.
 AdditionalEffects: true
 
-# Activate sounds when performing /aach book, /aach stats when all achievements have been received and  /aach top, week
+# Activate sounds when performing /ach book, /ach stats when all achievements have been received and  /ach top, week
 # or month when ranked in the top list.
 Sound: true
 
-# For /aach book. All sound values can be found here: https://github.com/PyvesB/advanced-achievements/wiki/Sound-names
+# For /ach book. All sound values can be found here: https://github.com/PyvesB/advanced-achievements/wiki/Sound-names
 SoundBook: entity_player_levelup
 
-# For /aach stats when all achievements have been received.
+# For /ach stats when all achievements have been received.
 SoundStats: entity_firework_rocket_blast
 
-# For /aach top, week, month when ranked in the top list.
+# For /ach top, week, month when ranked in the top list.
 SoundRanking: entity_firework_rocket_blast
 
 # Icon of the plugin (default: shamrock, \u2618).
@@ -65,7 +66,7 @@ Icon: \u2618
 Color: 5
 
 # Notify other connected players when an achievement is received. This defines the default behaviour, players can 
-# override what they see by using /aach toggle.
+# override what they see by using /ach toggle.
 NotifyOtherPlayers: false
 
 # Notify other connected players using action bars, otherwise chat messages are used.
@@ -131,10 +132,8 @@ OreBlocks:
   - nether_quartz_ore
   - redstone_ore
 
-# Language file to use. Available: lang.yml, lang-BP.yml, lang-CN.yml, lang-CZ.yml, lang-DA.yml, lang-DE.yml,
-# lang-ES.yml, lang-FI.yml, lang-FR.yml, lang-HU.yml, lang-IT.yml, lang-PL.yml, lang-RO.yml, lang-RU.yml, lang-SE.yml,
-# lang-SK.yml, lang-TR.yml, lang-TW.yml, lang-VN.yml
-LanguageFileName: lang.yml
+# Language file to use. Available: lang.yml, lang-CN.yml
+LanguageFileName: lang-CN.yml
 
 # Time in seconds between each statistic count. Only the listed categories are currently supported.
 StatisticCooldown:
@@ -149,11 +148,11 @@ StatisticCooldown:
 # Display action bar message when player performs an action while in a cooldown period.
 CooldownActionBar: true
 
-# Locale used to format dates in /aach book and /aach list. You must select an ISO 639 language code. The list of
+# Locale used to format dates in /ach book and /ach list. You must select an ISO 639 language code. The list of
 # possible language codes can be found at https://www.loc.gov/standards/iso639-2/php/code_list.php
 DateLocale: en
 
-# Display reception time of achievements in /aach book and /aach list in addition to the date.
+# Display reception time of achievements in /ach book and /ach list in addition to the date.
 DateDisplayTime: true
 
 # Awarded when a player has received all the achievements. Use the same reward pattern as with achievements.
@@ -166,7 +165,7 @@ AllAchievementsReceivedRewards:
 IgnoreAFKPlayedTime: false
 
 # Register advancements with a description corresponding to the Goal parameter of each achievement. If changed, run
-# /aach generate to regenerate advancements with the new value taken into account.
+# /ach generate to regenerate advancements with the new value taken into account.
 RegisterAdvancementDescriptions: true
 
 # Hide advancements from the advancement GUI. Advancement notifications will still appear when receiving achievements.
@@ -319,13 +318,13 @@ FishableFish:
 #======================================================================================================================#
 #                                                     GUI SETTINGS                                                     #
 #                                                                                                                      #
-#        Configure the behaviour of /aach list. The items being displayed can be further customised in gui.yml.        #
+#        Configure the behaviour of /ach list. The items being displayed can be further customised in gui.yml.         #
 #======================================================================================================================#
 
-# Format of the achievement category name in /aach list (default: "%ICON% %NAME% %ICON%").
+# Format of the achievement category name in /ach list (default: "%ICON% %NAME% %ICON%").
 ListAchievementFormat: "%ICON% %NAME% %ICON%"
 
-# Obfuscate achievements that have not yet been received in /aach list.
+# Obfuscate achievements that have not yet been received in /ach list.
 ObfuscateNotReceived: false
 
 # For Multiple action achievement categories with a series of related achievements, show achievements that have been
@@ -335,28 +334,28 @@ ObfuscateNotReceived: false
 # Once 100 stone have been placed, the 500 stone achievement will become legible.
 ObfuscateProgressiveAchievements: false
 
-# Similar to ObfuscateProgressiveAchievements, but displays not received achievements as locked in /aach list.
+# Similar to ObfuscateProgressiveAchievements, but displays not received achievements as locked in /ach list.
 HideProgressiveAchievements: false
 
-# Hide categories for which a player has not yet received achievements by displaying them as locked in /aach list.
+# Hide categories for which a player has not yet received achievements by displaying them as locked in /ach list.
 HideNotReceivedCategories: false
 
 # Completely hide categories for which the player does not have the matching permission (e.g. achievement.count.beds).
 HideNoPermissionCategories: false
 
-# Hide the reward display in /aach list.
+# Hide the reward display in /ach list.
 HideRewardDisplayInList: false
 
-# Display precise statistic information in the /aach list progress bars.
+# Display precise statistic information in the /ach list progress bars.
 EnrichedListProgressBars: true
 
-# Annotate each achievement displayed in a /aach list category with a number.
+# Annotate each achievement displayed in a /ach list category with a number.
 NumberedItemsInList: false
 
-# Color used for not yet received achievements in /aach list.
+# Color used for not yet received achievements in /ach list.
 ListColorNotReceived: 8
 
-# Italicise not yet received achievements in /aach list. Obfuscated achievements are not affected.
+# Italicise not yet received achievements in /ach list. Obfuscated achievements are not affected.
 ListItaliciseNotReceived: true
 
 # By default, the back button in the GUI returns to the listing of all categories. Use this option if you want to run a
@@ -424,13 +423,13 @@ BungeeMode: false
 Places:
   chest:
     5:
-      # Optional, used in /aach list when achievement not yet received, and in advancements.
+      # Optional, used in /ach list when achievement not yet received, and in advancements.
       Goal: Place 5 chests.
-      # Description, displayed when receiving achievement, and in /aach book and /aach list.
+      # Description, displayed when receiving achievement, and in /ach book and /ach list.
       Message: §6You have placed 5 chests!
-      # Database name, must also be used in /aach delete and /aach check.
+      # Database name, must also be used in /ach delete and /ach check.
       Name: place_5_chest
-      # Displayed when receiving achievement, and in /aach book and /aach list.
+      # Displayed when receiving achievement, and in /ach book and /ach list.
       DisplayName: Storage Expert
       # Used to select the display item for this achievement in gui.yml.
       Type: normal
@@ -528,7 +527,7 @@ Kills:
       Goal: Kill the evil Author.
       Message: Yippie! You killed the author of the plugin!
       Name: kills_1_darkpyves
-      DisplayName:  No More DarkPyves
+      DisplayName: No More DarkPyves
       Type: rare
       Reward:
         IncreaseMaxHealth: 1
@@ -576,11 +575,11 @@ Crafts:
 # '/petm setcolor red' from the PetMaster plugin matches with subcategory 'petm setcolor'. Aliases of a given command
 # will also be taken into account.
 PlayerCommands:
-  aach stats:
+  ach stats:
     10:
       Goal: Check your stats 10x.
       Message: Run the stats command 10 times!
-      Name: playercommand_aachstats_10
+      Name: playercommand_achstats_10
       DisplayName: Statistician
       Type: normal
       Rewards:
@@ -606,6 +605,16 @@ JobsReborn:
       Message: You have reached hunter level 2!
       Name: jobsreborn_1_hunter
       DisplayName: Hunter
+      Type: normal
+
+# Count the maximum level reached in a skill (full skill name in lower case).
+McMMO:
+  fishing:
+    1:
+      Goal: Upgrade your fishing skills!
+      Message: You have reached fishing level 2!
+      Name: mcmmo_1_fishing
+      DisplayName: Fishing
       Type: normal
 
 # Count effects held (effect name in lower case).
@@ -724,7 +733,7 @@ Shear:
 Milk:
   1:
     Goal: Milk a cow.
-    Message: §eJust milked a cow!.... §cMOOW
+    Message: §eJust milked a cow...! §cMOOW
     Name: milk_1
     DisplayName: First Milk
     Type: normal
@@ -1024,7 +1033,7 @@ Riptides:
     DisplayName: Poseidon
     Type: normal
 
-# Count the number of advancements completed. Covers all Vanilla advancements, not only those created by /aach generate.
+# Count the number of advancements completed. Covers all Vanilla advancements, not only those created by /ach generate.
 AdvancementsCompleted:
   20:
     Goal: Complete 20 advancements.
@@ -1055,7 +1064,7 @@ BooksEdited:
 # Allow Commands achievement to be awarded several times.
 MultiCommand: true
 
-# Achievements in this category can be awarded with commands such as use '/aach give yourAch1 PLAYER'. The /aach give
+# Achievements in this category can be awarded with commands such as use '/ach give yourAch1 PLAYER'. The /ach give
 # command does not work with other achievements.
 Commands:
   yourAch1:
@@ -1065,7 +1074,7 @@ Commands:
     DisplayName: Special Event Achievement!
     Type: rare
 
-# Statistics for this category can be increased using commands such as '/aach add 1 Custom.votes PLAYER'.
+# Statistics for this category can be increased using commands such as '/ach add 1 Custom.votes PLAYER'.
 Custom:
   votes:
     10:
@@ -1075,9 +1084,3 @@ Custom:
       Type: normal
       Reward:
         Money: 5
-
-#======================================================================================================================#
-#                                                  FUTURE PAREMETERS                                                   #
-#                                                                                                                      #
-#                          New parameters added in future plugin releases will appear below.                           #
-#======================================================================================================================#

@@ -17,8 +17,8 @@ import com.hm.achievement.db.CacheManager;
  * Listener class to deal with Fertilising achievements.
  *
  * @author Pyves
- *
  */
+
 @Singleton
 public class FertilisingListener extends AbstractListener {
 

@@ -13,10 +13,11 @@ import com.hm.achievement.db.AbstractDatabaseManager;
 import com.hm.achievement.utils.SoundPlayer;
 
 /**
- * Class in charge of handling the /aach month command, which displays monthly rankings.
+ * Class in charge of handling the /ach month command, which displays monthly rankings.
  *
  * @author Pyves
  */
+
 @Singleton
 @CommandSpec(name = "month", permission = "month", minArgs = 1, maxArgs = 2)
 public class MonthCommand extends AbstractRankingCommand {

@@ -3,6 +3,11 @@ package com.hm.achievement.db.data;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
+/**
+ * @author Yurinan
+ * @since 2021/12/15 17:09
+ */
+
 public class ConnectionInformation {
 
 	private static final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("dd/MM/yyyy");

@@ -18,8 +18,8 @@ import com.hm.achievement.db.CacheManager;
  * Listener class to deal with Shear achievements (only sheep are taken into account).
  * 
  * @author Pyves
- *
  */
+
 @Singleton
 public class ShearsListener extends AbstractListener {
 
@@ -37,4 +37,5 @@ public class ShearsListener extends AbstractListener {
 
 		updateStatisticAndAwardAchievementsIfAvailable(event.getPlayer(), 1);
 	}
+
 }

@@ -1,15 +1,15 @@
 name: AdvancedAchievements
 main: com.hm.achievement.AdvancedAchievements
-version: ${project.version}
+version: 8.1.0
 authors: [ DarkPyves, Yurinann ]
 description: Advanced Achievements enables unique and challenging achievements. Try to collect as many as you can, earn rewards, climb the rankings and receive RP books!
-softdepend: [ Vault, PetMaster, Essentials, PlaceholderAPI, Jobs ]
+softdepend: [ Vault, PetMaster, Essentials, PlaceholderAPI, Jobs, mcMMO ]
 website: https://github.com/Yurinann/AdvancedAchievements
 api-version: 1.13
 
 commands:
-  aach:
-    aliases: [ advancedachievements, aachievements, aa ]
+  ach:
+    aliases: [ advancedachievements, achievements ]
     description: Main Advanced Achievements command, use it to list sub-commands.
     usage: /<command>
 
@@ -141,6 +141,7 @@ permissions:
       achievement.count.breeding.*: true
       achievement.count.playercommands.*: true
       achievement.count.jobsreborn.*: true
+      achievement.count.mcmmo.*: true
       achievement.count.custom.*: true
       achievement.count.effectsheld.*: true
   achievement.count.connections:
@@ -299,18 +300,22 @@ permissions:
   achievement.count.jobsreborn.*:
     description: Allows jobs reborn statistics in database to increase.
     default: true
+  achievement.count.mcmmo.*:
+    description: Allows mcMMO statistics in database to increase.
+    default: true
   achievement.count.custom.*:
     description: Allows custom statistics in database to increase.
     default: true
   achievement.count.effectsheld.*:
     description: Allows effects held statistics in database to increase.
     default: true
+
 #======================================================================================================================#
 #                                /!\  Dynamic permissions added at plugin startup  /!\                                 #
 #======================================================================================================================#
 # For individual achievements, simply use the Name property, e.g achievement.place_100_stone
 # For categories with sub-categories (Breaks, Places, Crafts, Kills, Breeding, PlayerCommands, Custom, TargetsShot and EffectsHeld):
 # - use the sub-category key: for example for stone breaks, achievement.count.breaks.stone
-# - for PlayerCommands, use lower case without spaces nor the initial slash: achievement.count.playercommands.aachbook
+# - for PlayerCommands, use lower case without spaces nor the initial slash: achievement.count.playercommands.achbook
 # - for Kills with a custom mob name you should remove any whitespaces: achievement.count.kills.§2SkeletalKnight
 # - for Places with a custom item display name you should also remove any whitespaces.

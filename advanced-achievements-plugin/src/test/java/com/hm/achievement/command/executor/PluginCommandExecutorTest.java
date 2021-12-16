@@ -66,7 +66,7 @@ class PluginCommandExecutorTest {
 		String[] args = { "list" };
 		underTest.onCommand(sender, null, null, args);
 
-		verify(listCommand).execute(sender, args);
+		verify(listCommand).onCommandExecute(sender, args);
 		verifyNoMoreInteractions(listCommand, helpCommand, sender);
 	}
 
@@ -84,7 +84,7 @@ class PluginCommandExecutorTest {
 		String[] noArgs = {};
 		underTest.onCommand(sender, null, null, noArgs);
 
-		verify(helpCommand).execute(sender, noArgs);
+		verify(helpCommand).onCommandExecute(sender, noArgs);
 		verifyNoMoreInteractions(listCommand, helpCommand, sender);
 	}
 
@@ -94,6 +94,6 @@ class PluginCommandExecutorTest {
 		String[] expected = { "inspect", "one", "two", "three", "four" };
 		underTest.onCommand(sender, null, null, args);
 
-		verify(argsCommand).execute(sender, expected);
+		verify(argsCommand).onCommandExecute(sender, expected);
 	}
 }

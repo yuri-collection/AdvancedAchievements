@@ -6,8 +6,8 @@ import com.hm.achievement.category.Category;
  * Small wrapper to define a ordering between the categories.
  * 
  * @author Pyves
- *
  */
+
 public class OrderedCategory implements Comparable<OrderedCategory> {
 
 	private final int order;
@@ -30,4 +30,5 @@ public class OrderedCategory implements Comparable<OrderedCategory> {
 	public int compareTo(OrderedCategory o) {
 		return Integer.compare(getOrder(), o.getOrder());
 	}
+
 }

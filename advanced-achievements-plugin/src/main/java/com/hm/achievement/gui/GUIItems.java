@@ -1,11 +1,6 @@
 package com.hm.achievement.gui;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -30,14 +25,18 @@ import com.hm.achievement.utils.StringHelper;
 /**
  * Class providing all the items displayed in the GUIs.
  * 
- * @author Pyves
+ * @author Pyves, Yurinann
+ * @since 2021/12/15 17:25
  */
+
 @Singleton
 public class GUIItems implements Reloadable {
 
 	private final Map<OrderedCategory, ItemStack> orderedAchievementItems = new TreeMap<>();
 
-	// Various other item stacks displayed in the GUI.
+	/**
+	 * Various other item stacks displayed in the GUI.
+	 */
 	private ItemStack previousButton;
 	private ItemStack nextButton;
 	private ItemStack backButton;
@@ -101,10 +100,10 @@ public class GUIItems implements Reloadable {
 		achievementNotStartedDefault = new ItemStack(Material.RED_TERRACOTTA, 1);
 		achievementStartedDefault = new ItemStack(Material.YELLOW_TERRACOTTA, 1);
 		achievementReceivedDefault = new ItemStack(Material.LIME_TERRACOTTA, 1);
-		for (String type : guiConfig.getConfigurationSection("AchievementNotStarted").getKeys(false)) {
+		for (String type : Objects.requireNonNull(guiConfig.getConfigurationSection("AchievementNotStarted")).getKeys(false)) {
 			achievementNotStarted.put(type, createItemStack("AchievementNotStarted." + type));
 		}
-		for (String type : guiConfig.getConfigurationSection("AchievementStarted").getKeys(false)) {
+		for (String type : Objects.requireNonNull(guiConfig.getConfigurationSection("AchievementStarted")).getKeys(false)) {
 			achievementStarted.put(type, createItemStack("AchievementStarted." + type));
 		}
 		for (String type : guiConfig.getConfigurationSection("AchievementReceived").getKeys(false)) {
@@ -142,11 +141,12 @@ public class GUIItems implements Reloadable {
 		ItemStack button = createItemStack(category);
 		ItemMeta meta = button.getItemMeta();
 		String displayName = ChatColor.translateAlternateColorCodes('&',
-				StringEscapeUtils.unescapeJava(langConfig.getString(msg)));
+				Objects.requireNonNull(StringEscapeUtils.unescapeJava(langConfig.getString(msg))));
+		assert meta != null;
 		meta.setDisplayName(displayName);
 		if (lore != null) {
 			String loreString = ChatColor.translateAlternateColorCodes('&',
-					StringEscapeUtils.unescapeJava(langConfig.getString(lore)));
+					Objects.requireNonNull(StringEscapeUtils.unescapeJava(langConfig.getString(lore))));
 			if (!loreString.isEmpty()) {
 				meta.setLore(Collections.singletonList(loreString));
 			}
@@ -168,10 +168,12 @@ public class GUIItems implements Reloadable {
 		String displayName = langConfig.getString(langKey);
 		// Construct title of the category item.
 		if (StringUtils.isBlank(displayName)) {
+			assert itemMeta != null;
 			itemMeta.setDisplayName("");
 		} else {
 			String formattedDisplayName = StringUtils.replaceEach(configListAchievementFormat,
 					new String[] { "%ICON%", "%NAME%" }, new String[] { configIcon, "&l" + displayName + "&8" });
+			assert itemMeta != null;
 			itemMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', formattedDisplayName));
 		}
 		item.setItemMeta(itemMeta);

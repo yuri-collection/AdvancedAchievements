@@ -18,6 +18,7 @@ import com.hm.achievement.db.CacheManager;
  * 
  * @author Taavi Väänänen
  */
+
 @Singleton
 public class WinRaidListener extends AbstractListener {
 
@@ -31,4 +32,5 @@ public class WinRaidListener extends AbstractListener {
 	public void onRaidFinish(RaidFinishEvent event) {
 		event.getWinners().forEach(player -> updateStatisticAndAwardAchievementsIfAvailable(player, 1));
 	}
+
 }

@@ -17,8 +17,8 @@ import com.hm.achievement.db.CacheManager;
  * Listener class to deal with Advancement achievements.
  * 
  * @author Ghoti_Mayo
- *
  */
+
 @Singleton
 public class AdvancementsCompletedListener extends AbstractListener {
 
@@ -32,4 +32,5 @@ public class AdvancementsCompletedListener extends AbstractListener {
 	public void onPlayerDoneAdvancement(PlayerAdvancementDoneEvent event) {
 		updateStatisticAndAwardAchievementsIfAvailable(event.getPlayer(), 1);
 	}
+
 }

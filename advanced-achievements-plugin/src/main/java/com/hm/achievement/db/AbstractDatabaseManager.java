@@ -48,7 +48,9 @@ public abstract class AbstractDatabaseManager implements Reloadable {
 
 	volatile String prefix;
 
-	// Connection to the database; remains opened and shared.
+	/**
+	 * Connection to the database; remains opened and shared.
+	 */
 	private final AtomicReference<Connection> connectionHolder = new AtomicReference<>();
 	private final DatabaseUpdater databaseUpdater;
 
@@ -70,6 +72,7 @@ public abstract class AbstractDatabaseManager implements Reloadable {
 		configBookChronologicalOrder = mainConfig.getBoolean("BookChronologicalOrder");
 		String localeString = mainConfig.getString("DateLocale");
 		boolean dateDisplayTime = mainConfig.getBoolean("DateDisplayTime");
+		assert localeString != null;
 		Locale locale = new Locale(localeString);
 		if (dateDisplayTime) {
 			dateFormat = DateFormat.getDateTimeInstance(DateFormat.MEDIUM, DateFormat.SHORT, locale);

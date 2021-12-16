@@ -24,8 +24,8 @@ import com.hm.achievement.db.CacheManager;
  * Listener class to deal with Places achievements.
  * 
  * @author Pyves
- *
  */
+
 @Singleton
 public class PlacesListener extends AbstractListener {
 
@@ -57,4 +57,5 @@ public class PlacesListener extends AbstractListener {
 
 		updateStatisticAndAwardAchievementsIfAvailable(player, subcategories, 1);
 	}
+
 }

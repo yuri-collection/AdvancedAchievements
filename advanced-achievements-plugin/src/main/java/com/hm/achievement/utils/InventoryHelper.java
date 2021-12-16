@@ -6,6 +6,11 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
 
+/**
+ * @author Yurinan
+ * @since 2021/12/15 17:57
+ */
+
 public class InventoryHelper {
 
 	/**
@@ -41,4 +46,5 @@ public class InventoryHelper {
 	private InventoryHelper() {
 		// Not called.
 	}
+
 }

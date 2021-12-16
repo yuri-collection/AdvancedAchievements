@@ -57,6 +57,8 @@ PlayerCommands:
   Item: paper
 JobsReborn:
   Item: netherite_scrap
+McMMO:
+  Item: gold_ingot
 Connections:
   Item: oak_door
 Deaths:
@@ -153,9 +155,3 @@ Custom:
   Item: feather
 Commands:
   Item: bookshelf
-
-#======================================================================================================================#
-#                                                  FUTURE PAREMETERS                                                   #
-#                                                                                                                      #
-#                          New parameters added in future plugin releases will appear below.                           #
-#======================================================================================================================#

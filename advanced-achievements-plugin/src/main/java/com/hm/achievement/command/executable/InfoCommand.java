@@ -13,11 +13,14 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import com.hm.achievement.AdvancedAchievements;
 import com.hm.achievement.config.RewardParser;
 
+import java.util.Objects;
+
 /**
- * Class in charge of displaying the plugin's extra information (/aach info).
+ * Class in charge of displaying the plugin's extra information (/ach info).
  *
  * @author Pyves
  */
+
 @Singleton
 @CommandSpec(name = "info", permission = "", minArgs = 1, maxArgs = 1)
 public class InfoCommand extends AbstractCommand {
@@ -50,7 +53,7 @@ public class InfoCommand extends AbstractCommand {
 	public void extractConfigurationParameters() {
 		super.extractConfigurationParameters();
 
-		ChatColor configColor = ChatColor.getByChar(mainConfig.getString("Color"));
+		ChatColor configColor = ChatColor.getByChar(Objects.requireNonNull(mainConfig.getString("Color")));
 		String configIcon = StringEscapeUtils.unescapeJava(mainConfig.getString("Icon"));
 		configDatabaseType = mainConfig.getString("DatabaseType");
 

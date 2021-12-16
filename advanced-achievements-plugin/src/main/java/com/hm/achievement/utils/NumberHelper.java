@@ -5,6 +5,7 @@ package com.hm.achievement.utils;
  * 
  * @author Pyves
  */
+
 public class NumberHelper {
 
 	/**

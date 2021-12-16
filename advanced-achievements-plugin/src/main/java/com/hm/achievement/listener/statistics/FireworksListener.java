@@ -26,8 +26,8 @@ import com.hm.achievement.db.CacheManager;
  * Listener class to deal with Fireworks achievements.
  *
  * @author Pyves
- *
  */
+
 @Singleton
 public class FireworksListener extends AbstractListener {
 
@@ -95,4 +95,5 @@ public class FireworksListener extends AbstractListener {
 		}
 		return !forbiddenFireworkBlocks.contains(clickedBlock.getType().name());
 	}
+
 }

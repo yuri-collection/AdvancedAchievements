@@ -17,6 +17,11 @@ import com.hm.achievement.category.MultipleAchievements;
 import com.hm.achievement.config.AchievementMap;
 import com.hm.achievement.db.CacheManager;
 
+/**
+ * @author Yurinan
+ * @since 2021/12/15 17:43
+ */
+
 @Singleton
 public class EffectsHeldListener extends AbstractListener {
 
@@ -43,4 +48,5 @@ public class EffectsHeldListener extends AbstractListener {
 		addMatchingSubcategories(subcategories, effectName);
 		updateStatisticAndAwardAchievementsIfAvailable(player, subcategories, 1);
 	}
+
 }

@@ -8,6 +8,7 @@ import java.util.UUID;
  *
  * @author Pyves
  */
+
 public class AwardedAchievement {
 
 	private final Achievement achievement;

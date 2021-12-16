@@ -8,6 +8,11 @@ import org.bukkit.Bukkit;
 import dagger.Module;
 import dagger.Provides;
 
+/**
+ * @author Yurinan
+ * @since 2021/12/15 17:54
+ */
+
 @Module
 public class ServerVersionModule {
 

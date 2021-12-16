@@ -17,8 +17,8 @@ import net.md_5.bungee.api.chat.hover.content.Text;
  * methods are static and this class cannot be instanciated.
  * 
  * @author Pyves
- *
  */
+
 @Singleton
 public final class FancyMessageSender {
 

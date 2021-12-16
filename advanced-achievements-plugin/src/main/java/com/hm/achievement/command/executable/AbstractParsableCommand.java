@@ -9,11 +9,12 @@ import org.bukkit.entity.Player;
 import com.hm.achievement.command.external.CommandUtils;
 
 /**
- * Abstract class in charge of factoring out common functionality for commands with more than one argument (/aach give,
+ * Abstract class in charge of factoring out common functionality for commands with more than one argument (/ach give,
  * delete and check).
  *
  * @author Pyves
  */
+
 public abstract class AbstractParsableCommand extends AbstractCommand {
 
 	private String langPlayerOffline;
@@ -78,4 +79,5 @@ public abstract class AbstractParsableCommand extends AbstractCommand {
 		}
 		return achievementName.toString();
 	}
+
 }

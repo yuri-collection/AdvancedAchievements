@@ -15,11 +15,14 @@ import com.hm.achievement.category.NormalAchievements;
 import com.hm.achievement.config.AchievementMap;
 import com.hm.achievement.db.CacheManager;
 
+import java.util.Objects;
+
 /**
  * Listener class to deal with LavaBuckets achievements.
  *
  * @author Pyves
  */
+
 @Singleton
 public class LavaBucketsListener extends AbstractRateLimitedListener {
 
@@ -32,8 +35,9 @@ public class LavaBucketsListener extends AbstractRateLimitedListener {
 
 	@EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
 	public void onPlayerBucketFill(PlayerBucketFillEvent event) {
-		if (event.getItemStack().getType() == Material.LAVA_BUCKET) {
+		if (Objects.requireNonNull(event.getItemStack()).getType() == Material.LAVA_BUCKET) {
 			updateStatisticAndAwardAchievementsIfAvailable(event.getPlayer(), 1);
 		}
 	}
+
 }

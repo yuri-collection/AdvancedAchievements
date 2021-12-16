@@ -4,6 +4,11 @@ import org.bukkit.ChatColor;
 import org.bukkit.Color;
 import org.bukkit.boss.BarColor;
 
+/**
+ * @author Yurinan
+ * @since 2021/12/15 17:56
+ */
+
 public class ColorHelper {
 
 	public static Color convertChatColorToColor(ChatColor chatColor) {

@@ -5,11 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
@@ -39,8 +35,10 @@ import com.hm.achievement.utils.StringHelper;
  * Class in charge of parsing the config.yml, lang.yml and gui.yml configuration files. It loads the files and populates
  * common data structures used in other parts of the plugin. Basic validation is performed on the achievements.
  *
- * @author Pyves
+ * @author Pyves, Yurinann
+ * @since 2021/12/15 17:04
  */
+
 public class ConfigurationParser {
 
 	private final YamlConfiguration mainConfig;
@@ -98,7 +96,7 @@ public class ConfigurationParser {
 	 */
 	private Set<String> getSectionKeys(String path) {
 		return this.mainConfig.isConfigurationSection(path)
-				? this.mainConfig.getConfigurationSection(path).getKeys(false)
+				? Objects.requireNonNull(this.mainConfig.getConfigurationSection(path)).getKeys(false)
 				: Collections.emptySet();
 	}
 
@@ -128,6 +126,7 @@ public class ConfigurationParser {
 			if (!configFile.exists()) {
 				configFile.getParentFile().mkdir();
 				try (InputStream defaultConfig = plugin.getResource(userConfigName)) {
+					assert defaultConfig != null;
 					Files.copy(defaultConfig, configFile.toPath());
 				}
 			}
@@ -146,10 +145,10 @@ public class ConfigurationParser {
 		pluginHeader.setLength(0);
 		String icon = StringEscapeUtils.unescapeJava(mainConfig.getString("Icon"));
 		if (StringUtils.isNotBlank(icon)) {
-			String coloredIcon = ChatColor.getByChar(mainConfig.getString("Color")) + icon;
+			String coloredIcon = ChatColor.getByChar(Objects.requireNonNull(mainConfig.getString("Color"))) + icon;
 			pluginHeader
 					.append(ChatColor.translateAlternateColorCodes('&',
-							StringUtils.replace(mainConfig.getString("ChatHeader"), "%ICON%", coloredIcon)))
+							Objects.requireNonNull(StringUtils.replace(mainConfig.getString("ChatHeader"), "%ICON%", coloredIcon))))
 					.append(" ");
 		}
 		pluginHeader.trimToSize();
@@ -179,6 +178,14 @@ public class ConfigurationParser {
 			logger.warning("Overriding configuration: disabling JobsReborn category.");
 			logger.warning(
 					"Ensure you have placed JobsReborn in your plugins folder or add JobsReborn to the DisabledCategories list in config.yml.");
+		}
+		// Need McMMO for McMMO category.
+		if (!disabledCategories.contains(MultipleAchievements.MCMMO)
+				&& !Bukkit.getPluginManager().isPluginEnabled("mcMMO")) {
+			disabledCategories.add(MultipleAchievements.MCMMO);
+			logger.warning("Overriding configuration: disabling McMMO category.");
+			logger.warning(
+					"Ensure you have placed mcMMO in your plugins folder or add McMMO to the DisabledCategories list in config.yml.");
 		}
 		// Raids introduced in 1.14.
 		if (!disabledCategories.contains(NormalAchievements.RAIDSWON) && serverVersion < 14) {
@@ -272,7 +279,7 @@ public class ConfigurationParser {
 	}
 
 	private List<Long> getSortedThresholds(String path) {
-		return mainConfig.getConfigurationSection(path).getKeys(false).stream()
+		return Objects.requireNonNull(mainConfig.getConfigurationSection(path)).getKeys(false).stream()
 				.map(Long::parseLong)
 				.sorted()
 				.collect(Collectors.toList());
@@ -297,6 +304,7 @@ public class ConfigurationParser {
 			path = category + "." + subcategory + "." + threshold;
 		}
 		ConfigurationSection section = mainConfig.getConfigurationSection(path);
+		assert section != null;
 		if (!section.contains("Name")) {
 			throw new PluginLoadError("Achievement with path (" + path + ") is missing its Name parameter in config.yml.");
 		} else if (achievementMap.getForName(section.getString("Name")) != null) {
@@ -330,7 +338,7 @@ public class ConfigurationParser {
 
 		if (!disabledCategories.isEmpty()) {
 			String noun = disabledCategoryCount == 1 ? "category" : "categories";
-			logger.info(disabledCategoryCount + " disabled " + noun + ": " + disabledCategories.toString());
+			logger.info(disabledCategoryCount + " disabled " + noun + ": " + disabledCategories);
 		}
 	}
 

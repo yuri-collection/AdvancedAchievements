@@ -19,8 +19,8 @@ import com.hm.achievement.exception.PluginLoadError;
  * Class used to update the database schema.
  * 
  * @author Pyves
- *
  */
+
 @Singleton
 public class DatabaseUpdater {
 

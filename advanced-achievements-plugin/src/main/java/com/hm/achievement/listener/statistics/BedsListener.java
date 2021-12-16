@@ -18,8 +18,8 @@ import com.hm.achievement.db.CacheManager;
  * Listener class to deal with Beds achievements.
  * 
  * @author Pyves
- *
  */
+
 @Singleton
 public class BedsListener extends AbstractRateLimitedListener {
 

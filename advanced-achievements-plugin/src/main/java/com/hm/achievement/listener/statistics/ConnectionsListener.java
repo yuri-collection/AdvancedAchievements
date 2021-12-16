@@ -25,8 +25,8 @@ import com.hm.achievement.db.data.ConnectionInformation;
  * barely connected player.
  * 
  * @author Pyves
- *
  */
+
 @Singleton
 public class ConnectionsListener extends AbstractListener {
 
@@ -76,4 +76,5 @@ public class ConnectionsListener extends AbstractListener {
 			}
 		});
 	}
+
 }

@@ -12,10 +12,11 @@ import org.bukkit.entity.Player;
 import com.hm.achievement.db.CacheManager;
 
 /**
- * Class in charge of handling the /aach check command, which checks whether a player has received an achievement.
+ * Class in charge of handling the /ach check command, which checks whether a player has received an achievement.
  * 
  * @author Pyves
  */
+
 @Singleton
 @CommandSpec(name = "check", permission = "check", minArgs = 3, maxArgs = Integer.MAX_VALUE)
 public class CheckCommand extends AbstractParsableCommand {
@@ -53,4 +54,5 @@ public class CheckCommand extends AbstractParsableCommand {
 					new String[] { args[args.length - 1], achievementName }));
 		}
 	}
+
 }

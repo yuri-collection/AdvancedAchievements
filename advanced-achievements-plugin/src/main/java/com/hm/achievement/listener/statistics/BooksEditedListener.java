@@ -18,8 +18,8 @@ import com.hm.achievement.db.CacheManager;
  * Listener class to deal with BooksEdited achievements.
  * 
  * @author Pyves
- *
  */
+
 @Singleton
 public class BooksEditedListener extends AbstractRateLimitedListener {
 

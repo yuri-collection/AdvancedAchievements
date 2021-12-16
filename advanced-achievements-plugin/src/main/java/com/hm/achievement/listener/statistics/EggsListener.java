@@ -17,8 +17,8 @@ import com.hm.achievement.db.CacheManager;
  * Listener class to deal with Eggs achievements.
  * 
  * @author Pyves
- *
  */
+
 @Singleton
 public class EggsListener extends AbstractListener {
 
@@ -32,4 +32,5 @@ public class EggsListener extends AbstractListener {
 	public void onPlayerEggThrow(PlayerEggThrowEvent event) {
 		updateStatisticAndAwardAchievementsIfAvailable(event.getPlayer(), 1);
 	}
+
 }

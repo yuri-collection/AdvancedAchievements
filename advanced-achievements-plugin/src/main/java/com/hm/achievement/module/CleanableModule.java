@@ -16,6 +16,11 @@ import dagger.Binds;
 import dagger.Module;
 import dagger.multibindings.IntoSet;
 
+/**
+ * @author Yurinan
+ * @since 2021/12/15 17:51
+ */
+
 @Module
 public interface CleanableModule {
 
@@ -58,4 +63,5 @@ public interface CleanableModule {
 	@Binds
 	@IntoSet
 	Cleanable bindBooksEditedListener(BooksEditedListener booksEditedListener);
+
 }

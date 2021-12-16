@@ -23,8 +23,8 @@ import com.hm.achievement.db.CacheManager;
  * connected player.
  * 
  * @author Pyves
- *
  */
+
 @Singleton
 public class JoinListener implements Listener {
 
@@ -69,14 +69,14 @@ public class JoinListener implements Listener {
 			}
 			Advancement advancement = Bukkit.getAdvancement(new NamespacedKey(advancedAchievements,
 					AdvancementManager.ADVANCED_ACHIEVEMENTS_PARENT));
-			// If no parent, /aach generate has not been run on server, do not do anything.
+			// If no parent, /ach generate has not been run on server, do not do anything.
 			if (advancement != null) {
 				AdvancementProgress advancementProgress = player.getAdvancementProgress(advancement);
 				if (!advancementProgress.isDone()) {
 					advancementProgress.awardCriteria(AchievementAdvancement.CRITERIA_NAME);
 				}
 				for (String name : cacheManager.getPlayerAchievements(player.getUniqueId())) {
-					// May be null if /aach generate has not been called since that achievement was added to the config.
+					// May be null if /ach generate has not been called since that achievement was added to the config.
 					advancement = Bukkit.getAdvancement(new NamespacedKey(advancedAchievements,
 							AdvancementManager.getKey(name)));
 					if (advancement != null) {

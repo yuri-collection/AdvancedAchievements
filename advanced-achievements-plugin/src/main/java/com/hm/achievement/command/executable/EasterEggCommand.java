@@ -8,11 +8,12 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.YamlConfiguration;
 
 /**
- * Class in charge of handling the /aach hcaa command, which displays a small easter egg in the in-game chat. Run it and
+ * Class in charge of handling the /ach hcaa command, which displays a small easter egg in the in-game chat. Run it and
  * you'll see what all this mess is about
  * 
  * @author Pyves
  */
+
 @Singleton
 @CommandSpec(name = "hcaa", permission = "easteregg", minArgs = 1, maxArgs = 1)
 public class EasterEggCommand extends AbstractCommand {
@@ -90,4 +91,5 @@ public class EasterEggCommand extends AbstractCommand {
 		sender.sendMessage(
 				"§7\u2592§5\u2592§5\u2592§5\u2592§5\u2592§7\u2592§7\u2592§5\u2592§5\u2592§5\u2592§5\u2592§7\u2592§7\u2592§7\u2592§7\u2592§7\u2592§7\u2592§7\u2592§7\u2592§7\u2592§7\u2592§5\u2592§5\u2592§5\u2592§5\u2592§7\u2592§7\u2592§5\u2592§5\u2592§5\u2592§5\u2592§7\u2592§r");
 	}
+
 }

@@ -16,6 +16,7 @@ import com.hm.achievement.domain.AwardedAchievement;
  *
  * @author Pyves
  */
+
 public interface AdvancedAchievementsAPI {
 
 	/**

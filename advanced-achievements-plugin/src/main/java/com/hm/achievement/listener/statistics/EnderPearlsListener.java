@@ -17,8 +17,8 @@ import com.hm.achievement.db.CacheManager;
  * Listener class to deal with EnderPearls achievements.
  * 
  * @author Pyves
- *
  */
+
 @Singleton
 public class EnderPearlsListener extends AbstractListener {
 
@@ -36,4 +36,5 @@ public class EnderPearlsListener extends AbstractListener {
 
 		updateStatisticAndAwardAchievementsIfAvailable(event.getPlayer(), 1);
 	}
+
 }

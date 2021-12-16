@@ -25,6 +25,7 @@ import com.hm.achievement.lifecycle.Reloadable;
  * 
  * @author Pyves
  */
+
 @Singleton
 public class StatisticIncreaseHandler implements Reloadable {
 

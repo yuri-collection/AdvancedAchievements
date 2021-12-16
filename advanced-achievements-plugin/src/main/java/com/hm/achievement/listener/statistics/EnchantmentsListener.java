@@ -17,8 +17,8 @@ import com.hm.achievement.db.CacheManager;
  * Listener class to deal with Enchantments achievements.
  * 
  * @author Pyves
- *
  */
+
 @Singleton
 public class EnchantmentsListener extends AbstractListener {
 
@@ -32,4 +32,5 @@ public class EnchantmentsListener extends AbstractListener {
 	public void onEnchantItem(EnchantItemEvent event) {
 		updateStatisticAndAwardAchievementsIfAvailable(event.getEnchanter(), 1);
 	}
+
 }

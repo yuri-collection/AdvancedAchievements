@@ -18,8 +18,8 @@ import com.hm.mcshared.event.PlayerChangeAnimalOwnershipEvent;
  * Listener class to deal with PetMasterGive achievements.
  * 
  * @author Pyves
- *
  */
+
 @Singleton
 public class PetMasterGiveListener extends AbstractListener {
 
@@ -38,4 +38,5 @@ public class PetMasterGiveListener extends AbstractListener {
 
 		updateStatisticAndAwardAchievementsIfAvailable((Player) event.getOldOwner(), 1);
 	}
+
 }

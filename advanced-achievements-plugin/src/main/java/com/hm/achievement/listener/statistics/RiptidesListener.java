@@ -13,6 +13,11 @@ import com.hm.achievement.category.NormalAchievements;
 import com.hm.achievement.config.AchievementMap;
 import com.hm.achievement.db.CacheManager;
 
+/**
+ * @author Yurinan
+ * @since 2021/12/15 17:47
+ */
+
 @Singleton
 public class RiptidesListener extends AbstractListener {
 
@@ -26,4 +31,5 @@ public class RiptidesListener extends AbstractListener {
 	public void onPlayerRiptide(PlayerRiptideEvent event) {
 		updateStatisticAndAwardAchievementsIfAvailable(event.getPlayer(), 1);
 	}
+
 }

@@ -14,8 +14,8 @@ import com.hm.achievement.AdvancedAchievements;
  * Class used to handle a SQLite database.
  *
  * @author Pyves
- *
  */
+
 public class SQLiteDatabaseManager extends AbstractFileDatabaseManager {
 
 	public SQLiteDatabaseManager(@Named("main") YamlConfiguration mainConfig, Logger logger, DatabaseUpdater databaseUpdater,

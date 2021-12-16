@@ -6,10 +6,13 @@ import java.util.Map;
 /**
  * List of standard achievements.
  *
- * @author Pyves
+ * @author Pyves, Yurinann
+ * @since 2021/12/16 14:21
  */
+
 public enum NormalAchievements implements Category {
 
+	// Normal Achievements
 	CONNECTIONS("Connections"),
 	DEATHS("Deaths"),
 	ARROWS("Arrows"),
@@ -58,7 +61,7 @@ public enum NormalAchievements implements Category {
 	private static final Map<String, NormalAchievements> CATEGORY_NAMES_TO_ENUM = new HashMap<>();
 	static {
 		for (NormalAchievements category : NormalAchievements.values()) {
-			CATEGORY_NAMES_TO_ENUM.put(category.categoryName, category);
+			CATEGORY_NAMES_TO_ENUM.put(category.categoryName.toUpperCase(), category);
 		}
 	}
 
@@ -79,7 +82,7 @@ public enum NormalAchievements implements Category {
 	 * @return a category or null if not found
 	 */
 	public static NormalAchievements getByName(String categoryName) {
-		return CATEGORY_NAMES_TO_ENUM.get(categoryName);
+		return CATEGORY_NAMES_TO_ENUM.get(categoryName.toUpperCase());
 	}
 
 	@Override
@@ -102,4 +105,5 @@ public enum NormalAchievements implements Category {
 	public String toPermName() {
 		return permName;
 	}
+
 }

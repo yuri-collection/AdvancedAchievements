@@ -18,8 +18,8 @@ import com.hm.achievement.db.CacheManager;
  * Listener class to deal with Taming achievements.
  * 
  * @author Pyves
- *
  */
+
 @Singleton
 public class TamesListener extends AbstractListener {
 
@@ -37,4 +37,5 @@ public class TamesListener extends AbstractListener {
 
 		updateStatisticAndAwardAchievementsIfAvailable((Player) event.getOwner(), 1);
 	}
+
 }

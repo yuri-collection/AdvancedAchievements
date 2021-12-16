@@ -2,6 +2,7 @@ package com.hm.achievement.command.pagination;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
@@ -18,8 +19,10 @@ import org.bukkit.configuration.file.YamlConfiguration;
  * Wrapping in the chat box is difficult to calculate since the Minecraft font is not monospaced so 'w' and 'i' are
  * different width, as well as unicode characters which are their own special category.
  *
- * @author Rsl1122
+ * @author Rsl1122, Yurinann
+ * @since 2021/12/15 17:04
  */
+
 public class SupplierCommandPagination extends CommandPagination {
 
 	private final List<Supplier<String>> toPaginate;
@@ -45,12 +48,12 @@ public class SupplierCommandPagination extends CommandPagination {
 
 	@Override
 	public void sendPage(int page, Consumer<String> to) {
-		int pageToSend = page > maxPage ? maxPage : page;
+		int pageToSend = Math.min(page, maxPage);
 
 		String header = ChatColor.translateAlternateColorCodes('&',
-				StringUtils.replaceEach(langConfig.getString("pagination-header"), new String[] { "PAGE", "MAX" },
-						new String[] { Integer.toString(pageToSend), Integer.toString(maxPage) }));
-		String footer = ChatColor.translateAlternateColorCodes('&', langConfig.getString("pagination-footer"));
+				Objects.requireNonNull(StringUtils.replaceEach(langConfig.getString("pagination-header"), new String[]{"PAGE", "MAX"},
+						new String[]{Integer.toString(pageToSend), Integer.toString(maxPage)})));
+		String footer = ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(langConfig.getString("pagination-footer")));
 
 		to.accept(header);
 

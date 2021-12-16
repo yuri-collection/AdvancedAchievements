@@ -4,6 +4,11 @@ import java.util.Set;
 
 import javax.inject.Inject;
 
+/**
+ * @author Yurinan
+ * @since 2021/12/15 17:27
+ */
+
 public class Cleaner implements Runnable {
 
 	private final Set<Cleanable> cleanables;

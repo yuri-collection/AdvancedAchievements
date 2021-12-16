@@ -17,11 +17,12 @@ import com.hm.achievement.db.CacheManager;
 import com.hm.achievement.utils.StringHelper;
 
 /**
- * Class in charge of handling the /aach reset command, which resets the statistics for a given player and achievement
+ * Class in charge of handling the /ach reset command, which resets the statistics for a given player and achievement
  * category.
  * 
  * @author Pyves
  */
+
 @Singleton
 @CommandSpec(name = "reset", permission = "reset", minArgs = 3, maxArgs = 3)
 public class ResetCommand extends AbstractParsableCommand {

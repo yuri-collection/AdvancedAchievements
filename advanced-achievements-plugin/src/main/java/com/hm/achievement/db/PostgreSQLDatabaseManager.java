@@ -19,8 +19,8 @@ import com.hm.achievement.db.data.ConnectionInformation;
  * from other database types.
  * 
  * @author Pyves
- *
  */
+
 public class PostgreSQLDatabaseManager extends AbstractRemoteDatabaseManager {
 
 	public PostgreSQLDatabaseManager(@Named("main") YamlConfiguration mainConfig, Logger logger,

@@ -12,6 +12,7 @@ import com.hm.achievement.domain.Achievement;
  *
  * @author Pyves
  */
+
 public class PlayerAdvancedAchievementEvent extends Event implements Cancellable {
 
 	private static final HandlerList HANDLERS = new HandlerList();

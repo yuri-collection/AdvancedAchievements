@@ -1,5 +1,6 @@
 package com.hm.achievement.utils;
 
+import java.util.Objects;
 import java.util.Optional;
 import java.util.logging.Logger;
 
@@ -16,6 +17,7 @@ import org.bukkit.potion.PotionType;
  * 
  * @author Pyves
  */
+
 @Singleton
 public class MaterialHelper {
 
@@ -72,7 +74,7 @@ public class MaterialHelper {
 		if (itemStack.getType() != Material.POTION) {
 			return false;
 		}
-		return ((PotionMeta) itemStack.getItemMeta()).getBasePotionData().getType() != PotionType.WATER;
+		return ((PotionMeta) Objects.requireNonNull(itemStack.getItemMeta())).getBasePotionData().getType() != PotionType.WATER;
 	}
 
 }

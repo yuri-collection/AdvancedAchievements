@@ -21,10 +21,11 @@ import com.hm.achievement.lifecycle.Reloadable;
 import dagger.Lazy;
 
 /**
- * Class in charge of handling the /aach reload command, which reloads the plugin's configuration files.
+ * Class in charge of handling the /ach reload command, which reloads the plugin's configuration files.
  *
  * @author Pyves
  */
+
 @Singleton
 @CommandSpec(name = "reload", permission = "reload", minArgs = 1, maxArgs = 1)
 public class ReloadCommand extends AbstractCommand {

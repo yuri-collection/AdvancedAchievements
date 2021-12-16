@@ -5,6 +5,11 @@ import java.util.function.Consumer;
 
 import org.bukkit.entity.Player;
 
+/**
+ * @author Yurinan
+ * @since 2021/12/15 18:04
+ */
+
 public class Reward {
 
 	private final List<String> listTexts;

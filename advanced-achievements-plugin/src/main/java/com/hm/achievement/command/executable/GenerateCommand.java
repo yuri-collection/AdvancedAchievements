@@ -10,7 +10,7 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import com.hm.achievement.advancement.AdvancementManager;
 
 /**
- * Class in charge of handling the /aach generate command, which creates advancements for the achievements defined in
+ * Class in charge of handling the /ach generate command, which creates advancements for the achievements defined in
  * the plugin's configuration.
  * 
  * @author Pyves
@@ -43,4 +43,5 @@ public class GenerateCommand extends AbstractCommand {
 
 		sender.sendMessage(langAdvancementsGenerated);
 	}
+
 }

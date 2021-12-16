@@ -13,6 +13,11 @@ import org.junit.jupiter.params.provider.EnumSource;
 import org.junit.jupiter.params.provider.EnumSource.Mode;
 import org.junit.jupiter.params.provider.MethodSource;
 
+/**
+ * @author Yurinan
+ * @since 2021/12/15 18:09
+ */
+
 class ColorHelperTest {
 
 	@ParameterizedTest

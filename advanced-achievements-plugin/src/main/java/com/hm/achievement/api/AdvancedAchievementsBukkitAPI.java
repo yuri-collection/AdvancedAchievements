@@ -28,6 +28,7 @@ import com.hm.achievement.utils.StatisticIncreaseHandler;
  *
  * @author Pyves
  */
+
 @Singleton
 public class AdvancedAchievementsBukkitAPI implements AdvancedAchievementsAPI {
 

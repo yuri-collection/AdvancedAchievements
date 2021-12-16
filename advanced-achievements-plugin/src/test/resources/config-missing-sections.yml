@@ -1,6 +1,6 @@
 #=============================================================#
 
-# Time in seconds between each /aach book (unless user has permission achievement.*).
+# Time in seconds between each /ach book (unless user has permission achievement.*).
 TimeBook: 900
 
 # Set to true to activate firework effects when a player receives an achievement.

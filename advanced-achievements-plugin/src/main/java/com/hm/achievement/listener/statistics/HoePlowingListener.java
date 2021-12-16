@@ -24,8 +24,8 @@ import com.hm.achievement.db.CacheManager;
  * Listener class to deal with HoePlowings achievements.
  *
  * @author Pyves
- *
  */
+
 @Singleton
 public class HoePlowingListener extends AbstractListener {
 
@@ -59,4 +59,5 @@ public class HoePlowingListener extends AbstractListener {
 
 		updateStatisticAndAwardAchievementsIfAvailable(event.getPlayer(), 1);
 	}
+
 }

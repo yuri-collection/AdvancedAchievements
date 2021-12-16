@@ -28,10 +28,11 @@ import com.hm.achievement.gui.GUIItems;
 import com.hm.achievement.gui.MainGUI;
 
 /**
- * Listener class to deal with the GUIs from the /aach list command.
+ * Listener class to deal with the GUIs from the /ach list command.
  *
  * @author Pyves
  */
+
 public class ListGUIListener implements Listener {
 
 	private final YamlConfiguration mainConfig;
@@ -101,4 +102,5 @@ public class ListGUIListener implements Listener {
 	private int getMainGUIItemCount() {
 		return NormalAchievements.values().length + MultipleAchievements.values().length - disabledCategories.size() + 1;
 	}
+
 }

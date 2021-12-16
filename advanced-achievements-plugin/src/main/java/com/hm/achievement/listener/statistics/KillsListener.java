@@ -24,8 +24,8 @@ import com.hm.achievement.db.CacheManager;
  * Listener class to deal with Kills achievements.
  * 
  * @author Pyves
- *
  */
+
 @Singleton
 public class KillsListener extends AbstractListener {
 
@@ -66,4 +66,5 @@ public class KillsListener extends AbstractListener {
 
 		updateStatisticAndAwardAchievementsIfAvailable(player, subcategories, 1);
 	}
+
 }

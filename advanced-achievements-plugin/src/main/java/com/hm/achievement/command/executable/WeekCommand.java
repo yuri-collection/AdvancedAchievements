@@ -13,10 +13,11 @@ import com.hm.achievement.db.AbstractDatabaseManager;
 import com.hm.achievement.utils.SoundPlayer;
 
 /**
- * Class in charge of handling the /aach week command, which displays weekly rankings.
+ * Class in charge of handling the /ach week command, which displays weekly rankings.
  *
  * @author Pyves
  */
+
 @Singleton
 @CommandSpec(name = "week", permission = "week", minArgs = 1, maxArgs = 2)
 public class WeekCommand extends AbstractRankingCommand {

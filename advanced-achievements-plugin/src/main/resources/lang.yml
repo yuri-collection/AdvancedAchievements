@@ -13,13 +13,13 @@ no-permissions: "You do not have the permission to do this."
 statistic-cooldown: "Achievements cooldown: wait TIME seconds before this action counts again."
 category-does-not-exist: "The category and/or sub-category CAT does not exist. Did you mean CLOSEST_MATCH?"
 all-achievements-received: "Congratulations, you have received all the achievements!"
-invalid-command: "Invalid command. Please type /aach to display the command help."
+invalid-command: "Invalid command. Please type /ach to display the command help."
 
-# Used in /aach reload.
+# Used in /ach reload.
 configuration-successfully-reloaded: "Configuration successfully reloaded."
 configuration-reload-failed: "Errors while reloading configuration. Please view logs for more details."
 
-# Used in /aach top week and month.
+# Used in /ach top week and month.
 top-achievement: "Top achievement owners:"
 player-rank: "Current rank:"
 week-achievement: "Weekly achievement rankings:"
@@ -28,17 +28,17 @@ not-ranked: "You are currently not ranked for this period."
 pagination-header: "&7> &5Page PAGE/MAX"
 pagination-footer: "&7>"
 
-# Used in /aach stats.
+# Used in /ach stats.
 number-achievements: "Achievements received:"
 
-# Used in /aach book.
+# Used in /ach book.
 book-received: "You received your achievements book!"
 book-delay: "You must wait TIME seconds between each book reception!"
 book-name: "Achievements Book"
 book-date: "Book created on DATE."
 book-not-received: "You have not yet received any achievements."
 
-# Used in /aach give.
+# Used in /ach give.
 player-offline: "The player PLAYER is offline!"
 not-a-player: "You cannot give achievements to ENTITY, it is not a player!"
 achievement-already-received: "The player PLAYER has already received this achievement!"
@@ -46,7 +46,7 @@ achievement-not-found: "The specified achievement was not found in Commands cate
 achievement-given: "Achievement given!"
 achievement-no-permission: "The player PLAYER does not have permission to receive this achievement!"
 
-# Used in /aach add.
+# Used in /ach add.
 error-value: "The value VALUE must to be an integer!"
 statistic-increased: "Statistic ACH increased by AMOUNT for PLAYER!"
 
@@ -55,11 +55,11 @@ achievement-received: "PLAYER received the achievement: ACH"
 achievement-new: "New Achievement: ACH"
 boss-bar-progress: "Achievement progress: AMOUNT"
 
-# Used in /aach check.
+# Used in /ach check.
 check-achievement-true: "PLAYER has received the achievement ACH!"
 check-achievements-false: "PLAYER has not received the achievement ACH!"
 
-# Used in /aach delete.
+# Used in /ach delete.
 delete-achievements: "The achievement ACH was deleted from PLAYER."
 delete-all-achievements: "All achievements were deleted from PLAYER."
 
@@ -71,42 +71,42 @@ experience-reward-received: "You received: AMOUNT experience!"
 increase-max-health-reward-received: "Your max health has increased by AMOUNT!"
 increase-max-oxygen-reward-received: "Your max oxygen has increased by AMOUNT!"
 
-# Used in /aach help.
-aach-command-book: "Receive your achievements book."
-aach-command-book-hover: "RP items you can collect and exchange with others! Time-based listing."
-aach-command-stats: "Display amount of received achievements."
-aach-command-stats-hover: "Progress bar. Gotta catch 'em all!"
-aach-command-list: "Display received and missing achievements."
-aach-command-list-hover: "Fancy GUI to get an overview of all achievements and your progress!"
-aach-command-top: "Display personal and global rankings."
-aach-command-top-hover: "Who are the server's leaders and how do you compare to them?"
-aach-command-give: "Give achievement ACH to NAME."
-aach-command-give-hover: "Player must be online; only Commands achievements can be used."
-aach-command-add: "Increase a statistic."
-aach-command-add-hover: "Player must be online; mainly used for Custom Categories."
-aach-command-reload: "Reload the plugin's configuration."
-aach-command-reload-hover: "Reload most settings in config.yml, gui.yml and lang.yml files."
-aach-command-info: "Display information about the plugin."
-aach-command-info-hover: "Some extra info about the plugin and its awesome author!"
-aach-command-check: "Check if NAME has ACH."
-aach-command-check-hover: "Use the Name parameter specified in the config."
-aach-command-delete: "Delete ACH from NAME."
-aach-command-delete-hover: "Player must be online; does not reset any associated statistics."
-aach-command-week: "Display weekly rankings."
-aach-command-week-hover: "Best achievement hunters since the start of the week!"
-aach-command-month: "Display monthly rankings."
-aach-command-month-hover: "Best achievement hunters since the start of the month!"
-aach-command-toggle: "Toggle achievements of other players."
-aach-command-toggle-hover: "Your choice is saved until next server restart!"
-aach-command-reset: "Reset statistic for category CAT."
-aach-command-reset-hover: "Player must be online; example: reset Places.stone DarkPyves"
-aach-command-generate: "Generate advancements."
-aach-command-generate-hover: "Potentially slow command; use with care!"
-aach-command-inspect: "Inspect recipients of ACH."
-aach-command-inspect-hover: "Lists most recent recipients of an achievement, max 1000."
-aach-tip: "&lHINT &8You can &7&n&ohover&8 or &7&n&oclick&8 on the commands!"
+# Used in /ach help.
+ach-command-list: "Display received and missing achievements."
+ach-command-list-hover: "Fancy GUI to get an overview of all achievements and your progress!"
+ach-command-top: "Display personal and global rankings."
+ach-command-top-hover: "Who are the server's leaders and how do you compare to them?"
+ach-command-info: "Display information about the plugin."
+ach-command-info-hover: "Some extra info about the plugin and its awesome author!"
+ach-command-book: "Receive your achievements book."
+ach-command-book-hover: "RP items you can collect and exchange with others! Time-based listing."
+ach-command-week: "Display weekly rankings."
+ach-command-week-hover: "Best achievement hunters since the start of the week!"
+ach-command-stats: "Display amount of received achievements."
+ach-command-stats-hover: "Progress bar. Gotta catch 'em all!"
+ach-command-month: "Display monthly rankings."
+ach-command-month-hover: "Best achievement hunters since the start of the month!"
+ach-command-toggle: "Toggle achievements of other players."
+ach-command-toggle-hover: "Your choice is saved until next server restart!"
+ach-command-reload: "Reload the plugin's configuration."
+ach-command-reload-hover: "Reload most settings in config.yml, gui.yml and lang.yml files."
+ach-command-generate: "Generate advancements."
+ach-command-generate-hover: "Potentially slow command; use with care!"
+ach-command-give: "Give achievement ACH to NAME."
+ach-command-give-hover: "Player must be online; only Commands achievements can be used."
+ach-command-inspect: "Inspect recipients of ACH."
+ach-command-inspect-hover: "Lists most recent recipients of an achievement, max 1000."
+ach-command-add: "Increase a statistic."
+ach-command-add-hover: "Player must be online; mainly used for Custom Categories."
+ach-command-reset: "Reset statistic for category CAT."
+ach-command-reset-hover: "Player must be online; example: reset Places.stone DarkPyves"
+ach-command-check: "Check if NAME has ACH."
+ach-command-check-hover: "Use the Name parameter specified in the config."
+ach-command-delete: "Delete ACH from NAME."
+ach-command-delete-hover: "Player must be online; does not reset any associated statistics."
+ach-tip: "&lHINT &8You can &7&n&ohover&8 or &7&n&oclick&8 on the commands!"
 
-# Used in /aach info.
+# Used in /ach info.
 version-command-version: "Version:"
 version-command-website: "Website:"
 version-command-author: "Author:"
@@ -118,7 +118,7 @@ version-command-essentials: "Essentials integration:"
 version-command-placeholderapi: "PlaceholderAPI integration:"
 version-command-database: "Database type:"
 
-# Used in /aach list.
+# Used in /ach list.
 list-gui-title: "&5&lAchievements List"
 list-delay: "You must wait TIME seconds between each list command!"
 list-description: "Description:"
@@ -146,8 +146,8 @@ list-achievements-in-category-singular: "AMOUNT achievement"
 list-achievements-in-category-plural: "AMOUNT achievements"
 list-unavailable-whilst-sleeping: "&c&lYou cannot open the Achievements List whilst sleeping."
 
-# Used in category names in /aach list.
-# Set a parameter to "" to hide it from /aach list (but not disable the category).
+# Used in category names in /ach list.
+# Set a parameter to "" to hide it from /ach list (but not disable the category).
 list-connections: "Connections"
 list-places: "Blocks Placed"
 list-breaks: "Blocks Broken"
@@ -200,26 +200,20 @@ list-targetsshot: "Targets Shot"
 list-raids-won: "Raids Won"
 list-riptides: "Riptides Used"
 list-jobsreborn: "Jobs Level-Up"
-list-advancements-completed: "Advancements Completed"
 list-booksedited: "Books Edited"
 list-effectsheld: "Effects Held"
+list-advancements-completed: "Advancements Completed"
 
-# Used in /aach toggle.
+# Used in /ach toggle.
 toggle-displayed: "You will now be notified when other players get achievements."
 toggle-hidden: "You will no longer be notified when other players get achievements."
 
-# Used in /aach reset.
+# Used in /ach reset.
 reset-successful: "CAT statistics were cleared for PLAYER."
 reset-all-successful: "All statistics were cleared for PLAYER."
 
-# Used in /aach generate.
+# Used in /ach generate.
 advancements-generated: "Advancements were successfully generated."
 
-# Used in /aach inspect
+# Used in /ach inspect
 achievement-not-recognized: "Achievement called 'NAME' was not recognized. Did you mean CLOSEST_MATCH?"
-
-#======================================================================================================================#
-#                                                  FUTURE PAREMETERS                                                   #
-#                                                                                                                      #
-#                          New parameters added in future plugin releases will appear below.                           #
-#======================================================================================================================#

@@ -18,8 +18,8 @@ import com.hm.achievement.db.CacheManager;
  * Listener class to deal with MaxLevel achievements.
  * 
  * @author Pyves
- *
  */
+
 @Singleton
 public class LevelsListener extends AbstractListener {
 

@@ -26,8 +26,8 @@ import com.hm.achievement.utils.MaterialHelper;
  * Listener class to deal with Brewing achievements.
  * 
  * @author Pyves
- *
  */
+
 @Singleton
 public class BrewingListener extends AbstractRateLimitedListener {
 
@@ -71,4 +71,5 @@ public class BrewingListener extends AbstractRateLimitedListener {
 	private boolean isBrewablePotion(ItemStack item) {
 		return item != null && (materialHelper.isAnyPotionButWater(item) || item.getType() == Material.SPLASH_POTION);
 	}
+
 }

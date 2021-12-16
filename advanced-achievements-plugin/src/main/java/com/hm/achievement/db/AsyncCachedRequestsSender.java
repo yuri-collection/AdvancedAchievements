@@ -20,8 +20,8 @@ import com.hm.achievement.category.NormalAchievements;
  * Class used to write the modified cached statistics to the database.
  * 
  * @author Pyves
- *
  */
+
 public class AsyncCachedRequestsSender implements Runnable {
 
 	private final Logger logger;

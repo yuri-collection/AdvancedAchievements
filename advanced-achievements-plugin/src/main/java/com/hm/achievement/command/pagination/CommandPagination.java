@@ -1,6 +1,7 @@
 package com.hm.achievement.command.pagination;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.function.Consumer;
 
 import org.apache.commons.lang3.StringUtils;
@@ -18,7 +19,9 @@ import org.bukkit.configuration.file.YamlConfiguration;
  * different width, as well as unicode characters which are their own special category.
  *
  * @author Rsl1122
+ * @since 2021/12/15 17:04
  */
+
 public class CommandPagination {
 
 	private final List<String> toPaginate;
@@ -42,12 +45,12 @@ public class CommandPagination {
 	}
 
 	public void sendPage(int page, Consumer<String> to) {
-		int pageToSend = page > maxPage ? maxPage : page;
+		int pageToSend = Math.min(page, maxPage);
 
 		String header = ChatColor.translateAlternateColorCodes('&',
-				StringUtils.replaceEach(langConfig.getString("pagination-header"), new String[] { "PAGE", "MAX" },
-						new String[] { Integer.toString(pageToSend), Integer.toString(maxPage) }));
-		String footer = ChatColor.translateAlternateColorCodes('&', langConfig.getString("pagination-footer"));
+				Objects.requireNonNull(StringUtils.replaceEach(langConfig.getString("pagination-header"), new String[]{"PAGE", "MAX"},
+						new String[]{Integer.toString(pageToSend), Integer.toString(maxPage)})));
+		String footer = ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(langConfig.getString("pagination-footer")));
 
 		to.accept(header);
 

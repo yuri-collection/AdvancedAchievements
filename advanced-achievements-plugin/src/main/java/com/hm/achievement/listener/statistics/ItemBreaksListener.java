@@ -17,8 +17,8 @@ import com.hm.achievement.db.CacheManager;
  * Listener class to deal with ItemBreaks achievements.
  * 
  * @author Pyves
- *
  */
+
 @Singleton
 public class ItemBreaksListener extends AbstractListener {
 
@@ -32,4 +32,5 @@ public class ItemBreaksListener extends AbstractListener {
 	public void onPlayerItemBreak(PlayerItemBreakEvent event) {
 		updateStatisticAndAwardAchievementsIfAvailable(event.getPlayer(), 1);
 	}
+
 }

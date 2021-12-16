@@ -24,8 +24,8 @@ import com.hm.achievement.utils.InventoryHelper;
  * Listener class to deal with Smelting achievements.
  * 
  * @author Pyves
- *
  */
+
 @Singleton
 public class SmeltingListener extends AbstractListener {
 
@@ -56,4 +56,5 @@ public class SmeltingListener extends AbstractListener {
 
 		updateStatisticAndAwardAchievementsIfAvailable(player, eventAmount);
 	}
+
 }

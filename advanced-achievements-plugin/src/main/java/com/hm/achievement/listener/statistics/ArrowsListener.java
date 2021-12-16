@@ -18,8 +18,8 @@ import com.hm.achievement.db.CacheManager;
  * Listener class to deal with Arrows achievements.
  * 
  * @author Pyves
- *
  */
+
 @Singleton
 public class ArrowsListener extends AbstractListener {
 
@@ -37,4 +37,5 @@ public class ArrowsListener extends AbstractListener {
 
 		updateStatisticAndAwardAchievementsIfAvailable((Player) event.getEntity(), 1);
 	}
+
 }

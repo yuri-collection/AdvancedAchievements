@@ -10,6 +10,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -20,6 +21,11 @@ import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.YamlConfiguration;
 
 import com.hm.achievement.AdvancedAchievements;
+
+/**
+ * @author Yurinan
+ * @since 2021/12/15 17:08
+ */
 
 public class YamlUpdater {
 
@@ -43,7 +49,7 @@ public class YamlUpdater {
 	public void update(String defaultConfigName, String userConfigName, YamlConfiguration userConfig)
 			throws InvalidConfigurationException, IOException {
 		try (BufferedReader defaultConfigReader = new BufferedReader(
-				new InputStreamReader(plugin.getResource(defaultConfigName), UTF_8))) {
+				new InputStreamReader(Objects.requireNonNull(plugin.getResource(defaultConfigName)), UTF_8))) {
 			List<String> defaultLines = defaultConfigReader.lines().collect(Collectors.toList());
 			YamlConfiguration defaultConfig = new YamlConfiguration();
 			defaultConfig.loadFromString(StringUtils.join(defaultLines, System.lineSeparator()));

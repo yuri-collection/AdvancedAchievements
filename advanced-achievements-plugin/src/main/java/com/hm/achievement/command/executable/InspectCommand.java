@@ -31,10 +31,11 @@ import com.hm.achievement.domain.Achievement;
 import com.hm.achievement.utils.StringHelper;
 
 /**
- * Class in charge of displaying recipients of an achievement (/aach inspect).
+ * Class in charge of displaying recipients of an achievement (/ach inspect).
  *
  * @author Rsl1122
  */
+
 @Singleton
 @CommandSpec(name = "inspect", permission = "inspect", minArgs = 1, maxArgs = Integer.MAX_VALUE)
 public class InspectCommand extends AbstractCommand {

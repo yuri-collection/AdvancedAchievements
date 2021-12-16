@@ -1,6 +1,7 @@
 package com.hm.achievement.listener.statistics;
 
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 import javax.inject.Inject;
@@ -21,8 +22,8 @@ import com.hm.achievement.db.CacheManager;
  * Listener class to deal with Treasures achievements.
  * 
  * @author Pyves
- *
  */
+
 @Singleton
 public class TreasuresListener extends AbstractListener {
 
@@ -47,10 +48,11 @@ public class TreasuresListener extends AbstractListener {
 	@EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
 	public void onPlayerFish(PlayerFishEvent event) {
 		if (event.getState() != PlayerFishEvent.State.CAUGHT_FISH
-				|| fishableFish.contains(((Item) event.getCaught()).getItemStack().getType().name())) {
+				|| fishableFish.contains(((Item) Objects.requireNonNull(event.getCaught())).getItemStack().getType().name())) {
 			return;
 		}
 
 		updateStatisticAndAwardAchievementsIfAvailable(event.getPlayer(), 1);
 	}
+
 }

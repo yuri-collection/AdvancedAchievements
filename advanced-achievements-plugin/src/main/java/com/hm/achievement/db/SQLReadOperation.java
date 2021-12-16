@@ -10,6 +10,7 @@ import java.sql.SQLException;
  * @param <T>
  * @author Pyves
  */
+
 @FunctionalInterface
 public interface SQLReadOperation<T> {
 

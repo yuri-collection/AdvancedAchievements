@@ -21,10 +21,11 @@ import com.hm.achievement.command.executable.DeleteCommand;
 import com.hm.achievement.command.executable.EasterEggCommand;
 import com.hm.achievement.command.executable.ResetCommand;
 import com.hm.achievement.config.AchievementMap;
+import org.jetbrains.annotations.NotNull;
 
 /**
- * Class in charge of handling auto-completion for achievements and categories when using /aach check, /aach reset,
- * /aach give or /aach delete commands.
+ * Class in charge of handling auto-completion for achievements and categories when using /ach check, /ach reset,
+ * /ach give or /ach delete commands.
  *
  * @author Pyves
  */
@@ -43,28 +44,29 @@ public class CommandTabCompleter implements TabCompleter {
 	}
 
 	@Override
-	public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
+	public List<String> onTabComplete(@NotNull CommandSender sender, @NotNull Command command, @NotNull String alias, String[] args) {
 		if (shouldReturnPlayerList(command, args)) {
-			return null; // Complete with players.
+			// Complete with players.
+			return null;
 		}
 
-		String aachCommand = args[0];
+		String achCommand = args[0];
 		Collection<String> options = Collections.emptyList();
-		if (args.length == 2 && "reset".equalsIgnoreCase(aachCommand)) {
+		if (args.length == 2 && "reset".equalsIgnoreCase(achCommand)) {
 			options = new HashSet<>(achievementMap.getCategorySubcategories());
 			options.add(ResetCommand.WILDCARD);
-		} else if (args.length == 2 && "give".equalsIgnoreCase(aachCommand)) {
+		} else if (args.length == 2 && "give".equalsIgnoreCase(achCommand)) {
 			options = achievementMap.getSubcategoriesForCategory(CommandAchievements.COMMANDS);
-		} else if (args.length == 2 && "check".equalsIgnoreCase(aachCommand)) {
+		} else if (args.length == 2 && "check".equalsIgnoreCase(achCommand)) {
 			options = achievementMap.getAllNames();
-		} else if (args.length == 2 && "delete".equalsIgnoreCase(aachCommand)) {
+		} else if (args.length == 2 && "delete".equalsIgnoreCase(achCommand)) {
 			options = new HashSet<>(achievementMap.getAllNames());
 			options.add(DeleteCommand.WILDCARD);
-		} else if (args.length == 2 && "inspect".equalsIgnoreCase(aachCommand)) {
+		} else if (args.length == 2 && "inspect".equalsIgnoreCase(achCommand)) {
 			options = achievementMap.getAllSanitisedDisplayNames();
-		} else if (args.length == 2 && "add".equalsIgnoreCase(aachCommand)) {
+		} else if (args.length == 2 && "add".equalsIgnoreCase(achCommand)) {
 			options = Collections.singleton("1");
-		} else if (args.length == 3 && "add".equalsIgnoreCase(aachCommand)) {
+		} else if (args.length == 3 && "add".equalsIgnoreCase(achCommand)) {
 			options = achievementMap.getCategorySubcategories();
 		} else if (args.length == 1) {
 			options = commandSpecs.stream()
@@ -78,14 +80,12 @@ public class CommandTabCompleter implements TabCompleter {
 	 * Returns a partial list based on the input set. Members of the returned list must start with what the player has
 	 * types so far.
 	 *
-	 * @param options
-	 * @param prefix
 	 * @return a list containing elements matching the prefix.
 	 */
 	private List<String> getPartialList(Collection<String> options, String prefix) {
 		// Find matching options
 		// Replace spaces with an Open Box character to prevent completing wrong word. Prevented Behaviour:
-		// T -> Tamer -> Teleport Man -> Teleport The Avener -> Teleport The The Smelter
+		// T -> Tamer -> Teleport Man -> Teleport The Avener -> Teleport The Smelter
 		// Sort matching elements by alphabetical order.
 		return options.stream()
 				.filter(s1 -> s1.toLowerCase().startsWith(prefix.toLowerCase()))
@@ -95,8 +95,9 @@ public class CommandTabCompleter implements TabCompleter {
 	}
 
 	private boolean shouldReturnPlayerList(Command command, String[] args) {
-		return !"aach".equals(command.getName())
+		return !"ach".equals(command.getName())
 				|| args.length == 3 && StringUtils.equalsAnyIgnoreCase(args[0], "give", "reset", "check", "delete")
 				|| args.length == 4 && "add".equalsIgnoreCase(args[0]);
 	}
+
 }

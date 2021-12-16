@@ -17,14 +17,14 @@ import javax.inject.Named;
 import org.bukkit.configuration.file.YamlConfiguration;
 
 import com.hm.achievement.AdvancedAchievements;
-import com.hm.achievement.exception.PluginLoadError;
 
 /**
  * Class used to handle a file-backed database.
  *
- * @author Pyves
- *
+ * @author Pyves, Yurinann
+ * @since 2021/12/15 17:04
  */
+
 public class AbstractFileDatabaseManager extends AbstractDatabaseManager {
 
 	private final AdvancedAchievements advancedAchievements;
@@ -41,7 +41,8 @@ public class AbstractFileDatabaseManager extends AbstractDatabaseManager {
 	}
 
 	@Override
-	void performPreliminaryTasks() throws ClassNotFoundException, PluginLoadError {
+	void performPreliminaryTasks() throws ClassNotFoundException {
+
 		Class.forName(driverPath);
 
 		if (mainConfig.getBoolean("DatabaseBackup")) {
@@ -56,10 +57,12 @@ public class AbstractFileDatabaseManager extends AbstractDatabaseManager {
 				}
 			}
 		}
+
 	}
 
 	@Override
 	Connection createConnection() throws SQLException {
 		return DriverManager.getConnection(url);
 	}
+
 }

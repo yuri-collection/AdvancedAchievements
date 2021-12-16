@@ -5,7 +5,6 @@ import java.util.logging.Logger;
 
 import javax.inject.Singleton;
 
-import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import com.hm.achievement.api.AdvancedAchievementsAPI;
@@ -29,10 +28,11 @@ import dagger.Component;
  * 
  * @author Pyves
  */
+
 public class AdvancedAchievements extends JavaPlugin {
 
 	private PluginLoader pluginLoader;
-	private AdvancedAchievementsAPI advancedAchievementsAPI;
+	private AdvancedAchievementsAPI advancedachievementsAPI;
 
 	@Override
 	public void onEnable() {
@@ -43,14 +43,14 @@ public class AdvancedAchievements extends JavaPlugin {
 				.advancedAchievements(this).logger(getLogger()).build();
 
 		pluginLoader = advancedAchievementsComponent.pluginLoader();
-		advancedAchievementsAPI = advancedAchievementsComponent.advancedAchievementsBukkitAPI();
+		advancedachievementsAPI = advancedAchievementsComponent.advancedAchievementsBukkitAPI();
 
 		try {
 			pluginLoader.loadAdvancedAchievements();
 		} catch (PluginLoadError e) {
 			getLogger().log(Level.SEVERE,
 					"A non recoverable error was encountered while loading the plugin, disabling it:", e);
-			Bukkit.getPluginManager().disablePlugin(this);
+			getServer().getPluginManager().disablePlugin(this);
 			return;
 		}
 
@@ -64,7 +64,7 @@ public class AdvancedAchievements extends JavaPlugin {
 	}
 
 	public AdvancedAchievementsAPI getAdvancedAchievementsAPI() {
-		return advancedAchievementsAPI;
+		return advancedachievementsAPI;
 	}
 }
 

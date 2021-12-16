@@ -2,6 +2,7 @@ package com.hm.achievement.command.external;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -19,14 +20,17 @@ import org.bukkit.entity.minecart.CommandMinecart;
 import org.bukkit.scoreboard.Objective;
 import org.bukkit.scoreboard.Team;
 
+/**
+ * @author Yurinan
+ * @since 2021/12/15 16:56
+ */
+
 public class CommandUtils {
 
 	/**
 	 * The CommandUtils class is used for selector support in commands (@p, @a etc.) Originally made by ZombieStriker
 	 * https://github.com/ZombieStriker/PsudoCommands/blob/master/src/me/zombie_striker/psudocommands/CommandUtils.java
-	 */
-
-	/**
+	 *
 	 * Use this if you are unsure if a player provided the "@a" tag. This will allow multiple entities to be retrieved.
 	 * <p>
 	 * This can return a null variable if no tags are included, or if a value for a tag does not exist (I.e if the tag
@@ -40,7 +44,7 @@ public class CommandUtils {
 	 * @param arg the argument that we are testing for
 	 * @param sender the sender of the command
 	 * @return The entities that match the criteria
-	 * @p , @a , @e , @r
+	 *    .@p , @a , @e , @r
 	 *    <p>
 	 *    Currently supports the selectors: [type=] [r=] [rm=] [c=] [w=] [m=] [name=] [l=] [lm=] [h=] [hm=] [rx=] [rxm=]
 	 *    [ry=] [rym=] [team=] [score_---=] [score_---_min=] [x] [y] [z] [limit=] [x_rotation] [y_rotation]
@@ -63,10 +67,13 @@ public class CommandUtils {
 		// prefab fix
 		for (String s : tags) {
 			if (hasTag(SelectorType.X, s)) {
+				assert loc != null;
 				loc.setX(getInt(s));
 			} else if (hasTag(SelectorType.Y, s)) {
+				assert loc != null;
 				loc.setY(getInt(s));
 			} else if (hasTag(SelectorType.Z, s)) {
+				assert loc != null;
 				loc.setZ(getInt(s));
 			}
 		}
@@ -75,8 +82,8 @@ public class CommandUtils {
 			ents = new Entity[1];
 			if (sender instanceof Player) {
 				boolean good = true;
-				for (int b = 0; b < tags.length; b++) {
-					if (!canBeAccepted(tags[b], (Entity) sender, loc)) {
+				for (String tag : tags) {
+					if (canBeAccepted(tag, (Entity) sender, loc)) {
 						good = false;
 						break;
 					}
@@ -108,11 +115,12 @@ public class CommandUtils {
 				}
 			}
 			for (Entity e : ea) {
-				if (listOfValidEntities.size() >= C)
+				if (listOfValidEntities.size() >= C) {
 					break;
+				}
 				boolean isValid = true;
-				for (int b = 0; b < tags.length; b++) {
-					if (!canBeAccepted(tags[b], e, loc)) {
+				for (String tag : tags) {
+					if (canBeAccepted(tag, e, loc)) {
 						isValid = false;
 						break;
 					}
@@ -122,7 +130,7 @@ public class CommandUtils {
 				}
 			}
 
-			ents = listOfValidEntities.toArray(new Entity[listOfValidEntities.size()]);
+			ents = listOfValidEntities.toArray(new Entity[0]);
 
 		} else if (arg.startsWith("@p")) {
 			ents = new Entity[1];
@@ -131,16 +139,18 @@ public class CommandUtils {
 
 			for (World w : getAcceptedWorldsFullString(loc, arg)) {
 				for (Player e : w.getPlayers()) {
-					if (e == sender)
+					if (e == sender) {
 						continue;
+					}
 					Location temp = loc;
-					if (temp == null)
+					if (temp == null) {
 						temp = e.getWorld().getSpawnLocation();
+					}
 					double distance = e.getLocation().distanceSquared(temp);
 					if (closestInt > distance) {
 						boolean good = true;
 						for (String tag : tags) {
-							if (!canBeAccepted(tag, e, temp)) {
+							if (canBeAccepted(tag, e, temp)) {
 								good = false;
 								break;
 							}
@@ -158,13 +168,15 @@ public class CommandUtils {
 			int C = getLimit(arg);
 			for (World w : getAcceptedWorldsFullString(loc, arg)) {
 				for (Entity e : w.getEntities()) {
-					if (entities.size() > C)
+					if (entities.size() > C) {
 						break;
-					if (e == sender)
+					}
+					if (e == sender) {
 						continue;
+					}
 					boolean valid = true;
 					for (String tag : tags) {
-						if (!canBeAccepted(tag, e, loc)) {
+						if (canBeAccepted(tag, e, loc)) {
 							valid = false;
 							break;
 						}
@@ -174,7 +186,7 @@ public class CommandUtils {
 					}
 				}
 			}
-			ents = entities.toArray(new Entity[entities.size()]);
+			ents = entities.toArray(new Entity[0]);
 		} else if (arg.startsWith("@r")) {
 			Random r = ThreadLocalRandom.current();
 			ents = new Entity[1];
@@ -185,25 +197,27 @@ public class CommandUtils {
 					for (Entity e : w.getEntities()) {
 						boolean good = true;
 						for (String tag : tags) {
-							if (!canBeAccepted(tag, e, loc)) {
+							if (canBeAccepted(tag, e, loc)) {
 								good = false;
 								break;
 							}
 						}
-						if (good)
+						if (good) {
 							validEntities.add(e);
+						}
 					}
 				} else {
 					for (Entity e : Bukkit.getOnlinePlayers()) {
 						boolean good = true;
 						for (String tag : tags) {
-							if (!canBeAccepted(tag, e, loc)) {
+							if (canBeAccepted(tag, e, loc)) {
 								good = false;
 								break;
 							}
 						}
-						if (good)
+						if (good) {
 							validEntities.add(e);
+						}
 					}
 				}
 			}
@@ -226,8 +240,10 @@ public class CommandUtils {
 	 */
 	public static Entity getTarget(CommandSender sender, String arg) {
 		Entity[] e = getTargets(sender, arg);
-		if (e.length == 0)
+		assert e != null;
+		if (e.length == 0) {
 			return null;
+		}
 		return e[0];
 	}
 
@@ -276,64 +292,88 @@ public class CommandUtils {
 	}
 
 	private static boolean canBeAccepted(String arg, Entity e, Location loc) {
-		if (hasTag(SelectorType.X_ROTATION, arg) && isWithinYaw(arg, e))
-			return true;
-		if (hasTag(SelectorType.Y_ROTATION, arg) && isWithinPitch(arg, e))
-			return true;
-		if (hasTag(SelectorType.TYPE, arg) && isType(arg, e))
-			return true;
-		if (hasTag(SelectorType.NAME, arg) && isName(arg, e))
-			return true;
-		if (hasTag(SelectorType.TEAM, arg) && isTeam(arg, e))
-			return true;
-		if (hasTag(SelectorType.SCORE_FULL, arg) && isScore(arg, e))
-			return true;
-		if (hasTag(SelectorType.SCORE_MIN, arg) && isScoreMin(arg, e))
-			return true;
-		if (hasTag(SelectorType.SCORE_13, arg) && isScoreWithin(arg, e))
-			return true;
-		if (hasTag(SelectorType.DISTANCE, arg) && isWithinDistance(arg, loc, e))
-			return true;
-		if (hasTag(SelectorType.LEVEL, arg) && isWithinLevel(arg, e))
-			return true;
-		if (hasTag(SelectorType.TAG, arg) && isHasTags(arg, e))
-			return true;
-		if (hasTag(SelectorType.RYM, arg) && isRYM(arg, e))
-			return true;
-		if (hasTag(SelectorType.RXM, arg) && isRXM(arg, e))
-			return true;
-		if (hasTag(SelectorType.HM, arg) && isHM(arg, e))
-			return true;
-		if (hasTag(SelectorType.RY, arg) && isRY(arg, e))
-			return true;
-		if (hasTag(SelectorType.RX, arg) && isRX(arg, e))
-			return true;
-		if (hasTag(SelectorType.RM, arg) && isRM(arg, loc, e))
-			return true;
-		if (hasTag(SelectorType.LMax, arg) && isLM(arg, e))
-			return true;
-		if (hasTag(SelectorType.L, arg) && isL(arg, e))
-			return true;
-		if (hasTag(SelectorType.m, arg) && isM(arg, e))
-			return true;
-		if (hasTag(SelectorType.H, arg) && isH(arg, e))
-			return true;
-		if (hasTag(SelectorType.World, arg) && isW(arg))
-			return true;
-		if (hasTag(SelectorType.R, arg) && isR(arg, loc, e))
-			return true;
-		if (hasTag(SelectorType.X, arg))
-			return true;
-		if (hasTag(SelectorType.Y, arg))
-			return true;
-		if (hasTag(SelectorType.Z, arg))
-			return true;
-		return false;
+		if (hasTag(SelectorType.X_ROTATION, arg) && isWithinYaw(arg, e)) {
+			return false;
+		}
+		if (hasTag(SelectorType.Y_ROTATION, arg) && isWithinPitch(arg, e)) {
+			return false;
+		}
+		if (hasTag(SelectorType.TYPE, arg) && isType(arg, e)) {
+			return false;
+		}
+		if (hasTag(SelectorType.NAME, arg) && isName(arg, e)) {
+			return false;
+		}
+		if (hasTag(SelectorType.TEAM, arg) && isTeam(arg, e)) {
+			return false;
+		}
+		if (hasTag(SelectorType.SCORE_FULL, arg) && isScore(arg, e)) {
+			return false;
+		}
+		if (hasTag(SelectorType.SCORE_MIN, arg) && isScoreMin(arg, e)) {
+			return false;
+		}
+		if (hasTag(SelectorType.SCORE_13, arg) && isScoreWithin(arg, e)) {
+			return false;
+		}
+		if (hasTag(SelectorType.DISTANCE, arg) && isWithinDistance(arg, loc, e)) {
+			return false;
+		}
+		if (hasTag(SelectorType.LEVEL, arg) && isWithinLevel(arg, e)) {
+			return false;
+		}
+		if (hasTag(SelectorType.TAG, arg) && isHasTags(arg, e)) {
+			return false;
+		}
+		if (hasTag(SelectorType.RYM, arg) && isRYM(arg, e)) {
+			return false;
+		}
+		if (hasTag(SelectorType.RXM, arg) && isRXM(arg, e)) {
+			return false;
+		}
+		if (hasTag(SelectorType.HM, arg) && isHM(arg, e)) {
+			return false;
+		}
+		if (hasTag(SelectorType.RY, arg) && isRY(arg, e)) {
+			return false;
+		}
+		if (hasTag(SelectorType.RX, arg) && isRX(arg, e)) {
+			return false;
+		}
+		if (hasTag(SelectorType.RM, arg) && isRM(arg, loc, e)) {
+			return false;
+		}
+		if (hasTag(SelectorType.LMax, arg) && isLM(arg, e)) {
+			return false;
+		}
+		if (hasTag(SelectorType.L, arg) && isL(arg, e)) {
+			return false;
+		}
+		if (hasTag(SelectorType.m, arg) && isM(arg, e)) {
+			return false;
+		}
+		if (hasTag(SelectorType.H, arg) && isH(arg, e)) {
+			return false;
+		}
+		if (hasTag(SelectorType.World, arg) && isW(arg)) {
+			return false;
+		}
+		if (hasTag(SelectorType.R, arg) && isR(arg, loc, e)) {
+			return false;
+		}
+		if (hasTag(SelectorType.X, arg)) {
+			return false;
+		}
+		if (hasTag(SelectorType.Y, arg)) {
+			return false;
+		}
+		return !hasTag(SelectorType.Z, arg);
 	}
 
 	private static String[] getTags(String arg) {
-		if (!arg.contains("["))
+		if (!arg.contains("[")) {
 			return new String[0];
+		}
 		String tags = arg.split("\\[")[1].split("\\]")[0];
 		return tags.split(",");
 	}
@@ -395,24 +435,27 @@ public class CommandUtils {
 	}
 
 	private static int getLimit(String arg) {
-		if (hasTag(SelectorType.LIMIT, arg))
+		if (hasTag(SelectorType.LIMIT, arg)) {
 			for (String s : getTags(arg)) {
 				if (hasTag(SelectorType.LIMIT, s)) {
 					return getInt(s);
 				}
 			}
-		if (hasTag(SelectorType.C, arg))
+		}
+		if (hasTag(SelectorType.C, arg)) {
 			for (String s : getTags(arg)) {
 				if (hasTag(SelectorType.C, s)) {
 					return getInt(s);
 				}
 			}
+		}
 		return Integer.MAX_VALUE;
 	}
 
 	private static String getType(String arg) {
-		if (hasTag(SelectorType.TYPE, arg))
+		if (hasTag(SelectorType.TYPE, arg)) {
 			return arg.toLowerCase().split("=")[1].replace("!", "");
+		}
 		return "Player";
 	}
 
@@ -444,15 +487,18 @@ public class CommandUtils {
 	private static GameMode getM(String arg) {
 		String[] split = arg.replace("!", "").toLowerCase().split("=");
 		String returnType = split[1];
-		if (returnType.equalsIgnoreCase("0") || returnType.equalsIgnoreCase("s") || returnType.equalsIgnoreCase("survival"))
+		if ("0".equalsIgnoreCase(returnType) || "s".equalsIgnoreCase(returnType) || "survival".equalsIgnoreCase(returnType)) {
 			return GameMode.SURVIVAL;
-		if (returnType.equalsIgnoreCase("1") || returnType.equalsIgnoreCase("c") || returnType.equalsIgnoreCase("creative"))
+		}
+		if ("1".equalsIgnoreCase(returnType) || "c".equalsIgnoreCase(returnType) || "creative".equalsIgnoreCase(returnType)) {
 			return GameMode.CREATIVE;
-		if (returnType.equalsIgnoreCase("2") || returnType.equalsIgnoreCase("a") || returnType.equalsIgnoreCase("adventure"))
+		}
+		if ("2".equalsIgnoreCase(returnType) || "a".equalsIgnoreCase(returnType) || "adventure".equalsIgnoreCase(returnType)) {
 			return GameMode.ADVENTURE;
-		if (returnType.equalsIgnoreCase("3") || returnType.equalsIgnoreCase("sp")
-				|| returnType.equalsIgnoreCase("spectator"))
+		}
+		if ("3".equalsIgnoreCase(returnType) || "sp".equalsIgnoreCase(returnType) || "spectator".equalsIgnoreCase(returnType)) {
 			return GameMode.SPECTATOR;
+		}
 		return null;
 	}
 
@@ -488,12 +534,14 @@ public class CommandUtils {
 	}
 
 	private static boolean isTeam(String arg, Entity e) {
-		if (!(e instanceof Player))
+		if (!(e instanceof Player)) {
 			return false;
-		for (Team t : Bukkit.getScoreboardManager().getMainScoreboard().getTeams()) {
+		}
+		for (Team t : Objects.requireNonNull(Bukkit.getScoreboardManager()).getMainScoreboard().getTeams()) {
 			if ((t.getName().equalsIgnoreCase(getTeam(arg)) != isInverted(arg))) {
-				if ((t.getEntries().contains(((Player) e).getName()) != isInverted(arg)))
+				if ((t.getEntries().contains(e.getName()) != isInverted(arg))) {
 					return true;
+				}
 			}
 		}
 		return false;
@@ -511,8 +559,9 @@ public class CommandUtils {
 		double distanceMin = 0;
 		double distanceMax = Double.MAX_VALUE;
 		String distance = arg.split("=")[1];
-		if (e.getLocation().getWorld() != start.getWorld())
+		if (e.getLocation().getWorld() != start.getWorld()) {
 			return false;
+		}
 		if (distance.contains("..")) {
 			String[] temp = distance.split("\\.\\.");
 			if (!temp[0].isEmpty()) {
@@ -531,8 +580,9 @@ public class CommandUtils {
 	}
 
 	private static boolean isWithinLevel(String arg, Entity e) {
-		if (!(e instanceof Player))
+		if (!(e instanceof Player)) {
 			return false;
+		}
 		double distanceMin = 0;
 		double distanceMax = Double.MAX_VALUE;
 		String distance = arg.split("=")[1];
@@ -552,29 +602,33 @@ public class CommandUtils {
 	}
 
 	private static boolean isScore(String arg, Entity e) {
-		if (!(e instanceof Player))
+		if (!(e instanceof Player)) {
 			return false;
-		for (Objective o : Bukkit.getScoreboardManager().getMainScoreboard().getObjectives()) {
+		}
+		for (Objective o : Objects.requireNonNull(Bukkit.getScoreboardManager()).getMainScoreboard().getObjectives()) {
 			if (o.getName().equalsIgnoreCase(getScoreName(arg))) {
-				if ((o.getScore(((Player) e).getName()).getScore() <= getValueAsInteger(arg) != isInverted(arg)))
+				if ((o.getScore(e.getName()).getScore() <= getValueAsInteger(arg) != isInverted(arg))) {
 					return true;
+				}
 			}
 		}
 		return false;
 	}
 
 	private static boolean isScoreWithin(String arg, Entity e) {
-		if (!(e instanceof Player))
+		if (!(e instanceof Player)) {
 			return false;
+		}
 		String[] scores = arg.split("\\{")[1].split("\\}")[0].split(",");
-		for (int i = 0; i < scores.length; i++) {
-			String[] s = scores[i].split("=");
+		for (String score : scores) {
+			String[] s = score.split("=");
 			String name = s[0];
 
-			for (Objective o : Bukkit.getScoreboardManager().getMainScoreboard().getObjectives()) {
+			for (Objective o : Objects.requireNonNull(Bukkit.getScoreboardManager()).getMainScoreboard().getObjectives()) {
 				if (o.getName().equalsIgnoreCase(name)) {
-					if (!isWithinDoubleValue(isInverted(arg), s[1], o.getScore(e.getName()).getScore()))
+					if (!isWithinDoubleValue(isInverted(arg), s[1], o.getScore(e.getName()).getScore())) {
 						return false;
+					}
 				}
 			}
 		}
@@ -583,33 +637,38 @@ public class CommandUtils {
 	}
 
 	private static boolean isHasTags(String arg, Entity e) {
-		if (!(e instanceof Player))
+		if (!(e instanceof Player)) {
 			return false;
+		}
 		return isInverted(arg) != e.getScoreboardTags().contains(getString(arg));
 
 	}
 
 	private static boolean isScoreMin(String arg, Entity e) {
-		if (!(e instanceof Player))
+		if (!(e instanceof Player)) {
 			return false;
-		for (Objective o : Bukkit.getScoreboardManager().getMainScoreboard().getObjectives()) {
+		}
+		for (Objective o : Objects.requireNonNull(Bukkit.getScoreboardManager()).getMainScoreboard().getObjectives()) {
 			if (o.getName().equalsIgnoreCase(getScoreMinName(arg))) {
-				if ((o.getScore(((Player) e).getName()).getScore() >= getValueAsInteger(arg) != isInverted(arg)))
+				if ((o.getScore(e.getName()).getScore() >= getValueAsInteger(arg) != isInverted(arg))) {
 					return true;
+				}
 			}
 		}
 		return false;
 	}
 
 	private static boolean isRM(String arg, Location loc, Entity e) {
-		if (loc.getWorld() != e.getWorld())
+		if (loc.getWorld() != e.getWorld()) {
 			return false;
+		}
 		return isGreaterThan(arg, loc.distance(e.getLocation()));
 	}
 
 	private static boolean isR(String arg, Location loc, Entity e) {
-		if (loc.getWorld() != e.getWorld())
+		if (loc.getWorld() != e.getWorld()) {
 			return false;
+		}
 		return isLessThan(arg, loc.distance(e.getLocation()));
 
 	}
@@ -645,23 +704,25 @@ public class CommandUtils {
 	}
 
 	private static boolean isH(String arg, Entity e) {
-		if (e instanceof Damageable)
+		if (e instanceof Damageable) {
 			return isGreaterThan(arg, ((Damageable) e).getHealth());
+		}
 		return false;
 	}
 
 	private static boolean isHM(String arg, Entity e) {
-		if (e instanceof Damageable)
+		if (e instanceof Damageable) {
 			return isLessThan(arg, ((Damageable) e).getHealth());
+		}
 		return false;
 	}
 
 	private static boolean isM(String arg, Entity e) {
-		if (getM(arg) == null)
+		if (getM(arg) == null) {
 			return true;
+		}
 		if (e instanceof HumanEntity) {
-			if ((isInverted(arg) != (getM(arg) == ((HumanEntity) e).getGameMode())))
-				return true;
+			return isInverted(arg) != (getM(arg) == ((HumanEntity) e).getGameMode());
 		}
 		return false;
 	}
@@ -669,27 +730,24 @@ public class CommandUtils {
 	private static boolean isW(String arg) {
 		if (getW(arg) == null) {
 			return true;
-		} else if ((isInverted(arg) != getAcceptedWorlds(arg).contains(getW(arg))))
-			return true;
-		return false;
+		} else {
+			return isInverted(arg) != getAcceptedWorlds(arg).contains(getW(arg));
+		}
 	}
 
 	private static boolean isName(String arg, Entity e) {
-		if (getName(arg) == null)
+		if (getName(arg) == null) {
 			return true;
-		if ((isInverted(arg) != (e.getCustomName() != null) && isInverted(arg) != (getName(arg)
-				.equals(e.getCustomName().replace(" ", "_"))
-				|| (e instanceof Player && ((Player) e).getName().replace(" ", "_").equalsIgnoreCase(getName(arg))))))
-			return true;
-		return false;
+		}
+		return isInverted(arg) == (e.getCustomName() == null) && isInverted(arg) != (getName(arg)
+				.equals(Objects.requireNonNull(e.getCustomName()).replace(" ", "_"))
+				|| (e instanceof Player && e.getName().replace(" ", "_").equalsIgnoreCase(getName(arg))));
 	}
 
 	private static boolean isType(String arg, Entity e) {
 		boolean invert = isInverted(arg);
 		String type = getType(arg);
-		if (invert != e.getType().name().equalsIgnoreCase(type))
-			return true;
-		return false;
+		return invert != e.getType().name().equalsIgnoreCase(type);
 
 	}
 
@@ -698,8 +756,7 @@ public class CommandUtils {
 	}
 
 	private static int getInt(String arg) {
-		int mult = Integer.parseInt(arg.split("=")[1]);
-		return mult;
+		return Integer.parseInt(arg.split("=")[1]);
 	}
 
 	public static String getString(String arg) {
@@ -780,5 +837,7 @@ public class CommandUtils {
 		public String getName() {
 			return name;
 		}
+
 	}
+
 }

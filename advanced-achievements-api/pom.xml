@@ -3,22 +3,19 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
+	<artifactId>advanced-achievements-api</artifactId>
+	<version>${revision}</version>
+	<packaging>jar</packaging>
+
 	<parent>
 		<groupId>com.hm.achievement</groupId>
 		<artifactId>advanced-achievements</artifactId>
 		<version>${revision}</version>
 	</parent>
 
-	<artifactId>advanced-achievements-api</artifactId>
-
-	<packaging>jar</packaging>
-
 	<build>
-
 		<plugins>
-
 			<plugin>
-
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<configuration>
@@ -26,9 +23,7 @@
 					<target>${java.version}</target>
 				</configuration>
 			</plugin>
-
 		</plugins>
-
 	</build>
 
 	<dependencies>
@@ -41,6 +36,11 @@
 		<dependency>
 			<groupId>org.spigotmc</groupId>
 			<artifactId>spigot-api</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.gmail.nossr50.mcMMO</groupId>
+			<artifactId>mcMMO</artifactId>
 		</dependency>
 
 	</dependencies>

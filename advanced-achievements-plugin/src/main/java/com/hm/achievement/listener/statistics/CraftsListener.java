@@ -31,8 +31,8 @@ import com.hm.achievement.utils.InventoryHelper;
  * Listener class to deal with Crafts achievements.
  * 
  * @author Pyves
- *
  */
+
 @Singleton
 public class CraftsListener extends AbstractListener {
 
@@ -106,4 +106,5 @@ public class CraftsListener extends AbstractListener {
 		}
 		return ingredient.name().endsWith("_BLOCK") && recipe.getResult().getType().name().endsWith("_INGOT");
 	}
+
 }

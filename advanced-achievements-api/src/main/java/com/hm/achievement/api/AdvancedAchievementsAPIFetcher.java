@@ -14,6 +14,7 @@ import org.bukkit.plugin.PluginLogger;
  * 
  * @author Pyves
  */
+
 public class AdvancedAchievementsAPIFetcher {
 
 	private static final String MAIN_CLASS = "com.hm.achievement.AdvancedAchievements";

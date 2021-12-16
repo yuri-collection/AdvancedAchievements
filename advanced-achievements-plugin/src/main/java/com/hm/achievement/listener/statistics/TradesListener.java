@@ -21,8 +21,8 @@ import com.hm.achievement.db.CacheManager;
  * Listener class to deal with Trades achievements.
  * 
  * @author Pyves
- *
  */
+
 @Singleton
 public class TradesListener extends AbstractListener {
 

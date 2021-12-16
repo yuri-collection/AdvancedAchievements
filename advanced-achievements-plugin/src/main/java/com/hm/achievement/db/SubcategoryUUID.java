@@ -5,6 +5,11 @@ import java.util.UUID;
 
 import org.apache.commons.lang3.StringUtils;
 
+/**
+ * @author Yurinan
+ * @since 2021/12/15 17:15
+ */
+
 public class SubcategoryUUID {
 
 	private final String subcategory;

@@ -3,12 +3,14 @@ package com.hm.achievement.gui;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.InventoryHolder;
 import org.bukkit.inventory.ItemStack;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * Simple wrapper class to keep track of the plugin's inventories and their page numbers.
  * 
  * @author Pyves
  */
+
 public class AchievementInventoryHolder implements InventoryHolder {
 
 	public static final int MAIN_GUI_PAGE = -1;
@@ -36,7 +38,7 @@ public class AchievementInventoryHolder implements InventoryHolder {
 	}
 
 	@Override
-	public Inventory getInventory() {
+	public @NotNull Inventory getInventory() {
 		return inventory;
 	}
 

@@ -10,15 +10,17 @@ import java.lang.annotation.Target;
  *
  * @author Pyves
  */
+
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
 public @interface CommandSpec {
 
-	public String name();
+	String name();
 
-	public String permission();
+	String permission();
 
-	public int minArgs();
+	int minArgs();
 
-	public int maxArgs();
+	int maxArgs();
+
 }

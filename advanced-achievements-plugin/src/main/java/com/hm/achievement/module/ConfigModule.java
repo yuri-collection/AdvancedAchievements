@@ -13,6 +13,11 @@ import com.hm.achievement.category.Category;
 import dagger.Module;
 import dagger.Provides;
 
+/**
+ * @author Yurinan
+ * @since 2021/12/15 17:51
+ */
+
 @Module
 public class ConfigModule {
 

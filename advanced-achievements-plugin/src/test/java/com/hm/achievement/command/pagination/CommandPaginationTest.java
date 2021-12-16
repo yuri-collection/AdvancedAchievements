@@ -3,10 +3,7 @@ package com.hm.achievement.command.pagination;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 import org.apache.commons.lang3.StringUtils;
 import org.bukkit.ChatColor;
@@ -19,6 +16,7 @@ import org.junit.jupiter.api.Test;
  * 
  * @author Rsl1122
  */
+
 class CommandPaginationTest {
 
 	private final List<String> toPaginate = Arrays.asList(
@@ -32,8 +30,8 @@ class CommandPaginationTest {
 	private YamlConfiguration langConfig;
 
 	@BeforeEach
-	void setUp() throws Exception {
-		langConfig = YamlConfiguration.loadConfiguration(new InputStreamReader(getClass().getResourceAsStream("/lang.yml")));
+	void setUp() {
+		langConfig = YamlConfiguration.loadConfiguration(new InputStreamReader(Objects.requireNonNull(getClass().getResourceAsStream("/lang.yml"))));
 	}
 
 	@Test
@@ -145,12 +143,12 @@ class CommandPaginationTest {
 
 	private String getPaginationHeader(int page, int max) {
 		return ChatColor.translateAlternateColorCodes('&',
-				StringUtils.replaceEach(langConfig.getString("pagination-header"), new String[] { "PAGE", "MAX" },
-						new String[] { Integer.toString(page), Integer.toString(max) }));
+				Objects.requireNonNull(StringUtils.replaceEach(langConfig.getString("pagination-header"), new String[]{"PAGE", "MAX"},
+						new String[]{Integer.toString(page), Integer.toString(max)})));
 	}
 
 	private String getPaginationFooter() {
-		return ChatColor.translateAlternateColorCodes('&', langConfig.getString("pagination-footer"));
+		return ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(langConfig.getString("pagination-footer")));
 	}
 
 }

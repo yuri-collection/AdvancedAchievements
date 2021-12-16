@@ -2,6 +2,7 @@ package com.hm.achievement.gui;
 
 import java.util.Arrays;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Set;
 
 import javax.inject.Inject;
@@ -28,8 +29,10 @@ import com.hm.achievement.utils.NumberHelper;
 /**
  * Represents the main GUI, corresponding to all the different available categories and their names.
  *
- * @author Pyves
+ * @author Pyves, Yurinann
+ * @since 2021/12/15 17:25
  */
+
 @Singleton
 public class MainGUI implements Reloadable {
 
@@ -63,7 +66,7 @@ public class MainGUI implements Reloadable {
 		configHideNotReceivedCategories = mainConfig.getBoolean("HideNotReceivedCategories");
 		configHideNoPermissionCategories = mainConfig.getBoolean("HideNoPermissionCategories");
 
-		langListGUITitle = ChatColor.translateAlternateColorCodes('&', langConfig.getString("list-gui-title"));
+		langListGUITitle = ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(langConfig.getString("list-gui-title")));
 		langListAchievementsInCategoryPlural = langConfig.getString("list-achievements-in-category-plural");
 		langListAchievementInCategorySingular = langConfig.getString("list-achievements-in-category-singular");
 	}
@@ -105,7 +108,7 @@ public class MainGUI implements Reloadable {
 	 */
 	private boolean shouldDisplayCategory(ItemStack item, Player player, Category category) {
 		// Hide category if an empty name is defined for it, if it's disabled or if the player is missing permissions.
-		return item.getItemMeta().getDisplayName().length() > 0 && !disabledCategories.contains(category)
+		return Objects.requireNonNull(item.getItemMeta()).getDisplayName().length() > 0 && !disabledCategories.contains(category)
 				&& (!configHideNoPermissionCategories || player.hasPermission(category.toPermName()));
 	}
 
@@ -131,6 +134,7 @@ public class MainGUI implements Reloadable {
 				ItemStack itemWithLore = item.clone();
 				ItemMeta itemMetaWithLore = itemWithLore.getItemMeta();
 				String amountMessage = StringUtils.replaceOnce(message, "AMOUNT", receivedAmount + "/" + totalAmount);
+				assert itemMetaWithLore != null;
 				itemMetaWithLore.setLore(Arrays.asList(ChatColor.translateAlternateColorCodes('&', "&8" + amountMessage)));
 				itemWithLore.setItemMeta(itemMetaWithLore);
 				gui.setItem(position, itemWithLore);

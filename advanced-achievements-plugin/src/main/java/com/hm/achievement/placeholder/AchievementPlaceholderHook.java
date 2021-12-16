@@ -14,12 +14,14 @@ import com.hm.achievement.config.AchievementMap;
 import com.hm.achievement.db.CacheManager;
 
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * Class enabling usage of placeholder with PlaceholderAPI to get achievements stats in others plugins.
  * 
  * @author Phoetrix
  */
+
 public class AchievementPlaceholderHook extends PlaceholderExpansion {
 
 	private final AdvancedAchievements advancedAchievements;
@@ -40,7 +42,7 @@ public class AchievementPlaceholderHook extends PlaceholderExpansion {
 	}
 
 	@Override
-	public String onPlaceholderRequest(Player p, String identifier) {
+	public String onPlaceholderRequest(Player p, @NotNull String identifier) {
 		if ("total_achievements".equalsIgnoreCase(identifier)) {
 			return Integer.toString(achievementMap.getAll().size());
 		}
@@ -87,17 +89,18 @@ public class AchievementPlaceholderHook extends PlaceholderExpansion {
 	}
 
 	@Override
-	public String getIdentifier() {
-		return "aach";
+	public @NotNull String getIdentifier() {
+		return "ach";
 	}
 
 	@Override
-	public String getAuthor() {
+	public @NotNull String getAuthor() {
 		return String.join(", ", advancedAchievements.getDescription().getAuthors());
 	}
 
 	@Override
-	public String getVersion() {
+	public @NotNull String getVersion() {
 		return advancedAchievements.getDescription().getVersion();
 	}
+
 }

@@ -16,17 +16,22 @@ import com.hm.achievement.config.AchievementMap;
 import com.hm.achievement.db.CacheManager;
 import com.hm.achievement.utils.SoundPlayer;
 
+import java.util.Objects;
+
 /**
- * Class in charge of handling the /aach stats command, which creates and displays a progress bar of the player's
+ * Class in charge of handling the /ach stats command, which creates and displays a progress bar of the player's
  * achievements
  *
  * @author Pyves
  */
+
 @Singleton
 @CommandSpec(name = "stats", permission = "stats", minArgs = 1, maxArgs = 1)
 public class StatsCommand extends AbstractCommand {
 
-	// Minecraft font, used to get size information in the progress bar.
+	/**
+	 * Minecraft font, used to get size information in the progress bar.
+	 */
 	private static final MinecraftFont FONT = MinecraftFont.Font;
 
 	private final CacheManager cacheManager;
@@ -55,11 +60,11 @@ public class StatsCommand extends AbstractCommand {
 		super.extractConfigurationParameters();
 
 		// Load configuration parameters.
-		configColor = ChatColor.getByChar(mainConfig.getString("Color"));
+		configColor = ChatColor.getByChar(Objects.requireNonNull(mainConfig.getString("Color")));
 		configIcon = StringEscapeUtils.unescapeJava(mainConfig.getString("Icon"));
 		configAdditionalEffects = mainConfig.getBoolean("AdditionalEffects");
 		configSound = mainConfig.getBoolean("Sound");
-		configSoundStats = mainConfig.getString("SoundStats").toUpperCase();
+		configSoundStats = Objects.requireNonNull(mainConfig.getString("SoundStats")).toUpperCase();
 
 		langNumberAchievements = pluginHeader + langConfig.getString("number-achievements") + " " + configColor;
 	}

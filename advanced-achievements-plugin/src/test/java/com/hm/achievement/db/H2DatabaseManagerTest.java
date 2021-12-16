@@ -11,12 +11,7 @@ import java.io.InputStreamReader;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.sql.PreparedStatement;
-import java.util.Collections;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.UUID;
+import java.util.*;
 import java.util.logging.Logger;
 
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -39,6 +34,7 @@ import com.hm.achievement.db.data.ConnectionInformation;
  *
  * @author Rsl1122
  */
+
 @ExtendWith(MockitoExtension.class)
 class H2DatabaseManagerTest {
 
@@ -54,7 +50,7 @@ class H2DatabaseManagerTest {
 		AdvancedAchievements plugin = mock(AdvancedAchievements.class);
 		when(plugin.getDataFolder()).thenReturn(tempDir.relativize(Paths.get("").toAbsolutePath()).toFile());
 		YamlConfiguration config = YamlConfiguration
-				.loadConfiguration(new InputStreamReader(H2DatabaseManagerTest.class.getResourceAsStream("/config-h2.yml")));
+				.loadConfiguration(new InputStreamReader(Objects.requireNonNull(H2DatabaseManagerTest.class.getResourceAsStream("/config-h2.yml"))));
 		db = new H2DatabaseManager(config, LOGGER, new DatabaseUpdater(LOGGER), plugin, newDirectExecutorService());
 		db.initialise();
 		db.extractConfigurationParameters();

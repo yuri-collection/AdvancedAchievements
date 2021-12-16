@@ -2,6 +2,7 @@ package com.hm.achievement.command.executable;
 
 import java.util.List;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -22,10 +23,11 @@ import com.hm.achievement.gui.OrderedCategory;
 import com.hm.achievement.utils.StringHelper;
 
 /**
- * Class in charge of handling the /aach list command, which displays interactive GUIs.
+ * Class in charge of handling the /ach list command, which displays interactive GUIs.
  * 
  * @author Pyves
  */
+
 @Singleton
 @CommandSpec(name = "list", permission = "list", minArgs = 1, maxArgs = 2)
 public class ListCommand extends AbstractCommand {
@@ -61,7 +63,7 @@ public class ListCommand extends AbstractCommand {
 		Player player = (Player) sender;
 
 		if (player.isSleeping()) {
-			sender.sendMessage(langConfig.getString("list-unavailable-whilst-sleeping"));
+			sender.sendMessage(Objects.requireNonNull(langConfig.getString("list-unavailable-whilst-sleeping")));
 			return;
 		}
 

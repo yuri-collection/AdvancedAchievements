@@ -2,7 +2,11 @@ package com.hm.achievement.category;
 
 /**
  * Interface for Achievement Category Enums.
+ *
+ * @author Yurinan
+ * @since 2021/12/15 18:02
  */
+
 public interface Category {
 
 	/**
@@ -29,4 +33,5 @@ public interface Category {
 	default String toChildPermName(String child) {
 		return toPermName();
 	}
+
 }

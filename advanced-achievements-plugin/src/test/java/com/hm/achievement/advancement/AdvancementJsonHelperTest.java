@@ -11,6 +11,7 @@ import com.hm.achievement.advancement.AchievementAdvancement.AchievementAdvancem
  *
  * @author Pyves
  */
+
 class AdvancementJsonHelperTest {
 
 	@Test
@@ -21,13 +22,13 @@ class AdvancementJsonHelperTest {
 
 		assertEquals("{\n" +
 				"  \"criteria\":{\n" +
-				"    \"aach_handled\":{\n" +
+				"    \"ach_handled\":{\n" +
 				"      \"trigger\":\"minecraft:impossible\"\n" +
 				"    }\n" +
 				"  },\n" +
 				"  \"requirements\":[\n" +
 				"    [\n" +
-				"      \"aach_handled\"\n" +
+				"      \"ach_handled\"\n" +
 				"    ]\n" +
 				"  ],\n" +
 				"  \"display\":{\n" +
@@ -51,13 +52,13 @@ class AdvancementJsonHelperTest {
 
 		assertEquals("{\n" +
 				"  \"criteria\":{\n" +
-				"    \"aach_handled\":{\n" +
+				"    \"ach_handled\":{\n" +
 				"      \"trigger\":\"minecraft:impossible\"\n" +
 				"    }\n" +
 				"  },\n" +
 				"  \"requirements\":[\n" +
 				"    [\n" +
-				"      \"aach_handled\"\n" +
+				"      \"ach_handled\"\n" +
 				"    ]\n" +
 				"  ],\n" +
 				"  \"display\":{\n" +
@@ -77,13 +78,13 @@ class AdvancementJsonHelperTest {
 	void shouldGenerateHiddenParentAdvancementJson() {
 		assertEquals("{\n" +
 				"  \"criteria\":{\n" +
-				"    \"aach_handled\":{\n" +
+				"    \"ach_handled\":{\n" +
 				"      \"trigger\":\"minecraft:impossible\"\n" +
 				"    }\n" +
 				"  },\n" +
 				"  \"requirements\":[\n" +
 				"    [\n" +
-				"      \"aach_handled\"\n" +
+				"      \"ach_handled\"\n" +
 				"    ]\n" +
 				"  ],\n" +
 				"  \"background\":\"minecraft:book\"\n" +
