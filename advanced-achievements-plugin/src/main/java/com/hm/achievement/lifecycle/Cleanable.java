@@ -2,7 +2,7 @@ package com.hm.achievement.lifecycle;
 
 /**
  * Interface used for classes that contain player specific data structures, and that should be cleaned up once a player
- * has disconnected or has reached the end of a cooldown period. This avoids Maps and Sets from growing unboundedly
+ * has disconnected or has reached the end of a cooldown period. This avoids Maps and Sets from growing unbounded
  * until the server is restarted.
  *
  * @author Pyves
@@ -10,6 +10,9 @@ package com.hm.achievement.lifecycle;
 
 public interface Cleanable {
 
+	/**
+	 * Clean Player Data
+	 */
 	void cleanPlayerData();
 
 }

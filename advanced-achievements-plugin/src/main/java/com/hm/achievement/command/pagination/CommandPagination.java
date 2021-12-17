@@ -65,4 +65,5 @@ public class CommandPagination {
 
 		to.accept(footer);
 	}
+
 }

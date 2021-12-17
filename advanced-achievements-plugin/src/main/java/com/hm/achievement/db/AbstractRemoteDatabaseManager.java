@@ -66,4 +66,5 @@ public class AbstractRemoteDatabaseManager extends AbstractDatabaseManager {
 		}
 		return databaseAddress;
 	}
+
 }

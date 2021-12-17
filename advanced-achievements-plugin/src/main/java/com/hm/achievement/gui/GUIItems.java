@@ -106,7 +106,7 @@ public class GUIItems implements Reloadable {
 		for (String type : Objects.requireNonNull(guiConfig.getConfigurationSection("AchievementStarted")).getKeys(false)) {
 			achievementStarted.put(type, createItemStack("AchievementStarted." + type));
 		}
-		for (String type : guiConfig.getConfigurationSection("AchievementReceived").getKeys(false)) {
+		for (String type : Objects.requireNonNull(guiConfig.getConfigurationSection("AchievementReceived")).getKeys(false)) {
 			achievementReceived.put(type, createItemStack("AchievementReceived." + type));
 		}
 		previousButton = createButton("PreviousButton", "list-previous-message", "list-previous-lore");

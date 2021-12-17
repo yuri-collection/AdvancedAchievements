@@ -94,7 +94,7 @@ public abstract class AbstractListener extends StatisticIncreaseHandler implemen
 	}
 
 	/**
-	 * Adds all sub-categories that match the identifier to the provided Set. This methods accounts for groups of
+	 * Adds all sub-categories that match the identifier to the provided Set. These methods accounts for groups of
 	 * sub-categories, e.g. 'zombie|pig_zombie|zombie_horse|zombie_villager'.
 	 * 
 	 * @param matchingSubcategories the subcategories matched so far

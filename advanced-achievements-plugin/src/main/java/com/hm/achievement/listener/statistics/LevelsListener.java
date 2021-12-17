@@ -41,4 +41,5 @@ public class LevelsListener extends AbstractListener {
 
 		updateStatisticAndAwardAchievementsIfAvailable(player, event.getNewLevel() - previousMaxLevel);
 	}
+
 }

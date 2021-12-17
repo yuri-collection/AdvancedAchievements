@@ -13,7 +13,7 @@ import org.bukkit.inventory.meta.PotionMeta;
 import org.bukkit.potion.PotionType;
 
 /**
- * Class providing a few logging helper methods to retrieve Material instances via their names.
+ * Class providing a little logging helper methods to retrieve Material instances via their names.
  * 
  * @author Pyves
  */

@@ -32,12 +32,18 @@ public class CacheManager implements Cleanable {
 
 	private final AdvancedAchievements advancedAchievements;
 	private final AbstractDatabaseManager databaseManager;
-	// Statistics of the different players for normal achievements; keys in the inner maps correspond to UUIDs.
+	/**
+	 * Statistics of the different players for normal achievements; keys in the inner maps correspond to UUIDs.
+	 */
 	private final Map<NormalAchievements, Map<UUID, CachedStatistic>> normalAchievementsToPlayerStatistics;
-	// Statistics of the different players for multiple achievements; keys in the inner maps correspond to concatenated
-	// UUIDs and block/entity/command identifiers.
+	/**
+	 * Statistics of the different players for multiple achievements; keys in the inner maps correspond to concatenated
+	 * UUIDs and block/entity/command identifiers.
+	 */
 	private final Map<MultipleAchievements, Map<SubcategoryUUID, CachedStatistic>> multipleAchievementsToPlayerStatistics;
-	// Multimap corresponding to the different achievement names received by players.
+	/**
+	 * Multimap corresponding to the different achievement names received by players.
+	 */
 	private final Map<UUID, Set<String>> receivedAchievementsCache;
 
 	@Inject
@@ -80,7 +86,7 @@ public class CacheManager implements Cleanable {
 
 	/**
 	 * Removes the cached statistics that have been written to the database and for which the player is no longer
-	 * connected. Can be called from an asyncrhonous thread.
+	 * connected. Can be called from an asynchronous thread.
 	 */
 	public void cleanStaleCaches() {
 		for (MultipleAchievements category : MultipleAchievements.values()) {
@@ -227,7 +233,7 @@ public class CacheManager implements Cleanable {
 
 	/**
 	 * Adds an achievement to the achievement received cache and removes it from the not received cache. A call to
-	 * {@link #hasPlayerAchievement(UUID, String)} is expected to have been made made beforehand for the same player.
+	 * {@link #hasPlayerAchievement(UUID, String)} is expected to have been made beforehand for the same player.
 	 *
 	 * @param player
 	 * @param achievementName

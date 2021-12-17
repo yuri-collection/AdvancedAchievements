@@ -1,6 +1,7 @@
 package com.hm.achievement.listener.statistics;
 
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 import javax.inject.Inject;
@@ -47,7 +48,7 @@ public class FishListener extends AbstractListener {
 	@EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
 	public void onPlayerFish(PlayerFishEvent event) {
 		if (event.getState() != PlayerFishEvent.State.CAUGHT_FISH
-				|| !fishableFish.contains(((Item) event.getCaught()).getItemStack().getType().name())) {
+				|| !fishableFish.contains(((Item) Objects.requireNonNull(event.getCaught())).getItemStack().getType().name())) {
 			return;
 		}
 

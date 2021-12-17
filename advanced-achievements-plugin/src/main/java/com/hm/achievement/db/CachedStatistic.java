@@ -57,4 +57,5 @@ public class CachedStatistic {
 	public void resetDisconnection() {
 		disconnection = false;
 	}
+
 }

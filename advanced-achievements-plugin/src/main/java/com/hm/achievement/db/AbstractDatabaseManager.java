@@ -39,6 +39,7 @@ import com.hm.achievement.lifecycle.Reloadable;
  *
  * @author Pyves
  */
+
 public abstract class AbstractDatabaseManager implements Reloadable {
 
 	final YamlConfiguration mainConfig;
@@ -94,7 +95,7 @@ public abstract class AbstractDatabaseManager implements Reloadable {
 		try {
 			performPreliminaryTasks();
 		} catch (ClassNotFoundException e) {
-			logger.severe("The JBDC driver for the chosen database type was not found.");
+			logger.severe("The JDBC driver for the chosen database type was not found.");
 		} catch (UnsupportedEncodingException e) {
 			logger.log(Level.SEVERE, "Error while encoding the database URL:", e);
 		}
@@ -229,7 +230,7 @@ public abstract class AbstractDatabaseManager implements Reloadable {
 	 * Gets the total number of achievements received by every player; this method is provided as a convenience for
 	 * other plugins.
 	 *
-	 * @return map containing number of achievements for every players
+	 * @return map containing number of achievements for every player
 	 */
 	public Map<UUID, Integer> getPlayersAchievementsAmount() {
 		return ((SQLReadOperation<Map<UUID, Integer>>) () -> {
@@ -446,7 +447,7 @@ public abstract class AbstractDatabaseManager implements Reloadable {
 	 */
 	public List<AwardedDBAchievement> getPlayerAchievementsList(UUID uuid) {
 		return ((SQLReadOperation<List<AwardedDBAchievement>>) () -> {
-			// Either oldest date to newest one or newest date to oldest one.
+			// Either oldest date to the newest one or newest date to the oldest one.
 			String sql = "SELECT achievement, date FROM " + prefix + "achievements WHERE playername = ? ORDER BY date "
 					+ (configBookChronologicalOrder ? "ASC" : "DESC");
 			List<AwardedDBAchievement> achievements = new ArrayList<>();

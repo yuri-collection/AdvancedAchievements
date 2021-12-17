@@ -56,7 +56,13 @@ public class FireworksListener extends AbstractListener {
 		}
 	}
 
-	@EventHandler(priority = EventPriority.MONITOR) // Do NOT set ignoreCancelled to true, see SPIGOT-4793.
+	/**
+	 * When Player Interact with Firework.
+	 * Do NOT set ignoreCancelled to true, see SPIGOT-4793.
+	 *
+	 * @param event
+	 */
+	@EventHandler(priority = EventPriority.MONITOR)
 	public void onPlayerInteract(PlayerInteractEvent event) {
 		if (event.useItemInHand() == Result.DENY || !event.hasItem()) {
 			return;

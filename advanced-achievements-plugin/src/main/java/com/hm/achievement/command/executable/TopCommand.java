@@ -32,4 +32,5 @@ public class TopCommand extends AbstractRankingCommand {
 		// All time ranking, no time start.
 		return 0L;
 	}
+
 }

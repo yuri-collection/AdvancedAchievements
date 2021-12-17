@@ -33,20 +33,20 @@ public class CommandUtils {
 	 *
 	 * Use this if you are unsure if a player provided the "@a" tag. This will allow multiple entities to be retrieved.
 	 * <p>
-	 * This can return a null variable if no tags are included, or if a value for a tag does not exist (I.e if the tag
+	 * This can return a null variable if no tags are included, or if a value for a tag does not exist (I.e. if the tag
 	 * [type=___] contains an entity that does not exist in the specified world)
 	 * <p>
 	 * The may also be empty or null values at the end of the array. Once a null value has been reached, you do not need
 	 * to loop through any of the higher indexes
 	 * <p>
-	 * Currently supports the tags:
+	 * Currently, supports the tags:
 	 *
 	 * @param arg the argument that we are testing for
 	 * @param sender the sender of the command
 	 * @return The entities that match the criteria
 	 *    .@p , @a , @e , @r
 	 *    <p>
-	 *    Currently supports the selectors: [type=] [r=] [rm=] [c=] [w=] [m=] [name=] [l=] [lm=] [h=] [hm=] [rx=] [rxm=]
+	 *    Currently, supports the selectors: [type=] [r=] [rm=] [c=] [w=] [m=] [name=] [l=] [lm=] [h=] [hm=] [rx=] [rxm=]
 	 *    [ry=] [rym=] [team=] [score_---=] [score_---_min=] [x] [y] [z] [limit=] [x_rotation] [y_rotation]
 	 *    <p>
 	 *    All selectors can be inverted.
@@ -231,7 +231,7 @@ public class CommandUtils {
 	/**
 	 * Returns one entity. Use this if you know the player will not provide the '@a' tag.
 	 * <p>
-	 * This can return a null variable if no tags are included, or if a value for a tag does not exist (I.e if the tag
+	 * This can return a null variable if no tags are included, or if a value for a tag does not exist (I.e. if the tag
 	 * [type=___] contains an entity that does not exist in the specified world)
 	 *
 	 * @param sender the command sender
@@ -250,7 +250,7 @@ public class CommandUtils {
 	/**
 	 * Returns an integer. Use this to support "~" by providing what it will mean.
 	 * <p>
-	 * E.g. rel="x" when ~ should be turn into the entity's X coord.
+	 * E.g. rel="x" when ~ should be turned into the entity's X coord.
 	 * <p>
 	 * Currently supports "x", "y" and "z".
 	 *
@@ -799,6 +799,7 @@ public class CommandUtils {
 
 	enum SelectorType {
 
+		// SelectorType
 		LEVEL("level="),
 		DISTANCE("distance="),
 		TYPE("type="),

@@ -17,7 +17,7 @@ import com.hm.achievement.config.AchievementMap;
 import com.hm.achievement.db.CacheManager;
 
 /**
- * Listener class to deal with Snowballsachievements.
+ * Listener class to deal with Snowballs Achievements.
  * 
  * @author Pyves
  */

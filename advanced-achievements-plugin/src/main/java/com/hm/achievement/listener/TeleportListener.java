@@ -57,6 +57,6 @@ public class TeleportListener implements Listener {
 				distanceRunnable.updateLocation(passenger.getUniqueId(), event.getTo());
 			}
 		}
-
 	}
+
 }

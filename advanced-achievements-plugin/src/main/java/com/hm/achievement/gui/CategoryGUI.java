@@ -199,7 +199,7 @@ public class CategoryGUI implements Reloadable {
 						.getAsInt();
 			}
 		}
-		// Populate the current GUI page with all of the achievements for the category.
+		// Populate the current GUI page with all the achievements for the category.
 		for (int index = pageStart; index < pageEnd; ++index) {
 			// Path can either be a threshold (eg '10', or a subcategory and threshold (eg 'skeleton.10').
 			Achievement achievement = achievements.get(index);
@@ -393,7 +393,7 @@ public class CategoryGUI implements Reloadable {
 		}
 
 		List<Reward> rewards = achievement.getRewards();
-		// Add the rewards information.
+		// Add the rewards' information.
 		if (!rewards.isEmpty() && !configHideRewardDisplayInList) {
 			lore.add("");
 			if (rewards.size() == 1 && !langListReward.isEmpty()) {

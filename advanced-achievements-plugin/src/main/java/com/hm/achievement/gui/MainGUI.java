@@ -1,6 +1,7 @@
 package com.hm.achievement.gui;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
@@ -135,7 +136,7 @@ public class MainGUI implements Reloadable {
 				ItemMeta itemMetaWithLore = itemWithLore.getItemMeta();
 				String amountMessage = StringUtils.replaceOnce(message, "AMOUNT", receivedAmount + "/" + totalAmount);
 				assert itemMetaWithLore != null;
-				itemMetaWithLore.setLore(Arrays.asList(ChatColor.translateAlternateColorCodes('&', "&8" + amountMessage)));
+				itemMetaWithLore.setLore(Collections.singletonList(ChatColor.translateAlternateColorCodes('&', "&8" + amountMessage)));
 				itemWithLore.setItemMeta(itemMetaWithLore);
 				gui.setItem(position, itemWithLore);
 			}
@@ -143,4 +144,5 @@ public class MainGUI implements Reloadable {
 			gui.setItem(position, guiItems.getCategoryLock());
 		}
 	}
+
 }

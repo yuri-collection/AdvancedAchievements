@@ -1,6 +1,7 @@
 package com.hm.achievement.listener.statistics;
 
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 import javax.inject.Inject;
@@ -47,12 +48,17 @@ public class HoePlowingListener extends AbstractListener {
 		}
 	}
 
-	@EventHandler(priority = EventPriority.MONITOR) // Do NOT set ignoreCancelled to true, deprecated for this event.
+	/**
+	 * Do NOT set ignoreCancelled to true, deprecated for this event.
+	 *
+	 * @param event
+	 */
+	@EventHandler(priority = EventPriority.MONITOR)
 	public void onPlayerInteract(PlayerInteractEvent event) {
 		if (event.useItemInHand() == Result.DENY
 				|| event.getAction() != Action.RIGHT_CLICK_BLOCK
 				|| !event.getMaterial().name().contains("HOE")
-				|| !hoePlowableBlocks.contains(event.getClickedBlock().getType().name())
+				|| !hoePlowableBlocks.contains(Objects.requireNonNull(event.getClickedBlock()).getType().name())
 				|| event.getClickedBlock().getRelative(BlockFace.UP).getType() != Material.AIR) {
 			return;
 		}

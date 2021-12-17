@@ -26,7 +26,9 @@ import org.bukkit.entity.Player;
 @CommandSpec(name = "toggle", permission = "toggle", minArgs = 1, maxArgs = 2)
 public class ToggleCommand extends AbstractCommand {
 
-	// Indicates whether a player has used toggle since last server restart.
+	/**
+	 * Indicates whether a player has used toggle since last server restart.
+	 */
 	private final Set<UUID> toggledPlayers = new HashSet<>();
 	private final Map<String, Set<UUID>> typesToToggledPlayers = new HashMap<>();
 
@@ -90,4 +92,5 @@ public class ToggleCommand extends AbstractCommand {
 			player.sendMessage(langToggleHidden);
 		}
 	}
+
 }

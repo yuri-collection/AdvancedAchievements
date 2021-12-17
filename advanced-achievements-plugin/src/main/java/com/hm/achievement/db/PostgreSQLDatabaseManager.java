@@ -15,7 +15,7 @@ import com.hm.achievement.category.NormalAchievements;
 import com.hm.achievement.db.data.ConnectionInformation;
 
 /**
- * Class used to handle a PosgreSQL database. Note that some query methods are overriden as the SQL syntax is different
+ * Class used to handle a PostgreSQL database. Note that some query methods are overridden as the SQL syntax is different
  * from other database types.
  * 
  * @author Pyves
@@ -74,4 +74,5 @@ public class PostgreSQLDatabaseManager extends AbstractRemoteDatabaseManager {
 			}
 		}).executeOperation(writeExecutor, logger, "updating connection date and count");
 	}
+
 }

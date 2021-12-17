@@ -33,16 +33,16 @@ public class DatabaseUpdater {
 
 	/**
 	 * Renames the database tables with the prefix given in the configuration file. This method is only used and only
-	 * works if the tables had the default name. It does not support multiple successive table renamings.
+	 * works if the tables had the default name. It does not support multiple successive table renaming.
 	 * 
 	 * @param databaseManager
 	 * @throws PluginLoadError
 	 */
 	void renameExistingTables(AbstractDatabaseManager databaseManager) throws PluginLoadError {
-		// If a prefix is set in the config, check whether the tables with the default names exist. If so do renaming.
+		// If a prefix is set in the config, check whether the tables with the default names exist. If so do rename.
 		if (StringUtils.isNotBlank(databaseManager.getPrefix())) {
 			try (ResultSet rs = databaseManager.getConnection().getMetaData().getTables(null, null, "achievements", null)) {
-				// If the achievements table still has its default name (ie. no prefix), but a prefix is set in the
+				// If the achievements table still has its default name (i.e. no prefix), but a prefix is set in the
 				// configuration, do a renaming of all tables.
 				if (rs.next()) {
 					logger.info("Adding " + databaseManager.getPrefix() + " prefix to database table names, please wait...");
@@ -66,7 +66,7 @@ public class DatabaseUpdater {
 	}
 
 	/**
-	 * Initialises database tables by creating non existing ones. We batch the requests to send a unique batch to the
+	 * Initialises database tables by creating non-existing ones. We batch the requests to send a unique batch to the
 	 * database.
 	 * 
 	 * @param databaseManager
@@ -126,4 +126,5 @@ public class DatabaseUpdater {
 			}
 		}
 	}
+
 }

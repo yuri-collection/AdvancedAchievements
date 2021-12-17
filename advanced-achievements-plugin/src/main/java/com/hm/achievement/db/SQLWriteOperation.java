@@ -35,7 +35,7 @@ public interface SQLWriteOperation {
 	}
 
 	/**
-	 * Calls {@code performWrite} repeatedly until the write succeeds or {@code MAX_ATTEMPTS} is reached.
+	 * Calls {@code performWrite} repeatedly until to write succeeds or {@code MAX_ATTEMPTS} is reached.
 	 *
 	 * @param logger
 	 * @param operationMessage
@@ -67,8 +67,9 @@ public interface SQLWriteOperation {
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {
-			logger.log(Level.SEVERE, "Thead interrupted while sleeping:", e);
+			logger.log(Level.SEVERE, "Thread interrupted while sleeping:", e);
 			Thread.currentThread().interrupt();
 		}
 	}
+
 }

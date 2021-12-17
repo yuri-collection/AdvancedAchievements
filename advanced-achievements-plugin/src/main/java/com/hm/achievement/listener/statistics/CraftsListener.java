@@ -52,6 +52,7 @@ public class CraftsListener extends AbstractListener {
 
 		Player player = (Player) event.getWhoClicked();
 		ItemStack item = event.getCurrentItem();
+		assert item != null;
 		String craftName = item.getType().name().toLowerCase();
 		if (!player.hasPermission(category.toChildPermName(craftName))) {
 			return;

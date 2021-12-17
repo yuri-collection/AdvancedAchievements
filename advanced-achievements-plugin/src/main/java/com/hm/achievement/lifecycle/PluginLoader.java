@@ -174,7 +174,7 @@ public class PluginLoader {
 	}
 
 	/**
-	 * Registers the different event listeners so they can monitor server events. If relevant categories are disabled,
+	 * Registers the different event listeners, so they can monitor server events. If relevant categories are disabled,
 	 * listeners aren't registered.
 	 */
 	private void registerListeners() {

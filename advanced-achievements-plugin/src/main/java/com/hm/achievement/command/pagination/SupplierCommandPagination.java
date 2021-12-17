@@ -68,4 +68,5 @@ public class SupplierCommandPagination extends CommandPagination {
 
 		to.accept(footer);
 	}
+
 }

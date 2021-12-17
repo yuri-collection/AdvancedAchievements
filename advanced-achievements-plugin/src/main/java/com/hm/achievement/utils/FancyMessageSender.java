@@ -14,7 +14,7 @@ import net.md_5.bungee.api.chat.hover.content.Text;
 
 /**
  * Class used to send fancy messages to the player; can be titles, hoverable chat messages or action bar messages. All
- * methods are static and this class cannot be instanciated.
+ * methods are static and this class cannot be instantiated.
  * 
  * @author Pyves
  */

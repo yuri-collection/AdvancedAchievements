@@ -97,7 +97,7 @@ public class ListGUIListener implements Listener {
 	/**
 	 * Returns the number of items in the main GUI.
 	 *
-	 * @return the count of non disabled categories
+	 * @return the count of non-disabled categories
 	 */
 	private int getMainGUIItemCount() {
 		return NormalAchievements.values().length + MultipleAchievements.values().length - disabledCategories.size() + 1;

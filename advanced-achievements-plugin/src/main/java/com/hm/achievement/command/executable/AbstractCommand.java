@@ -36,6 +36,7 @@ public abstract class AbstractCommand implements Reloadable {
 	/**
 	 * Executes the command issued by the sender if he has the relevant permissions. If permission null, skip check.
 	 * 如果命令执行者有相应的权限, 就执行他发出的命令, 否则跳过检查.
+	 *
 	 * @param sender
 	 * @param args
 	 */
@@ -50,6 +51,7 @@ public abstract class AbstractCommand implements Reloadable {
 
 	/**
 	 * Executes behaviour specific to the implementing command.
+	 *
 	 * @param sender
 	 * @param args
 	 */

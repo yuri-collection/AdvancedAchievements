@@ -48,7 +48,9 @@ public class RewardParser {
 	private final Server server;
 	private final MaterialHelper materialHelper;
 
-	// Used for Vault plugin integration.
+	/**
+	 * Used for Vault plugin integration.
+	 */
 	private Economy economy;
 
 	@Inject

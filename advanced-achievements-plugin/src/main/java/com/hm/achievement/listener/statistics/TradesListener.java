@@ -40,4 +40,5 @@ public class TradesListener extends AbstractListener {
 			updateStatisticAndAwardAchievementsIfAvailable((Player) event.getWhoClicked(), 1);
 		}
 	}
+
 }

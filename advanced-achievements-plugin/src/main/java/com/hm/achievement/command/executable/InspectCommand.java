@@ -152,4 +152,5 @@ public class InspectCommand extends AbstractCommand {
 			lastCached.put(achievementName, System.currentTimeMillis());
 		}
 	}
+
 }

@@ -70,4 +70,5 @@ public class ResetCommand extends AbstractParsableCommand {
 							StringHelper.getClosestMatch(categoryWithSubcategory, categorySubcategories) }));
 		}
 	}
+
 }

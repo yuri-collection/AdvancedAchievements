@@ -11,7 +11,7 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import com.hm.achievement.AdvancedAchievements;
 
 /**
- * Class used to handle a H2 database.
+ * Class used to handle an H2 database.
  *
  * @author Pyves
  */

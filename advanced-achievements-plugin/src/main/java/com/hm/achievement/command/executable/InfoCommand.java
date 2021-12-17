@@ -131,4 +131,5 @@ public class InfoCommand extends AbstractCommand {
 			sender.sendMessage(langVersionCommandDatabase);
 		}
 	}
+
 }

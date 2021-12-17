@@ -15,6 +15,7 @@ import com.hm.achievement.advancement.AdvancementManager;
  * 
  * @author Pyves
  */
+
 @Singleton
 @CommandSpec(name = "generate", permission = "generate", minArgs = 1, maxArgs = 1)
 public class GenerateCommand extends AbstractCommand {

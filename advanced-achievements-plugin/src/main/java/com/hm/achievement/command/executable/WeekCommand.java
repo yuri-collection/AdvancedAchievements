@@ -35,4 +35,5 @@ public class WeekCommand extends AbstractRankingCommand {
 		c.set(Calendar.DAY_OF_WEEK, c.getFirstDayOfWeek());
 		return c.getTimeInMillis();
 	}
+
 }

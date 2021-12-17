@@ -32,7 +32,7 @@ public class DatabaseModule {
 	@Singleton
 	ExecutorService provideWriteExecutor() {
 		// Used to do perform the database write operations asynchronously. We expect to execute many short writes to
-		// the database. The pool can grow dynamically under high load and allows to reuse threads.
+		// the database. The pool can grow dynamically under high load and allows reusing threads.
 		// Yuri 2021/12/15 Wait Change ThreadPoolDemo
 		return Executors.newCachedThreadPool();
 	}

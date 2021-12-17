@@ -34,4 +34,5 @@ public class BedsListener extends AbstractRateLimitedListener {
 	public void onPlayerBedEnter(PlayerBedEnterEvent event) {
 		updateStatisticAndAwardAchievementsIfAvailable(event.getPlayer(), 1);
 	}
+
 }

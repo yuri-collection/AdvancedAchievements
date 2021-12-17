@@ -29,6 +29,7 @@ import org.jetbrains.annotations.NotNull;
  *
  * @author Pyves
  */
+
 public class CommandTabCompleter implements TabCompleter {
 
 	private final AchievementMap achievementMap;

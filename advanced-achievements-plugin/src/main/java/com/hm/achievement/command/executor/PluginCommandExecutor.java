@@ -17,12 +17,14 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import com.hm.achievement.command.executable.AbstractCommand;
 import com.hm.achievement.command.executable.CommandSpec;
 import com.hm.achievement.lifecycle.Reloadable;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * Class in charge of handling /ach commands and dispatching to the different command modules.
  *
  * @author Pyves
  */
+
 @Singleton
 public class PluginCommandExecutor implements CommandExecutor, Reloadable {
 
@@ -46,7 +48,7 @@ public class PluginCommandExecutor implements CommandExecutor, Reloadable {
 	}
 
 	@Override
-	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+	public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, String[] args) {
 		String[] parsedArgs = parseArguments(args);
 		Optional<AbstractCommand> cmdToExecute = commands.stream().filter(cmd -> shouldExecute(cmd, parsedArgs)).findFirst();
 		if (cmdToExecute.isPresent()) {
@@ -76,4 +78,5 @@ public class PluginCommandExecutor implements CommandExecutor, Reloadable {
 		return args.length >= annotation.minArgs() && args.length <= annotation.maxArgs()
 				&& (args.length == 0 || annotation.name().equalsIgnoreCase(args[0]));
 	}
+
 }

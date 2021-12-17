@@ -48,7 +48,7 @@ public class BookCommand extends AbstractCommand implements Cleanable {
 	private static final String METHOD_FROM_STRING = "fromString";
 
 	/**
-	 * Corresponds to times at which players have received their books. Cooldown structure.
+	 * Corresponds to time at which players have received their books. Cooldown structure.
 	 */
 	private final HashMap<UUID, Long> playersBookTime = new HashMap<>();
 	private final Logger logger;
