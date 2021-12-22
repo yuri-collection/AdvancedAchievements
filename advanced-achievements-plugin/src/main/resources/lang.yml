@@ -72,6 +72,8 @@ increase-max-health-reward-received: "Your max health has increased by AMOUNT!"
 increase-max-oxygen-reward-received: "Your max oxygen has increased by AMOUNT!"
 
 # Used in /ach help.
+ach-command-help: "Display achievements help."
+ach-command-help-hover: "Display achievement help!"
 ach-command-list: "Display received and missing achievements."
 ach-command-list-hover: "Fancy GUI to get an overview of all achievements and your progress!"
 ach-command-top: "Display personal and global rankings."

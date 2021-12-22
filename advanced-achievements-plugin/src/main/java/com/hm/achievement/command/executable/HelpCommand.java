@@ -31,6 +31,8 @@ public class HelpCommand extends AbstractCommand {
 	private ChatColor configColor;
 	private String configIcon;
 
+	private String langCommandHelp;
+	private String langCommandHelpHover;
 	private String langCommandList;
 	private String langCommandListHover;
 	private String langCommandTop;
@@ -79,6 +81,8 @@ public class HelpCommand extends AbstractCommand {
 		configColor = ChatColor.getByChar(Objects.requireNonNull(mainConfig.getString("Color")));
 		configIcon = StringEscapeUtils.unescapeJava(mainConfig.getString("Icon"));
 
+		langCommandHelp = header("/ach help") + langConfig.getString("ach-command-help");
+		langCommandHelpHover = langConfig.getString("ach-command-help-hover");
 		langCommandList = header("/ach list") + langConfig.getString("ach-command-list");
 		langCommandListHover = langConfig.getString("ach-command-list-hover");
 		langCommandTop = header("/ach top") + langConfig.getString("ach-command-top");
@@ -132,6 +136,8 @@ public class HelpCommand extends AbstractCommand {
 		// Header.
 		sender.sendMessage(configColor + "------------ " + configIcon + translateColorCodes(" &lAdvanced Achievements ")
 				+ configColor + configIcon + configColor + " ------------");
+
+		sendJsonClickableHoverableMessage(sender, langCommandHelp, "/ach help", langCommandHelpHover);
 
 		if (sender.hasPermission("achievement.list")) {
 			sendJsonClickableHoverableMessage(sender, langCommandList, "/ach list", langCommandListHover);
@@ -214,4 +220,5 @@ public class HelpCommand extends AbstractCommand {
 			sender.sendMessage(message);
 		}
 	}
+
 }

@@ -72,6 +72,8 @@ increase-max-health-reward-received: "您的最大血量增加了 AMOUNT!"
 increase-max-oxygen-reward-received: "您的最大氧气值增加了 AMOUNT!"
 
 # 与 /ach help 相关
+ach-command-help: "显示成就系统帮助."
+ach-command-help-hover: "查看帮助!"
 ach-command-list: "显示所有已获得与未获得的成就."
 ach-command-list-hover: "精致的界面, 让您对所有的成就和您当前的进度有全面的了解!"
 ach-command-top: "显示个人与全服排名."
