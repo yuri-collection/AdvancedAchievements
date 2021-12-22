@@ -89,7 +89,7 @@ public class ConfigurationParser {
 	}
 
 	/**
-	 * Reterive keys associated with the configuration section at the given path
+	 * Retrieve keys associated with the configuration section at the given path
 	 *
 	 * @param path
 	 * @return A set containing the keys
@@ -218,7 +218,7 @@ public class ConfigurationParser {
 				Arrays.stream(NormalAchievements.values()).forEach(n -> allCategories.add(n.toString()));
 				Arrays.stream(MultipleAchievements.values()).forEach(m -> allCategories.add(m.toString()));
 				allCategories.add(CommandAchievements.COMMANDS.toString());
-				throw new PluginLoadError("Category " + disabledCategory + " specified in DisabledCategories is misspelt. "
+				throw new PluginLoadError("Category " + disabledCategory + " specified in DisabledCategories is misspelled. "
 						+ "Did you mean " + StringHelper.getClosestMatch(disabledCategory, allCategories) + "?");
 			}
 			disabledCategories.add(category);

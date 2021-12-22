@@ -8,6 +8,7 @@ package com.hm.achievement.advancement;
 
 public enum AdvancementType {
 
+	// Advancement Type
 	GOAL,
 	CHALLENGE,
 	TASK;

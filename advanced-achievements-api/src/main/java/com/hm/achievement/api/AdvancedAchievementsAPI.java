@@ -79,7 +79,7 @@ public interface AdvancedAchievementsAPI {
 	/**
 	 * Retrieves the players who have received the most achievements during a given period.
 	 *
-	 * @param numOfPlayers to return in the list
+	 * @param numOfPlayers to return to the list
 	 * @param rankingPeriodStart time in millis since epoch; ranks will be calculated for achievements received between
 	 *            that starting point and now
 	 * @return list of players, ordered from best to worst
@@ -113,7 +113,7 @@ public interface AdvancedAchievementsAPI {
 	/**
 	 * Returns the DisplayName parameter for a given achievement Name parameter. If no DisplayName was found for the
 	 * achievement {@code achievementName}, an empty String is returned. If the achievement {@code achievementName} was
-	 * not found in Advanced Achievements's configuration, null is returned.
+	 * not found in Advanced Achievements' configuration, null is returned.
 	 *
 	 * @param achievementName as defined by the Name parameter in Advanced Achievements config.yml, should not be empty
 	 * @return the DisplayName parameter of an achievement or "" or null

@@ -55,4 +55,5 @@ class MaterialHelperTest {
 
 		assertFalse(underTest.isAnyPotionButWater(itemStack));
 	}
+
 }

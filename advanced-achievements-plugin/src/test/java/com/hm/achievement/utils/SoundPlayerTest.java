@@ -53,4 +53,5 @@ class SoundPlayerTest {
 
 		verify(player).playSound(location, Sound.ENTITY_FIREWORK_ROCKET_BLAST, 1.0f, 0.7f);
 	}
+
 }

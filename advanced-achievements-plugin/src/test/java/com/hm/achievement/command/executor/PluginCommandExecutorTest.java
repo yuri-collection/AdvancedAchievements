@@ -96,4 +96,5 @@ class PluginCommandExecutorTest {
 
 		verify(argsCommand).onCommandExecute(sender, expected);
 	}
+
 }

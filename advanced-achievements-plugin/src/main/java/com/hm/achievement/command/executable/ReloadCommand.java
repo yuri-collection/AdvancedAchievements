@@ -86,4 +86,5 @@ public class ReloadCommand extends AbstractCommand {
 		}
 		logger.info("Plugin successfully reloaded.");
 	}
+
 }

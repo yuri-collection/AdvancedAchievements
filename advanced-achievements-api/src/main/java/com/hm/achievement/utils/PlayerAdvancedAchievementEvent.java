@@ -6,6 +6,7 @@ import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 
 import com.hm.achievement.domain.Achievement;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * Class representing an event fired when a player receives an achievement.
@@ -29,7 +30,7 @@ public class PlayerAdvancedAchievementEvent extends Event implements Cancellable
 	}
 
 	@Override
-	public HandlerList getHandlers() {
+	public @NotNull HandlerList getHandlers() {
 		return HANDLERS;
 	}
 

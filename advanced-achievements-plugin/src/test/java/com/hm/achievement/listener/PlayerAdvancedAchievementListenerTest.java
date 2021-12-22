@@ -25,7 +25,7 @@ import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.*;
 
 /**
- * Class for testing PlayerAdvancedAchievementListener. Currently covers AllAchievementsReceivedRewards usage.
+ * Class for testing PlayerAdvancedAchievementListener. Currently, covers AllAchievementsReceivedRewards usage.
  *
  * @author Pyves
  */

@@ -18,8 +18,7 @@ import com.hm.achievement.db.AbstractDatabaseManager;
 import com.hm.achievement.utils.SoundPlayer;
 
 /**
- * Abstract class in charge of factoring out common functionality for /ach top, week and month commands.
- * 抽象类, 负责为 /ach top,week,moon 命令提供通用功能.
+ * Abstract class in charge of factoring out common functionality for /ach top, week and month commands..
  *
  * @author Pyves, Yurinann
  * @since 2021/12/15 16:08
@@ -54,7 +53,6 @@ public abstract class AbstractRankingCommand extends AbstractCommand {
 
 	/**
 	 * Used for caching.
-	 * 用于缓存.
 	 */
 	private Map<String, Integer> cachedSortedRankings;
 	private List<Integer> cachedAchievementCounts;
@@ -155,9 +153,10 @@ public abstract class AbstractRankingCommand extends AbstractCommand {
 	}
 
 	/**
-	 * Returns an UTF-8 circled number based on the player's rank.
+	 * Returns a UTF-8 circled number based on the player's rank.
 	 *
-	 * @return an UTF-8 string corresponding to the rank
+	 * @param rank
+	 * @return a UTF-8 string corresponding to the rank
 	 */
 	private String getRankingSymbol(int rank) {
 		int decimalRankSymbol;
@@ -182,6 +181,8 @@ public abstract class AbstractRankingCommand extends AbstractCommand {
 
 	/**
 	 * Launches sound and particle effects if player is in a top list.
+	 *
+	 * @param player
 	 */
 	private void launchEffects(Player player) {
 		if (configAdditionalEffects) {
@@ -192,4 +193,5 @@ public abstract class AbstractRankingCommand extends AbstractCommand {
 			soundPlayer.play(player, configSoundRanking, "ENTITY_FIREWORK_ROCKET_BLAST");
 		}
 	}
+
 }

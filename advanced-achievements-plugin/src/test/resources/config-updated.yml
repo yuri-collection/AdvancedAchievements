@@ -6,6 +6,7 @@ TimeBook: 900
 # Set to true to activate firework effects when a player receives an achievement.
 Firework: true
 book-not-received: "You have not yet received any achievements."
+
 #=============================================================#
 
 book-date: "Book created on DATE."

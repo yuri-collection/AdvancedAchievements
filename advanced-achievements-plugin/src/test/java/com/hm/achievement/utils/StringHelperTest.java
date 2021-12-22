@@ -45,7 +45,7 @@ class StringHelperTest {
 	@Test
 	void shouldReturnClosestMatchingString() {
 		List<String> possibleMatches = Arrays.asList("nothing", "something", "random text", "amasing");
-		String result = StringHelper.getClosestMatch("somaeThing", possibleMatches);
+		String result = StringHelper.getClosestMatch("someThing", possibleMatches);
 
 		assertEquals("something", result);
 	}

@@ -179,6 +179,6 @@
 			<artifactId>mockito-junit-jupiter</artifactId>
 		</dependency>
 
-	</dependencies>
+    </dependencies>
 
 </project>

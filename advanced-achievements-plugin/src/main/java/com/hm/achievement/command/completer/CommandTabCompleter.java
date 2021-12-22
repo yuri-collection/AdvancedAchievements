@@ -86,7 +86,7 @@ public class CommandTabCompleter implements TabCompleter {
 	private List<String> getPartialList(Collection<String> options, String prefix) {
 		// Find matching options
 		// Replace spaces with an Open Box character to prevent completing wrong word. Prevented Behaviour:
-		// T -> Tamer -> Teleport Man -> Teleport The Avener -> Teleport The Smelter
+		// T -> Tamer -> Teleport Man -> Teleport The Avenger -> Teleport The Smelter
 		// Sort matching elements by alphabetical order.
 		return options.stream()
 				.filter(s1 -> s1.toLowerCase().startsWith(prefix.toLowerCase()))

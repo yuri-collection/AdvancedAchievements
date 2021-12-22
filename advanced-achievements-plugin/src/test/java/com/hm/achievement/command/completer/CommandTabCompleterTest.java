@@ -7,6 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.when;
 
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -34,6 +35,7 @@ import com.hm.achievement.domain.Achievement.AchievementBuilder;
  *
  * @author Pyves
  */
+
 @ExtendWith(MockitoExtension.class)
 class CommandTabCompleterTest {
 
@@ -144,7 +146,7 @@ class CommandTabCompleterTest {
 		String[] args = { "" };
 		List<String> completionResult = underTest.onTabComplete(commandSender, command, null, args);
 
-		assertEquals(asList("help"), completionResult);
+		assertEquals(Collections.singletonList("help"), completionResult);
 	}
 
 	@Test
@@ -152,7 +154,7 @@ class CommandTabCompleterTest {
 		String[] args = { "reset", "C" };
 		List<String> completionResult = underTest.onTabComplete(commandSender, command, null, args);
 
-		assertEquals(asList("Crafts.workbench"), completionResult);
+		assertEquals(Collections.singletonList("Crafts.workbench"), completionResult);
 	}
 
 	@Test
@@ -160,7 +162,7 @@ class CommandTabCompleterTest {
 		String[] args = { "add", "" };
 		List<String> completionResult = underTest.onTabComplete(commandSender, command, null, args);
 
-		assertEquals(asList("1"), completionResult);
+		assertEquals(Collections.singletonList("1"), completionResult);
 	}
 
 	@Test
@@ -168,7 +170,7 @@ class CommandTabCompleterTest {
 		String[] args = { "add", "1", "Cra" };
 		List<String> completionResult = underTest.onTabComplete(commandSender, command, null, args);
 
-		assertEquals(asList("Crafts.workbench"), completionResult);
+		assertEquals(Collections.singletonList("Crafts.workbench"), completionResult);
 	}
 
 	@Test

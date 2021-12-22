@@ -242,4 +242,5 @@ class H2DatabaseManagerTest {
 			}
 		}).executeOperation(db.writeExecutor, LOGGER, "Clearing achievements table");
 	}
+
 }

@@ -19,7 +19,7 @@ invalid-command: "错误的指令, 请输入 /ach 查看指令帮助列表."
 configuration-successfully-reloaded: "配置文件已经成功重载!"
 configuration-reload-failed: "加载配置文件时发现错误。请检查 logs 以获得详细信息."
 
-# 与 /ach top week and month 相关
+# 与 /ach top, week, month 相关
 top-achievement: "Top 成就获得者:"
 player-rank: "当前排名:"
 week-achievement: "每周成就排名:"

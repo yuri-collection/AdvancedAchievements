@@ -8,7 +8,6 @@ import com.hm.achievement.lifecycle.Reloadable;
 
 /**
  * Abstract class in charge of factoring out common functionality for commands.
- * 抽象类, 负责为命令提供通用功能.
  *
  * @author Pyves, Yurinann
  * @since 2021/12/15 16:03
@@ -35,7 +34,6 @@ public abstract class AbstractCommand implements Reloadable {
 
 	/**
 	 * Executes the command issued by the sender if he has the relevant permissions. If permission null, skip check.
-	 * 如果命令执行者有相应的权限, 就执行他发出的命令, 否则跳过检查.
 	 *
 	 * @param sender
 	 * @param args

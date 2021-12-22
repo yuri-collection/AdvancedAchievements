@@ -1,6 +1,6 @@
 #======================================================================================================================#
 #       _       _                               _      _        _     _                                     _          #
-#      / \   __| |_   ____ _ _ __   ___ ___  __| |    / \   ___| |__ (_) _____   _____ _ __ ___   ___ _ __ | |_ ___    #
+#      / \   __| |_   ____ _ _ __   ___ ___  __| |    / \   ___| |__ (_)_____   _____ _ __ ___   ___ _ __ | |_ ___    #
 #     / _ \ / _` \ \ / / _` | '_ \ / __/ _ \/ _` |   / _ \ / __| '_ \| |/ _ \ \ / / _ \ '_ ` _ \ / _ \ '_ \| __/ __|   #
 #    / ___ \ (_| |\ V / (_| | | | | (_|  __/ (_| |  / ___ \ (__| | | | |  __/\ V /  __/ | | | | |  __/ | | | |_\__ \   #
 #   /_/   \_\__,_| \_/ \__,_|_| |_|\___\___|\__,_| /_/   \_\___|_| |_|_|\___| \_/ \___|_| |_| |_|\___|_| |_|\__|___/   #
@@ -23,10 +23,10 @@
 # 使用指令 /ach book 两次之间的冷却 (拥有权限 achievement.* 时则绕过)
 TimeBook: 900
 
-# 在成就书中按照时间排列书页 (false则为按照时间倒序)
+# 在成就书中按照时间排列书页 (false 则为按照时间倒序)
 BookChronologicalOrder: true
 
-# 在 /ach book 指令GUI界面中,名称/描述/日期之间的分隔符
+# 在 /ach book 指令GUI界面中, 名称/描述/日期之间的分隔符
 BookSeparator: ""
 
 # 设置为 true 以启用玩家获得成就时的烟火效果
@@ -42,11 +42,11 @@ SimplifiedReception: false
 TopList: 5
 
 # 设置为 true 以启用当获得所有成就的玩家使用指令 /ach book 或 /ach stat 显示粒子效果
-# 在排名榜单上玩家输入 /ach top,week,month 时也会有粒子效果
+# 在排名榜单上玩家输入 /ach top, week, month 时也会有粒子效果
 AdditionalEffects: true
 
 # 设置为 true 以启用当获得所有成就的玩家使用指令 /ach book 或 /ach stat 播放音效
-# 在排名榜单上玩家输入 /ach top,week,month 时也会播放音效
+# 在排名榜单上玩家输入 /ach top, week, month 时也会播放音效
 Sound: true
 
 # 当使用指令 /ach book 时播放的音效. 可用值: https://github.com/PyvesB/advanced-achievements/wiki/Sound-names
@@ -55,7 +55,7 @@ SoundBook: entity_player_levelup
 # 当拥有所有成就的玩家使用指令 /ach stats 时播放的音效. 可用值: https://github.com/PyvesB/advanced-achievements/wiki/Sound-names
 SoundStats: entity_firework_rocket_blast
 
-# 在排名榜单上玩家输入 /ach top,week,month 时播放的音效. 可用值: https:// github.com/PyvesB/advanced-achievements/wiki/Sound-names
+# 在排名榜单上玩家输入 /ach top, week, month 时播放的音效. 可用值: https://github.com/PyvesB/advanced-achievements/wiki/Sound-names
 SoundRanking: entity_firework_rocket_blast
 
 # 设置插件的图标/前缀 (默认: 三叶草, \u2618).
@@ -71,17 +71,17 @@ NotifyOtherPlayers: false
 # 若 ActionBarNotify 为 true, 插件将会使用 Actionbar 来通知其他玩家,否则会通过聊天栏信息通知其他玩家.
 ActionBarNotify: true
 
-# 使用 Title 显示成就的显示名称和信息.本项生效需要 Minecraft 版本最低为 1.8
+# 使用 Title 显示成就的显示名称和信息. 本项生效需要 Minecraft 版本最低为 1.8
 TitleScreen: true
 
 # 当玩家获得一项成就时在聊天框显示成就信息
 ReceiverChatMessages: true
 
 # 当一个玩家获得一项成就时,成就名称,信息,奖励会被显示在聊天框中
-# 若 HoverableReceiverChatText 为 true ,一条可用鼠标悬浮显示信息的消息将会直接展现给接受者,否则信息将会被一条一条的发送
+# 若 HoverableReceiverChatText 为 true, 一条可用鼠标悬浮显示信息的消息将会直接展现给接受者, 否则信息将会被一条一条的发送
 HoverableReceiverChatText: false
 
-# 设置大部分聊天框信息的前缀格式 (默认: "§7[%ICON%§7]"),若不想使用前缀,请设置为 ""
+# 设置大部分聊天框信息的前缀格式 (默认: "§7[%ICON%§7]"), 若不想使用前缀,请设置为 ""
 ChatHeader: "§7[%ICON%§7]"
 
 # 当玩家在创造模式时停止一切数据的统计,包括 PlayedTime(游玩时间)
@@ -102,7 +102,7 @@ ExcludedWorlds: []
 #  - yourWorld1
 #  - yourWorld2
 
-# 在计算移动距离时,忽略垂直方向 (Y轴) 的数据计算.
+# 在计算移动距离时,忽略垂直方向 (Y轴)的数据计算.
 IgnoreVerticalDistance: false
 
 # 在GUI或其他统计输出中不展示成就种类
@@ -146,7 +146,7 @@ AllAchievementsReceivedRewards:
   IncreaseMaxOxygen: 30
   Experience: 100
 
-# 当该项为 true 时, PlayedTime(游玩时间) 将不会在玩家挂机时增加. 此项需要 Essentials 作为前置插件
+# 当该项为 true 时, PlayedTime(游玩时间)将不会在玩家挂机时增加. 此项需要 Essentials 作为前置插件
 IgnoreAFKPlayedTime: false
 
 # 用与每个成就的目标参数相对应的描述来注册成就.
@@ -310,17 +310,17 @@ ListAchievementFormat: "%ICON% %NAME% %ICON%"
 # 在 /ach list 中隐藏未获得的成就.
 ObfuscateNotReceived: false
 
-# 对于那些每次成就只是在时间发生次数上变化的成就类,当前一项成就完成时展示下一项成就,但是隐藏其余的成就
-# 例如,在Places stone类中
-# 第一个成就可能是100个石头,第二个是500个石头,第三个成就是1000个石头
-# 当 ObfuscateProgressiveAchievements 为 true 时,最初只会在GUI中显示100石头的成就,
-# 直到这个成就被获得后,500石头的成就才会被显示
+# 对于那些每次成就只是在时间发生次数上变化的成就类, 当前一项成就完成时展示下一项成就, 但是隐藏其余的成就
+# 例如, 在 Places stone 类中
+# 第一个成就可能是 100 个石头, 第二个是 500 个石头, 第三个成就是 1000 个石头
+# 当 ObfuscateProgressiveAchievements 为 true 时, 最初只会在 GUI 中显示 100 个石头的成就,
+# 直到这个成就被获得后, 500 个石头的成就才会被显示
 ObfuscateProgressiveAchievements: false
 
-# 与 ObfuscateProgressiveAchievements 类似,但在 /ach list 中显示为锁定
+# 与 ObfuscateProgressiveAchievements 类似, 但在 /ach list 中显示为锁定
 HideProgressiveAchievements: false
 
-# 隐藏玩家还未获得其中成就的成就类别 (在/ach list中显示为锁定)
+# 隐藏玩家还未获得其中成就的成就类别 (在 /ach list 中显示为锁定)
 HideNotReceivedCategories: false
 
 # 完全隐藏玩家没有相应权限的成就类别
@@ -332,10 +332,11 @@ HideRewardDisplayInList: false
 # 在 /ach list进度条中显示准确的统计信息
 EnrichedListProgressBars: true
 
-# Annotate each achievement displayed in a /ach list category with a number. 给 /ach list 中显示的每一个成就标注一个数字 (不确定)
+# Annotate each achievement displayed in a /ach list category with a number.
+# 给 /ach list 中显示的每一个成就标注一个数字 (?)
 NumberedItemsInList: false
 
-# 当一个成就还未获得时,在 /ach list 中显示目标和进度条的颜色
+# 当一个成就还未获得时, 在 /ach list 中显示目标和进度条的颜色
 ListColorNotReceived: 8
 
 # 将 /ach list 中未获得成就的显示字体改为斜体. 其中被混淆的成就不被影响.
@@ -360,20 +361,20 @@ DatabaseBackup: true
 # 数据库类型 可用值：sqlite, h2, postgresql 或 mysql. 请重启服务器以使本项设置生效.
 DatabaseType: h2
 
-# 数据库表格的前缀,如果您更改了初始表格名,
+# 数据库表格的前缀, 如果您更改了初始表格名,
 # 插件将会自动尝试更改表名, 否则您必须手动重命名您的表格名. 请重启服务器以使本项设置生效.
 TablePrefix: ""
 
-# 当你使用多行为成就时,请保证本项的参数超过当前组内字符总数.
+# 当你使用多行为成就时, 请保证本项的参数超过当前组内字符总数.
 # 除非你使用了一个有很多字符的组, 否则没有必要修改本项
 TableMaxSizeOfGroupedSubcategories: 128
 
 # 当连接到 MySQL 或 PostgreSQL 数据库时的一些特别的设置,每一项将以&开头
-# 例如 "&useUnicode=yes&characterEncoding=UTF-8" Make sure the key-value pairs themselves are URL encoded. 确保关键值对本身是URL编码的(没看懂)
+# 例如 "&useUnicode=yes&characterEncoding=UTF-8" Make sure the key-value pairs themselves are URL encoded. 确保关键值对本身是URL编码的 (?)
 AdditionalConnectionOptions: ""
 
 # 连接到 MySQL 或 PostgreSQL 数据库的设置
-# 一个 PostgreSQL 数据库应当使用类似于：jdbc:postgresql://localhost:5432/minecraft 的地址
+# 一个 PostgreSQL 数据库应当使用类似于："jdbc:postgresql://localhost:5432/minecraft" 的地址
 DatabaseAddress: "jdbc:mysql://localhost:3306/minecraft"
 DatabaseUser: root
 DatabasePassword: root
@@ -558,7 +559,7 @@ Crafts:
         Experience: 500
 
 # 当一个玩家使用一项特定指令时 (指定不带斜杠的小写命令前缀)
-# 如指令 '/petm setcolor red' (来自 PetMaster 插件) 就可以使用子类 'petm color'.
+# 如指令 '/petm setcolor red' (来自 PetMaster 插件)就可以使用子类 'petm color'.
 # 给定指令的别名也会被计入
 PlayerCommands:
   ach stats:
@@ -1041,7 +1042,7 @@ AdvancementsCompleted:
 # 允许多次奖励指令成就
 MultiCommand: true
 
-# 拥有 achievement.give 权限的玩家 (后台) 可以使用 /ach give yourAch1 PLAYER 来给予 PLAYER yourAch1 成就. /ach give 指令对其他类型的成就无效
+# 拥有 achievement.give 权限的玩家 (后台)可以使用 /ach give yourAch1 PLAYER 来给予 PLAYER yourAch1 成就. /ach give 指令对其他类型的成就无效
 Commands:
   yourAch1:
     Goal: 参加特别活动!\n每周五晚 8 点!
