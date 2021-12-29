@@ -39,14 +39,11 @@ jobs:
         with:
           maven-version: 3.8.4
 
+      - name: Code Format
+        run: mvn formatter:format
+
       - name: Build project
         run: mvn -B package --file pom.xml
-
-      - name: Format
-        run: mvn validate formatter:format
-
-      - name: Validate formatting
-        run: mvn validate formatter:validate
 
       - name: Target Stage
         run: mkdir staging && cp advanced-achievements-plugin/target/*.jar staging
