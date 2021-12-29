@@ -179,7 +179,7 @@ public class ConfigurationParser {
 			logger.warning(
 					"Ensure you have placed JobsReborn in your plugins folder or add JobsReborn to the DisabledCategories list in config.yml.");
 		}
-		// Need McMMO for McMMO category.
+		// Need Jobs for McMMO category.
 		if (!disabledCategories.contains(MultipleAchievements.MCMMO)
 				&& !Bukkit.getPluginManager().isPluginEnabled("mcMMO")) {
 			disabledCategories.add(MultipleAchievements.MCMMO);

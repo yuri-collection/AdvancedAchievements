@@ -64,6 +64,7 @@ public class PlayerAdvancedAchievementListener implements Listener, Reloadable {
 	private static final Random RANDOM = new Random();
 	private static final String ADVANCED_ACHIEVEMENTS_FIREWORK = "advanced_achievements_firework";
 	private static final Map<ChatColor, ChatColor> FIREWORK_COLOR_MIX = new HashMap<>();
+
 	static {
 		FIREWORK_COLOR_MIX.put(ChatColor.AQUA, ChatColor.DARK_AQUA);
 		FIREWORK_COLOR_MIX.put(ChatColor.BLACK, ChatColor.GRAY);

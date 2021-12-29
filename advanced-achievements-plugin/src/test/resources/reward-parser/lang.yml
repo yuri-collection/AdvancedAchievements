@@ -1,4 +1,5 @@
 list-reward-money: "receive AMOUNT"
+list-reward-single-item: "receive 1 ITEM"
 list-reward-item: "receive AMOUNT ITEM"
 list-reward-experience: "receive AMOUNT experience"
 list-reward-increase-max-health: "increase max health by AMOUNT"

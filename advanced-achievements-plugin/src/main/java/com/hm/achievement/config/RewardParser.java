@@ -2,6 +2,7 @@ package com.hm.achievement.config;
 
 import java.util.*;
 import java.util.function.Consumer;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
@@ -10,15 +11,12 @@ import javax.inject.Named;
 import javax.inject.Singleton;
 
 import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.math.NumberUtils;
-import org.apache.commons.text.WordUtils;
-import org.bukkit.ChatColor;
-import org.bukkit.Material;
-import org.bukkit.Server;
+import org.bukkit.*;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.attribute.AttributeInstance;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -26,7 +24,6 @@ import org.bukkit.plugin.RegisteredServiceProvider;
 
 import com.hm.achievement.AdvancedAchievements;
 import com.hm.achievement.domain.Reward;
-import com.hm.achievement.utils.MaterialHelper;
 import com.hm.achievement.utils.StringHelper;
 
 import net.milkbowl.vault.economy.Economy;
@@ -46,7 +43,6 @@ public class RewardParser {
 	private final YamlConfiguration mainConfig;
 	private final YamlConfiguration langConfig;
 	private final Server server;
-	private final MaterialHelper materialHelper;
 
 	/**
 	 * Used for Vault plugin integration.
@@ -55,10 +51,9 @@ public class RewardParser {
 
 	@Inject
 	public RewardParser(@Named("main") YamlConfiguration mainConfig, @Named("lang") YamlConfiguration langConfig,
-			AdvancedAchievements advancedAchievements, MaterialHelper materialHelper) {
+			AdvancedAchievements advancedAchievements) {
 		this.mainConfig = mainConfig;
 		this.langConfig = langConfig;
-		this.materialHelper = materialHelper;
 		this.server = advancedAchievements.getServer();
 		// Try to retrieve an Economy instance from Vault.
 		if (server.getPluginManager().isPluginEnabled("Vault")) {
@@ -117,34 +112,72 @@ public class RewardParser {
 		List<ItemStack> itemStacks = new ArrayList<>();
 
 		String itemPath = configSection.contains("Item") ? "Item" : "Items";
+		ItemStack itemStack = new ItemStack(Material.STONE);
+
 		for (String item : getOneOrManyConfigStrings(configSection, itemPath)) {
-			if (!item.contains(" ")) {
-				continue;
-			}
-			String[] parts = StringUtils.split(item);
-			Optional<Material> rewardMaterial = materialHelper.matchMaterial(parts[0],
-					"config.yml (" + (configSection.getCurrentPath() + ".Item") + ")");
-			if (rewardMaterial.isPresent()) {
-				int amount = NumberUtils.toInt(parts[1], 1);
-				ItemStack itemStack = new ItemStack(rewardMaterial.get(), amount);
-				String name = StringUtils.join(parts, " ", 2, parts.length);
-				if (name.isEmpty()) {
-					// Convert the item stack material to an item name in a readable format.
-					name = WordUtils.capitalizeFully(itemStack.getType().toString().replace('_', ' '));
-				} else {
-					ItemMeta itemMeta = itemStack.getItemMeta();
-					if (itemMeta != null) {
-						itemMeta.setDisplayName(name);
+			String[] parts = Arrays.stream(item.split(";")).map(String::trim).toArray(String[]::new);
+			int amount = 1;
+			String name = "";
+			for (String part : parts) {
+				if (part.matches("(material: *)(?<material>[A-Za-z_]+) *")) {
+					Matcher matcher = Pattern.compile("(material: *)(?<material>[A-Za-z_]+) *").matcher(part);
+					if (matcher.find()) {
+						itemStack.setType(Objects.requireNonNull(Material.matchMaterial(matcher.group("material"))));
+					}
+				} else if (part.matches("(enchantments: *)(?<name>[A-Za-z_]+=\\d+.*)")) {
+					Matcher matcher = Pattern.compile("(?<name>[A-Za-z_]+)=(?<level>\\d+)").matcher(part);
+					while (matcher.find()) {
+						String enchantName = matcher.group("name");
+						Enchantment enchantment = Enchantment.getByKey(new NamespacedKey(NamespacedKey.MINECRAFT, enchantName.toLowerCase()));
+						if (enchantment == null) {
+							Bukkit.getLogger().warning("Error when parsing Enchantment: " + enchantName + " in " + part);
+							continue;
+						}
+						itemStack.addUnsafeEnchantment(enchantment, Integer.parseInt(matcher.group("level")));
+					}
+				} else if (part.matches("lore:.*")) {
+					Matcher matcher = Pattern.compile("lore:(?<lines>.*)").matcher(part);
+					if (matcher.find()) {
+						ItemMeta itemMeta = itemStack.getItemMeta();
+						List<String> lines = Arrays.stream(matcher.group("lines").split(",")).collect(Collectors.toList());
+						if (itemMeta != null) {
+							itemMeta.setLore(lines);
+						}
 						itemStack.setItemMeta(itemMeta);
 					}
+				} else if (part.matches("name:.*")) {
+					Matcher matcher = Pattern.compile("name:(?<name>.*)").matcher(part);
+					if (matcher.find()) {
+						ItemMeta itemMeta = itemStack.getItemMeta();
+						name = matcher.group("name");
+						if (itemMeta != null) {
+							itemMeta.setDisplayName(name);
+						}
+						itemStack.setItemMeta(itemMeta);
+					}
+				} else if (part.matches("amount:\\d+")) {
+					Matcher matcher = Pattern.compile("amount:(?<amount>\\d+)").matcher(part);
+					if (matcher.find()) {
+						amount = Integer.parseInt(matcher.group("amount"));
+						itemStack.setAmount(amount);
+					}
+				} else {
+					Bukkit.getLogger().warning("Error when parsing part of reward-item: " + part);
 				}
-				listTexts.add(StringUtils.replaceEach(langConfig.getString("list-reward-item"),
-						new String[] { "AMOUNT", "ITEM" }, new String[] { Integer.toString(amount), name }));
-				chatTexts.add(StringUtils.replaceEach(langConfig.getString("item-reward-received"),
-						new String[] { "AMOUNT", "ITEM" }, new String[] { Integer.toString(amount), name }));
-				itemStacks.add(itemStack);
 			}
+
+			if (amount == 1) {
+				listTexts.add(StringUtils.replaceEach(langConfig.getString("list-reward-single-item"),
+						new String[]{"AMOUNT", "ITEM"}, new String[]{Integer.toString(amount), name}));
+			} else {
+				listTexts.add(StringUtils.replaceEach(langConfig.getString("list-reward-item"),
+						new String[]{"AMOUNT", "ITEM"}, new String[]{Integer.toString(amount), name}));
+			}
+			chatTexts.add(StringUtils.replaceEach(langConfig.getString("item-reward-received"),
+					new String[]{"AMOUNT", "ITEM"}, new String[]{Integer.toString(amount), name}));
+			itemStacks.add(itemStack);
 		}
+
 		Consumer<Player> rewarder = player -> itemStacks.forEach(item -> {
 			ItemStack playerItem = item.clone();
 			ItemMeta itemMeta = playerItem.getItemMeta();
@@ -152,6 +185,7 @@ public class RewardParser {
 				itemMeta.setDisplayName(StringHelper.replacePlayerPlaceholders(itemMeta.getDisplayName(), player));
 				playerItem.setItemMeta(itemMeta);
 			}
+
 			Map<Integer, ItemStack> leftoverItem = player.getInventory().addItem(playerItem);
 			for (ItemStack itemToDrop : leftoverItem.values()) {
 				player.getWorld().dropItem(player.getLocation(), itemToDrop);
