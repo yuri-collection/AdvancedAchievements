@@ -13,6 +13,7 @@ import org.bukkit.event.inventory.ClickType;
 import org.bukkit.event.inventory.InventoryAction;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryType;
+import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
 import com.hm.achievement.category.NormalAchievements;
@@ -22,7 +23,7 @@ import com.hm.achievement.utils.InventoryHelper;
 
 /**
  * Listener class to deal with Smelting achievements.
- * 
+ *
  * @author Pyves
  */
 
@@ -38,7 +39,7 @@ public class SmeltingListener extends AbstractListener {
 	@EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
 	public void onInventoryClick(InventoryClickEvent event) {
 		ItemStack item = event.getCurrentItem();
-		if (event.getRawSlot() != 2 || event.getInventory().getType() != InventoryType.FURNACE || item == null
+		if (event.getRawSlot() != 2 || !isFurnace(event.getInventory()) || item == null
 				|| item.getType() == Material.AIR || event.getAction() == InventoryAction.NOTHING
 				|| event.getClick() == ClickType.NUMBER_KEY && event.getAction() == InventoryAction.HOTBAR_MOVE_AND_READD) {
 			return;
@@ -56,5 +57,15 @@ public class SmeltingListener extends AbstractListener {
 
 		updateStatisticAndAwardAchievementsIfAvailable(player, eventAmount);
 	}
+
+    private boolean isFurnace(Inventory inv) {
+        if (inv.getType() == InventoryType.FURNACE) {
+            return true;
+        }
+        if (inv.getType() == InventoryType.BLAST_FURNACE) {
+            return true;
+        }
+        return false;
+    }
 
 }
